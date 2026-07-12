@@ -11,7 +11,7 @@ const routesroute=require("./routes/route");
 const bookingroute=require("./routes/booking")
 app.use('/booking',bookingroute)
 app.use(routesroute)
-app.use('/customer',customerroutes)
+app.use(customerroutes)
 
 
 const DBURL="mongodb+srv://shivani123:abcd12@tedbus.6ky58ys.mongodb.net/?appName=tedbus"
