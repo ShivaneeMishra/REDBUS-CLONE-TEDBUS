@@ -4,7 +4,7 @@ const cors=require('cors')
 const mongoose=require('mongoose')
 
 const app=express();
-app.use(cors());
+app.use(cors({origin:'helpful-dodol-6eed54.netlify.app'}));
 app.use(bodyparser.json())
 const customerroutes=require("./routes/customer");
 const routesroute=require("./routes/route");
