@@ -9,7 +9,7 @@ import { Booking } from '../model/booking.model';
   providedIn: 'root'
 })
 export class BusService {
-  private busbookapi: string = url + 'booking/'
+  private busbookapi: string = url + '/booking'
   private apiurl: string = url + 'routes/'
   constructor(private http: HttpClient) { }
   GETBUSDETAILS(depart: string, arrival: string, date: string): Observable<Bus[]> {
