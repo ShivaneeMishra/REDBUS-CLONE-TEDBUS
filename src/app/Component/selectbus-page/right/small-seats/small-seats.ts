@@ -12,14 +12,17 @@ export class SmallSeats {
 @Input() selectedseats:number[]=[]
 @Output() seatselected:EventEmitter<number> =new EventEmitter<number>()
 
+getcolor(seatno: number): string{
+  
+  const isDarkMode = document.documentElement.classList.contains('dark');
 
-getcolor(seatno:number):string{
   if(this.selectedseats.includes(seatno)){
     return 'blue';
   }else if(this.alreadybookedseats.includes(seatno)){
     return 'red';
   }else{
-    return 'black'
+    
+    return isDarkMode ? '#ffffff' : 'black';
   }
 }
 onclick():void{

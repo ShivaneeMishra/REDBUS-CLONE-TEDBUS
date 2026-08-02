@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Dataservice } from '../../../../service/dataservice';
+import { NotificationService } from '../../../../service/notification';
 
 @Component({
   selector: 'app-bus-booking-form',
@@ -28,6 +29,7 @@ export class BusBookingForm {
   constructor(
     private router: Router,
     private dataservice: Dataservice,
+    private notificationService:NotificationService,
   ) {}
   handlePassGender(event: Event, index: number): void {
     const target = event.target as HTMLInputElement;
@@ -68,6 +70,7 @@ export class BusBookingForm {
     };
     this.dataservice.passobj(this.passdetails);
     this.dataservice.sendobj(this.routedetails);
+    this.notificationService.showNotification('Booking process initiated successfully!!');
     this.router.navigate(['/payment', routeParams]);
   }
 }

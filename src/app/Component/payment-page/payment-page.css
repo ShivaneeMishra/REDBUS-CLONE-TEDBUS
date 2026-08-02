@@ -232,3 +232,78 @@ body {
     width:auto;
     height:auto
   }
+  /* --- Payment Page Permanent Dark Mode Fix --- */
+html.dark .payment__fullContainer,
+body.dark .payment__fullContainer,
+.dark .payment__fullContainer {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+html.dark .payment__fullContainer_leftContainer,
+body.dark .payment__fullContainer_leftContainer,
+.dark .payment__fullContainer_leftContainer,
+html.dark .payment__fullContainer_rightContainer,
+body.dark .payment__fullContainer_rightContainer,
+.dark .payment__fullContainer_rightContainer {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+
+html.dark .payment__fullContainer_leftContainer_eachPaymentInstruments,
+body.dark .payment__fullContainer_leftContainer_eachPaymentInstruments,
+.dark .payment__fullContainer_leftContainer_eachPaymentInstruments {
+  background-color: #1f1f1f !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid #333333 !important;
+}
+
+
+html.dark .radioButtonText,
+html.dark .choose_payment_heading,
+body.dark .radioButtonText,
+body.dark .choose_payment_heading,
+.dark .radioButtonText,
+.dark .choose_payment_heading {
+  color: #ffffff !important;
+}
+
+
+html.dark .payment__fullContainer_rightContainer_trip_container,
+html.dark .payment__fullContainer_rightContainer_fair_container,
+body.dark .payment__fullContainer_rightContainer_trip_container,
+body.dark .payment__fullContainer_rightContainer_fair_container,
+.dark .payment__fullContainer_rightContainer_trip_container,
+.dark .payment__fullContainer_rightContainer_fair_container {
+  background-color: #1f1f1f !important;
+  color: #ffffff !important;
+  border: 1px solid #333333 !important;
+}
+
+
+html.dark input,
+body.dark input,
+.dark input {
+  background-color: #1f1f1f !important;
+  color: #ffffff !important;
+  border-color: #333333 !important;
+}
+ .dark app-payment-page .paymentIconList img,
+.dark app-payment-page img[src*="amazonpay"],
+.dark app-payment-page img[src*="gpay"],
+.dark app-payment-page img[src*="phonepe"],
+.dark app-payment-page img[src*="upi"] {
+    background-color: #ffffff !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    object-fit: contain !important;}
+    
+.dark app-payment-page input[class*="OfferCode"],
+.dark app-payment-page div[class*="infobar"],
+.dark app-payment-page div[class*="trip"],
+.dark app-payment-page div[class*="fair"],
+.dark app-payment-page div[class*="banner"] {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;}

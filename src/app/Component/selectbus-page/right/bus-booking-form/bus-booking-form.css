@@ -91,3 +91,41 @@ body {
     background-color: #d84e55;
     color: #fff;
   }
+  
+
+
+:host-context(.dark) .bus-booking-form,
+:host-context(.dark) .content-block {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+
+:host-context(.dark) .passanger-info-title,
+:host-context(.dark) .form-label,
+:host-context(.dark) .form-radio-label,
+:host-context(.dark) .insure_title,
+:host-context(.dark) div,
+:host-context(.dark) span,
+:host-context(.dark) label {
+    color: #ffffff !important;
+}
+
+
+:host-context(.dark) .form-input {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border: 1px solid #555555 !important;
+}
+
+:host-context(.dark) .form-input::placeholder {
+    color: #9ca3af !important;
+}
+
+
+:host-context(.dark) .passenger-contact-msg {
+    background-color: #2a2a2a !important;
+    color: #cbd5e1 !important;
+    border: 1px solid #444444 !important;
+}

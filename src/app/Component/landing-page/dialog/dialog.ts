@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { TranslatePipe } from '@ngx-translate/core';
+import{ CommonModule} from '@angular/common'
 
 @Component({
   selector: 'app-dialog',
   standalone: true,
   templateUrl: './dialog.html',
   styleUrl: './dialog.css',
-  imports: [MatTableModule, MatDialogModule]
+  imports: [MatTableModule, MatDialogModule,TranslatePipe,CommonModule]
 })
 export class Dialog {
   to: string = '';
@@ -16,9 +18,12 @@ export class Dialog {
   nobus: number = 0;
   dataSource = Element_data;
   displayedColumns: string[] = ['position', 'from', 'to', 'nobus'];
-  constructor(public dialogRef: MatDialogRef<Dialog>) {}
+  constructor(public dialogRef: MatDialogRef<Dialog>) {
+   
+  }
   OnNoClick(): void {
     this.dialogRef.close();
+    
   }
 
 }

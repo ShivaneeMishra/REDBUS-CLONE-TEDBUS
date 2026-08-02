@@ -1,0 +1,35 @@
+
+<div *ngIf="isAdmin && pageType === 'community'" class="moderation-container">
+  <h3>{{'COMMUNITY_POST_MODERATION' | translate}}</h3>
+  <div *ngFor="let post of communityPosts" class="post-card">
+    <h4>{{ post.title || post.story }}</h4>
+    <p>{{ post.content }}</p>
+    <button (click)="approvePost(post._id, 'community')">{{'APPROVE' | translate}}</button>
+    <button (click)="rejectPost(post._id, 'community')">{{'REJECT_DELETE' | translate}}</button>
+  </div>
+</div>
+
+
+
+<div *ngIf="isAdmin && pageType === 'forum'" class="moderation-container">
+  <h3>{{'FORUM_MODERATION' | translate}}</h3>
+  <div *ngFor="let post of forumPosts" class="post-card">
+
+    <h4>{{ post.title || post.newTitle }}</h4>
+    
+   
+    <p><strong>{{'AUTHOR' | translate}}:</strong> {{ post.author || post.newAuthor || 'Unknown' }}</p>
+    
+    <p>{{ post.story || post.description || post.content }}</p>
+    
+   
+    <p *ngIf="post.tags"><strong>{{'TAGS' | translate}}:</strong> {{ post.tags.name || post.tags[0]?.name || post.tags }}</p>
+
+    <button  (click)="approvePost(post._id, 'forum')">{{'APPROVE' | translate}}</button>
+    <button class ="reject-btn" (click)="rejectPost(post._id, 'forum')">{{'REJECT_DELETE' | translate}}</button>
+
+
+  
+  </div>
+</div>
+

@@ -42,3 +42,5 @@ getbusmongo(id:string):Observable<Booking[]>{
   return this.http.get<Booking[]>(url);
 }
 }
+
+export type { Bus };

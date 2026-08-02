@@ -1,0 +1,13 @@
+<div class="history-container">
+  <h2>{{'NOTIFICATION_HISTORY' | translate}}</h2>
+  
+  <div *ngIf="notifications.length === 0">
+    <p>{{'NO_NOTIFICATIONS_FOUND' | translate}}</p>
+  </div>
+
+  <div *ngFor="let item of notifications" class="notification-card">
+    <h4>{{ item.title }}</h4>
+    <p>{{ item.message }}</p>
+    <small>{{ item.createdAt | date:'medium' }}</small>
+  </div>
+</div>

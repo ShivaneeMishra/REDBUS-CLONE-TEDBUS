@@ -1,0 +1,164 @@
+<div class="forum-wrapper">
+  <div class="forum-header">
+    <h2>{{ 'COMMUNITY_FORUM' | translate }}</h2>
+    <!-- 🔥 Trending Topics Section -->
+    <div
+      class="trending-section"
+      *ngIf="trendingThreads && trendingThreads.length > 0; else noTrending"
+    >
+      <h3>{{ 'TRENDING_TOPICS' | translate }}</h3>
+      <div class="trending-list">
+        <div *ngFor="let item of trendingThreads" class="trending-item">
+          <h4>{{ item.title }}</h4>
+          <p>
+            Views: <strong>{{ item.views || 0 }}</strong> | Replies:
+            <strong>{{ item.replies || 0 }}</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+   
+    <ng-template #noTrending>
+      <div class="trending-section">
+        <h3>{{ 'TRENDING_TOPICS' | translate }}</h3>
+        <p style="padding: 15px; color: #888888; text-align: center">
+          {{ 'NO_TRENDING_TOPICS' | translate }}
+        </p>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="create-thread-box" *ngIf="isUserLoggedIn">
+    <h3>{{ 'START_NEW_TOPIC' | translate }}</h3>
+    <div class="input-group">
+      <input
+        type="text"
+        [(ngModel)]="newAuthor"
+        [placeholder]="'YOUR_NAME_PLACEHOLDER' | translate"
+      />
+      <input
+        type="text"
+        [(ngModel)]="newTitle"
+        [placeholder]="'DISCUSSION_TITLE_PLACEHOLDER' | translate"
+      />
+      <input type="text" [(ngModel)]="newTag" [placeholder]="'TAG_PLACEHOLDER' | translate" />
+      <button class="btn-post" type="button" (click)="addThread($event)">
+        {{ 'SEND' | translate }}
+      </button>
+    </div>
+  </div>
+  <div
+    class="create-thread-box"
+    *ngIf="!isUserLoggedIn"
+    style="text-align: center; padding: 30px; border-radius: 8px"
+  >
+    <h3>{{ 'WANT_TO_SHARE_JOURNEY' | translate }}</h3>
+    <p style="color: #666; margin-bottom: 15px">
+      {{ 'LOGIN_REQUIRED_MESSAGE' | translate }}
+    </p>
+  </div>
+
+  <div class="thread-list" *ngIf="threads.length > 0">
+    <div
+      class="thread-wrapper"
+      *ngFor="let thread of threads"
+      style="
+        margin-bottom: 20px;
+
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+      "
+    >
+      <div
+        class="thread-card"
+        (click)="incrementViews(thread._id)"
+        style="border: none; padding: 0; box-shadow: none"
+      >
+        <div class="user-info">
+          <div class="placeholder-img"></div>
+          <span class="author-name">{{
+            thread.author || thread['newAuthor'] || thread['username'] || 'Anonymous'
+          }}</span>
+        </div>
+
+        <div class="thread-content">
+          <h3 class="thread-title">{{ thread.title }}</h3>
+          <div class="tags-container" *ngIf="thread.tags && thread.tags.length > 0">
+            <span class="tag" [ngClass]="tag.colorClass" *ngFor="let tag of thread.tags">
+              [{{ tag.name }}]
+            </span>
+          </div>
+        </div>
+
+        <div class="thread-stats">
+          <div class="stat-box" (click)="togglereply(thread._id)">
+            <span class="stat-number">{{ thread.replies || 0 }}</span>
+            <span class="stat-label"> {{ 'REPLIES' | translate }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">{{ thread.views || 0 }}</span>
+            <span class="stat-label"> {{ 'VIEWS' | translate }}</span>
+          </div>
+        </div>
+
+        <div class="thread-activity">
+          <span class="activity-label">{{ 'LAST_ACTIVITY' | translate }}</span>
+          <span class="activity-time">{{ thread.lastActiveTime }}</span>
+          <span class="activity-user">{{ 'BY' | translate }}{{ thread.lastActiveUser }}</span>
+        </div>
+        <div class="action-buttons" style="margin-left: auto">
+          <button
+            class="btn-post"
+            style="background-color: #28a745; color: #fff"
+            (click)="togglereply(thread._id)"
+          >
+            {{ 'REPLY' | translate }}
+          </button>
+        </div>
+        <div class="share-dropdown">
+          <button type="button" (click)="toggleShareMenu(thread._id)" class="action-btn">
+            <i class="fas fa-share-alt"></i> {{ 'SHARE' | translate }}
+          </button>
+
+          <div class="share-menu" *ngIf="activeSharePostId === thread._id">
+            <a (click)="shareOnFacebook(thread._id)"
+              ><i class="fab fa-facebook"></i>{{ 'FACEBOOK' | translate }}</a
+            >
+            <a (click)="shareOnTwitter(thread._id)"
+              ><i class="fab fa-twitter"></i> {{ 'TWITTER' | translate }}</a
+            >
+            <a (click)="shareOnWhatsApp(thread._id)"
+              ><i class="fab fa-whatsapp"></i>{{ 'WHATSAPP' | translate }}</a
+            >
+          </div>
+        </div>
+        <button (click)="onReportForum(thread._id)">{{ 'REPORT' | translate }}</button>
+        <div class="report-modal-overlay" *ngIf="reportingThreadId !== null">
+          <div class="report-modal-content">
+            <p>{{ 'REPORT_MSG' | translate }}</p>
+
+            <input type="text" [(ngModel)]="reportReason" class="report-input-field" />
+
+            <div class="report-modal-buttons">
+              <button (click)="cancelReport()" class="btn-cancel">
+                {{ 'CANCEL' | translate }}
+              </button>
+              <button (click)="submitReport(reportingThreadId)" class="btn-ok">
+                {{ 'OK' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="selectedThreadId === thread._id"
+        style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px"
+      >
+        <app-reply [forumId]="thread._id" (replyAdded)="incrementReplyCount(thread)"></app-reply>
+      </div>
+    </div>
+  </div>
+</div>
+<app-moderation [pageType]="'forum'"></app-moderation>

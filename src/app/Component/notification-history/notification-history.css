@@ -1,0 +1,79 @@
+.history-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.history-container h2 {
+  color: #d84e55; 
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.notification-card {
+  background: #f9f9f9;
+  border-left: 4px solid #d84e55;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.notification-card h4 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.notification-card p {
+  margin: 0 0 8px 0;
+  color: #666;
+}
+
+.notification-card small {
+  color: #999;
+  font-size: 12px;
+}
+
+
+
+:host-context(.dark) .history-container {
+    background: #121212;
+    color: #ffffff; 
+}
+
+
+:host-context(.dark) .history-container h2 {
+    border-bottom: 2px solid #444444;
+    
+}
+
+
+:host-context(.dark) .notification-card {
+    background: #1e1e1e;
+    
+}
+
+
+:host-context(.dark) .notification-card h4 {
+    color: #ffffff; 
+}
+
+
+:host-context(.dark) .notification-card p {
+    color: #cccccc; 
+}
+
+
+:host-context(.dark) .notification-card small {
+    color: #aaaaaa; 
+}

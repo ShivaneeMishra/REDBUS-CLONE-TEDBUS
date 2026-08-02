@@ -1,0 +1,54 @@
+<div class="route-planner-container">
+  
+  <div class="left-panel">
+    <h2>{{'ROUTE_PLANNER_TITLE'| translate}}</h2>
+    
+    <div class="form-group">
+      <label>{{'START_LOCATION'| translate}}</label>
+      <input type="text"[(ngModel)]="startLocation" [placeholder]="'ENTER_STARTING_POINT' | translate" />
+    </div>
+    <div *ngFor="let waypoint of waypoints; let i = index"trackBy="trackByFn" class="form-group">
+      <label>{{'WAYPOINT' | translate }}{{ i + 1 }}</label>
+      <div style="display: flex; gap: 5px;">
+        <input type="text" [(ngModel)]="waypoints[i].name" [placeholder]="'ENTER_WAYPOINT' | translate" />
+        <button (click)="removeWaypoint(i)" style="width: 40px; background: #d9534f; color: white; border: none; border-radius: 4px; cursor: pointer;">X</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>{{'DESTINATION'| translate}}</label>
+      <input type="text" [(ngModel)]="destination" [placeholder]="'ENTER_DESTINATION' | translate" />
+    </div>
+
+    <button class="btn-waypoint" (click)="addWaypoint()">{{'ADD_WAYPOINT'| translate}}</button>
+
+    <button class="btn-suggest" (click)="suggestRoutes()">{{'SUGGEST_ROUTES'| translate}}</button>
+
+    <hr />
+
+   
+<div *ngFor="let route of suggestedRoutesList; let i = index" class="route-card" [class.selected] ="selectedRouteIndex === i"
+(click) ="selectRoute(i)">
+  <p><strong>{{ route.name }}</strong></p>
+  <p>{{'DISTANCE'|translate}}:  {{ route.distance }} | {{'TIME'|translate}}: {{ route.time }}</p>
+</div>
+
+
+<div *ngIf="suggestedRoutesList.length === 0" style= "font-size: 14px;">
+  {{'ROUTE_HELPER_TEXT'| translate}}
+</div>
+
+    <div class="action-buttons">
+      <button class="btn-compare" (click)="compareRoutes()">{{'COMPARE_ROUTES'| translate}}</button>
+      <button class="btn-save" (click)="saveRoute()">{{'SAVE_ROUTE'| translate}}</button>
+    </div>
+  </div>
+
+  <
+  <div class="right-map-panel">
+    <div id="map">
+      
+      <p style="text-align:center; padding-top: 200px; ">{{ 'MAP_PLACEHOLDER' | translate }}</p>
+    </div>
+  </div>
+</div>

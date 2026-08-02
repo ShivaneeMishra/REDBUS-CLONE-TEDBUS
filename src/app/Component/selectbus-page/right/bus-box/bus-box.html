@@ -38,42 +38,42 @@
                 <div>{{seatprivce}}</div>
             </div>
             <div><i class="material-icons">local_offer</i>
-                <div>reDeal applied</div>
+                <div>{{'RE_DEAL_APPLIED' | translate}}</div>
             </div>
         </div>
         <div class="busBoxSection17">
             <div></div>
             <div>
                 <div>{{40 -filledseats.length}}</div>
-                <div>Seats Available</div>
+                <div>{{'SEATS_AVAILABLE' | translate}}</div>
             </div>
             <div>20</div>
-            <div>Window</div>
+            <div>{{'WINDOW' | translate}}</div>
         </div>
     </div>
     <div class="busBoxSection2">
         <div class="busBoxSection21">
-            <span matTooltip="Charging Point">
+            <span [matTooltip]="'CHARGING_POINT_TIP' | translate">
                 <i class="material-icons">power</i>
             </span>
-            <span matTooltip="Movie">
+            <span [matTooltip]="'MOVIE_TIP'  | translate">
                 <i class="material-icons">movie_filter</i>
             </span>
-            <span matTooltip="Reading Light">
+            <span [matTooltip]="'READING_LIGHT_TIP'| translate ">
                 <i class="material-icons">wb_incandescent</i>
             </span>
-            <span matTooltip="Track My Bus">
+            <span [matTooltip]="'TRACK_BUS_TIP' | translate">
                 <i class="material-icons">directions_bus</i>
             </span>
         </div>
         <div class="busBoxSection22">
             <div *ngIf="livetracking ===1">
                 <i class="material-icons">gps_fixed</i>
-                <span>Live Tracking</span>
+                <span>{{'LIVE_TRACKING' | translate}}</span>
             </div>
             <div *ngIf="reschedulable === 1">
                 <i class="material-icons">restore</i>
-                <span>Reschedulable</span>
+                <span>{{'RESCHEDULABLE' | translate}}</span>
             </div>
         </div>
     </div>

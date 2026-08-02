@@ -36,3 +36,27 @@
     width: 100%;
     height: 100%;
   }
+  
+
+
+:host-context(.dark) .mainBar > div {
+    color: #e5e7eb !important;
+}
+
+:host-context(.dark) .mainBar > div:hover {
+    color: #f87171 !important; 
+}
+
+
+:host-context(.dark) .displayArea {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+
+:host-context(.dark) .displayArea div,
+:host-context(.dark) .displayArea span,
+:host-context(.dark) .displayArea p {
+    color: #ffffff !important;
+}

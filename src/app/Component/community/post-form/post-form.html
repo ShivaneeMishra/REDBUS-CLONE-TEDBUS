@@ -1,0 +1,41 @@
+<div class="post-form-container" *ngIf="isUserLoggedIn">
+  <h3>{{'SHARE_YOUR_JOURNEY_HEADING' | translate}}</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">{{'TITLE_LABEL' | translate}}</label>
+      <input type="text" id="title" [(ngModel)]="post.title" name="title" required />
+    </div>
+    <div class="form-group">
+      <label for="content">{{'STORY_TIP_LABEL' | translate}}</label>
+      <textarea id="content" [(ngModel)]="post.content" name="content" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="topic">{{'SELECT_TOPIC_LABEL' | translate}}</label>
+      <select id="topic" [(ngModel)]="post.topic" name="topic" required>
+        <option *ngFor="let topic of topics" [value]="topic.name">{{ topic.name }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="image">{{'UPLOAD_PHOTO_LABEL' | translate}}</label>
+      <input type="file" id="image" (change)="onFileSelected($event)" />
+    </div>
+    <button type="submit" class="btn btn-primary">{{'POST_BTN' | translate}}</button>
+  </form>
+</div>
+
+<div
+  class="login-message"
+  *ngIf="!isUserLoggedIn"
+  style="
+    text-align: center;
+    padding: 30px;
+   
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  "
+>
+  <h3>{{'WANT_YOU_SHARE_JOURNEY' | translate}}</h3>
+  <p >{{'LOGIN_TO_SHARE_MESSAGE' | translate}}</p>
+</div>
+<app-moderation [pageType]="'community'"></app-moderation>

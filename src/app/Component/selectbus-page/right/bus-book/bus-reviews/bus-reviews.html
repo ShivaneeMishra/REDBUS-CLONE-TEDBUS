@@ -1,0 +1,96 @@
+<div class="reviews-container">
+  <!-- Summary Header -->
+  <div class="reviews-summary">
+    <div>
+      <h3>{{'BUS_RATINGS_AND_REVIEWS' | translate}}</h3>
+      <p class="sub-text">{{'GENUINE_FEEDBACK_TEXT' | translate}}</p>
+    </div>
+    <div class="avg-rating-badge">
+      ⭐ <strong>{{ averageRating }}</strong> / 5
+      <span class="count">({{ reviews.length }} {{'REVIEWS_COUNT_TEXT' | translate}})</span>
+    </div>
+  </div>
+
+  <!-- Review Form Box (Only if journey completed & verified) -->
+  <div *ngIf="!hasAlreadyReviewed && isJourneyCompleted && isVerifiedUser" class="review-form-card">
+    <h4>{{ isEditMode ? ('EDIT_YOUR_REVIEW' | translate) : ('RATE_YOUR_JOURNEY' | translate)}}</h4>
+
+    <!-- Interactive Star Rating -->
+    <div class="star-selector">
+      <span
+        *ngFor="let star of [1, 2, 3, 4, 5]"
+        (click)="setRating(star)"
+        [class.active]="star <= selectedRating"
+      >
+        ⭐
+      </span>
+      <span class="rating-text">({{ selectedRating }}/5 {{'STARS' | translate}})</span>
+    </div>
+
+    <form [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+      <div class="form-group">
+        <textarea
+          formControlName="content"
+          rows="3"
+          [placeholder]="'WRITE_EXPERIENCE_PLACEHOLDER' | translate"
+          class="form-control"
+        ></textarea>
+        <small
+          class="char-hint"
+          *ngIf="reviewForm.get('content')?.invalid && reviewForm.get('content')?.touched"
+        >
+         {{'MIN_15_CHARS_REQUIRED' | translate}}
+        </small>
+      </div>
+      <button type="submit" [disabled]="reviewForm.invalid" class="btn-submit">
+        {{ isEditMode ? ('UPDATE_REVIEW_BTN' | translate) : ('POST_REVIEW_BTN' | translate)}}
+      </button>
+    </form>
+  </div>
+
+  <!-- Warning messages if criteria not met -->
+  <div *ngIf="!isJourneyCompleted" class="alert-box">
+    ⚠️  {{'JOURNEY_NOT_COMPLETED_WARNING' | translate}}
+  </div>
+  <div *ngIf="hasAlreadyReviewed" class="info-box">
+    ℹ️  {{'ALREADY_REVIEWED_WARNING' | translate}}
+  </div>
+
+  <!-- Reviews List -->
+  <div class="reviews-list">
+    <h4>{{'RECENT_REVIEWS' | translate}}</h4>
+
+    <div *ngFor="let rev of reviews">
+      <div *ngIf="!rev.isHidden" class="review-card">
+        <div class="review-header">
+          <div>
+            <span class="author-name">{{ rev.author }}</span>
+            <!-- Trusted Reviewer Badge if upvotes >= 5 -->
+            <span class="badge-trusted" *ngIf="rev.upvotes >= 5">🛡️ {{'TRUSTED_REVIEWER' | translate}}</span>
+          </div>
+          <span class="review-stars">⭐ {{ rev.rating }}/5</span>
+        </div>
+
+        <p class="review-text">{{ rev.content }}</p>
+
+        <div class="review-footer">
+          <small class="date">{{ rev.createdAt | date: 'mediumDate' }}</small>
+          <div class="actions">
+            
+            <button
+              class="btn-action edit"
+              *ngIf="rev.author === loggedInUser && isWithin24Hours(rev.createdAt)"
+              (click)="startEdit(rev)"
+            >
+             {{'EDIT' | translate}}
+            </button>
+            <button class="btn-action" (click)="upvoteReview(rev)">
+              👍 {{'HELPFUL' | translate}} ({{ rev.upvotes }})
+            </button>
+            <button class="btn-action report" (click)="reportReview(rev)">{{'REPORT' | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

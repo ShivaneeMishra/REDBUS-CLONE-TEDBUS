@@ -33,8 +33,8 @@
     </div>
     <div class="mainContainer2">
         <div class="mainContainer21">
-            <div>Boarding and Dropping</div>
-            <div>Change</div>
+            <div>{{'BOARDING_DROPPING_POINTS' | translate}}</div>
+            <div>{{'CHANGE' | translate}}</div>
         </div>
         <div class="mainContainer22">
             <div>
@@ -44,7 +44,7 @@
                     </span>
                     <br />
                     <span style="font-size: 14px; color: #7e7e8c;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Departure Location
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'DEPARTURE_LOCATION' | translate}}
                     </span>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                     </span>
                     <br />
                     <span style="font-size: 14px; color: #7e7e8c;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arrival Location
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'ARRIVAL_LOCATION' | translate}}
                     </span>
                 </div>
             </div>
@@ -66,17 +66,17 @@
         </div>
         <mat-divider></mat-divider>
         <div class="mainContainer24">
-            <div>Seat No.</div>
+            <div>{{'SEAT_NO' | translate}}</div>
             <div>{{selectedseats.join(',')}}</div>
         </div>
         <mat-divider></mat-divider>
-        <div class="mainContainer25">Fare Details</div>
+        <div class="mainContainer25">{{'FARE_DETAILS' | translate}}</div>
         <div class="mainContainer26">
             <div>
-                <span style="font-size: 16px; color: #3e3e52;">Amount</span>
+                <span style="font-size: 16px; color: #3e3e52;">{{'AMOUNT' | translate}}</span>
                 <br />
-                <span style="font-size: 10px; color: #838083; margin-top: 5px;"> Taxes will be calculated during
-                    Payment</span>
+                <span style="font-size: 10px; color: #838083; margin-top: 5px;"> 
+                    {{'TAXES_DURING_PAYMENT' | translate}}</span>
             </div>
             <div>{{selectedseats.length * seatprice}}</div>
         </div>

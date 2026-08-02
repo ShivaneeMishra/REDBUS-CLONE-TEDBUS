@@ -1,0 +1,287 @@
+.reviews-container {
+    padding: 20px;
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 8px;
+}
+
+.reviews-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.sub-text {
+    font-size: 13px;
+    color: #666;
+    margin: 2px 0 0 0;
+}
+
+.avg-rating-badge {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.review-form-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.star-selector {
+    font-size: 22px;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+.star-selector span {
+    opacity: 0.3;
+    transition: opacity 0.2s;
+}
+
+.star-selector span.active {
+    opacity: 1;
+}
+
+.rating-text {
+    font-size: 14px;
+    margin-left: 10px;
+    color: #555;
+    vertical-align: middle;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    resize: vertical;
+}
+
+.char-hint {
+    color: #dc3545;
+    font-size: 12px;
+}
+
+.btn-submit {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.btn-submit:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+}
+
+.review-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.author-name {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.badge-trusted {
+    background-color: #d1fae5;
+    color: #065f46;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 8px;
+    font-weight: 600;
+}
+
+.review-text {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 8px;
+    margin-top: 10px;
+}
+
+.date {
+    color: #888;
+    font-size: 12px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-action {
+    background: none;
+    border: 1px solid #cbd5e1;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #475569;
+}
+
+.btn-action:hover {
+    background-color: #f1f5f9;
+}
+
+.btn-action.report {
+    color: #dc3545;
+    border-color: #fca5a5;
+}
+
+.alert-box, .info-box {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.alert-box { background-color: #fff3cd; color: #856404; }
+.info-box { background-color: #cce5ff; color: #004085; }
+
+
+/* --- Dark Mode Support (.dark / html.dark) --- */
+html.dark .reviews-container,
+.dark .reviews-container {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+}
+
+html.dark .reviews-summary,
+.dark .reviews-summary {
+    border-bottom-color: #333333 !important;
+}
+
+html.dark .sub-text {
+    color: #aaa !important;
+}
+
+html.dark .avg-rating-badge {
+    background-color: #1e3a8a !important;
+    color: #93c5fd !important;
+}
+
+html.dark .review-form-card {
+    background-color: #252525 !important;
+    border-color: #333333 !important;
+}
+
+html.dark .form-control {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+html.dark .review-card {
+    background-color: #252525 !important;
+    border-color: #333333 !important;
+    color: #ffffff !important;
+}
+
+html.dark .review-footer {
+    border-top-color: #333333 !important;
+}
+
+html.dark .btn-action {
+    border-color: #444 !important;
+    color: #ccc !important;
+}
+
+html.dark .btn-action:hover {
+    background-color: #333 !important;
+}
+
+html.dark .badge-trusted {
+    background-color: #064e3b !important;
+    color: #6ee7b7 !important;
+}
+/* --- Perfect Dark Mode Override for Reviews --- */
+html.dark .reviews-container,
+body.dark .reviews-container,
+.dark .reviews-container {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+html.dark .review-form-card,
+body.dark .review-form-card,
+.dark .review-form-card {
+    background-color: #242424 !important;
+    border-color: #333333 !important;
+    color: #ffffff !important;
+}
+
+html.dark .review-card,
+body.dark .review-card,
+.dark .review-card {
+    background-color: #242424 !important;
+    border-color: #333333 !important;
+    color: #ffffff !important;
+}
+
+html.dark .form-control,
+body.dark .form-control,
+.dark .form-control {
+    background-color: #2e2e2e !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+html.dark .reviews-summary,
+html.dark .review-footer {
+    border-color: #333333 !important;
+}
+
+html.dark .btn-action {
+    background-color: #2e2e2e !important;
+    color: #cccccc !important;
+    border-color: #444444 !important;
+}
+
+.btn-action {
+  background: transparent;
+  border: 1px solid currentColor;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+
+.btn-action.edit {
+  margin-right: 5px;
+}

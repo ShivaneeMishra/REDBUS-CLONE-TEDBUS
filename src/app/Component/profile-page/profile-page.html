@@ -1,84 +1,160 @@
 <div class="ProfilePannel">
-    <div class="leftPart">
-      <ul class="leftPannel">
-        <li class="leftPannel_eachListItem">
-          <mat-icon style="color: grey; font-size: 30px; height: 100% ;width:100%;">perm_identity</mat-icon>
-  
-          <div class="leftPannel_eachListItem_text">
-            {{ 'Dashboard' }}
-          </div>
-  
-        </li>
-        <div class="line"></div>
-         <li class="leftPannel_eachListOption" (click)="handleListitemclick('trips')">
-          <i class="material-icons" style="color: grey; font-size: 30px;">location_on</i>
-  
-          <div class="leftPannel_eachListItem_text">My Trips</div>
-        </li>
-        <div class="line"></div>
-        <!-- Add other list items here -->
-        <li class="leftPannel_eachListOption" (click)="handleListitemclick('profile')">
-          <i class="material-icons" style="color: grey; font-size: 30px;">settings</i>
-          <div class="leftPannel_eachListItem_text">My Profile</div>
-        </li>
-        <div class="line"></div>
-        <li class="leftPannel_eachListOption" (click)="handleListitemclick('wallet')">
-          <i class="material-icons" style="color: grey; font-size: 30px;">account_balance_wallet</i>
-  
-          <div class="leftPannel_eachListItem_text">Wallet</div>
-        </li>
-        <div class="line"></div>
-      </ul>
-    </div>
-    <div class="seprator"></div>
-  
-    <div *ngIf="selectedItem === 'trips'">
-         <!-- MyTrips component or content -->
-      <app-my-trip [booking]="mytrip" ></app-my-trip> 
-    </div>
-    <div *ngIf="selectedItem === 'wallet'">
-      Wallet feature coming soon...
-    </div>
-    <div *ngIf="selectedItem === 'profile'" class="rightPannel">
-      <span class="profileHeading">{{ 'My Profile' }}</span>
-      <div class="profilebox">
-        <div style="display: flex; justify-content: space-between">
-          <div
-            style="display: flex; flex-direction: column; margin-left: 20px; height: 50px; justify-content: space-evenly">
-            <div class="userDetailHeading">Your name</div>
-            <div class="userDetailInfo">{{ currentcustomer ? currentcustomer.name : 'User' }}</div>
-          </div>
-          <div
-            style="display: flex; flex-direction: column; margin-left: 20px; height: 50px; justify-content: space-evenly">
-            <div class="userDetailHeading">Date of Birth</div>
-            <div class="userDetailInfo">1993-03-04</div>
-          </div>
+  <div class="leftPart">
+    <ul class="leftPannel">
+      <li class="leftPannel_eachListItem">
+        <mat-icon style="color: grey; font-size: 30px; height: 100%; width: 100%"
+          >perm_identity</mat-icon
+        >
+
+        <div class="leftPannel_eachListItem_text">
+          {{ 'Dashboard' }}
         </div>
-        <div style="display: flex; justify-content: space-between; margin-top: 5%">
-          <div
-            style="display: flex; flex-direction: column; margin-left: 20px; height: 50px; justify-content: space-evenly">
-            <div class="userDetailHeading">Gender</div>
-            <div class="userDetailInfo">{{ currentcustomer ? currentcustomer.gender : '-' }}</div>
-          </div>
+      </li>
+      <div class="line"></div>
+      <li class="leftPannel_eachListOption" (click)="handleListitemclick('trips')">
+        <i class="material-icons" style="color: grey; font-size: 30px">location_on</i>
+
+        <div class="leftPannel_eachListItem_text">My Trips</div>
+      </li>
+      <div class="line"></div>
+      <!-- Add other list items here -->
+      <li class="leftPannel_eachListOption" (click)="handleListitemclick('profile')">
+        <i class="material-icons" style="color: grey; font-size: 30px">settings</i>
+        <div class="leftPannel_eachListItem_text">My Profile</div>
+      </li>
+      <div class="line"></div>
+      <li class="leftPannel_eachListOption" (click)="handleListitemclick('community')">
+        <i class="material-icons" style="color: grey; font-size: 30px">forum</i>
+
+        <div class="leftPannel_eachListItem_text">Community</div>
+      </li>
+      <div class="line"></div>
+      <li class="leftPannel_eachListOption" (click)="handleListitemclick('wallet')">
+        <i class="material-icons" style="color: grey; font-size: 30px">account_balance_wallet</i>
+
+        <div class="leftPannel_eachListItem_text">Wallet</div>
+      </li>
+      <div class="line"></div>
+    </ul>
+  </div>
+  <div class="seprator"></div>
+
+  <div *ngIf="selectedItem === 'trips'">
+    <!-- MyTrips component or content -->
+    <app-my-trip [booking]="mytrip"></app-my-trip>
+  </div>
+  <div *ngIf="selectedItem === 'wallet'">Wallet feature coming soon...</div>
+  <div *ngIf="selectedItem === 'community'">
+    <app-community></app-community>
+  </div>
+  <div *ngIf="selectedItem === 'profile'" class="rightPannel">
+    <span class="profileHeading">{{ 'My Profile' }}</span>
+    <div class="profilebox">
+      <div style="display: flex; justify-content: space-between">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            height: 50px;
+            justify-content: space-evenly;
+          "
+        >
+          <div class="userDetailHeading">Your name</div>
+          <div class="userDetailInfo">{{ currentcustomer ? currentcustomer.name : 'User' }}</div>
         </div>
-        <div style="display: flex; justify-content: space-between; margin-top: 5%">
-          <div class="contactLine"></div>
-          <div class="contactDetailsHeading">Contact Details</div>
-          <div class="contactLine"></div>
-        </div>
-        <div style="display: flex; justify-content: space-between; margin-top: 5%">
-          <div
-            style="display: flex; flex-direction: column; margin-left: 20px; height: 50px; justify-content: space-evenly">
-            <div class="userDetailHeading">email</div>
-            <div class="userDetailInfo">{{ currentcustomer ? currentcustomer.email : '-' }}</div>
-          </div>
-          <div
-            style="display: flex; flex-direction: column; margin-left: 20px; height: 50px; justify-content: space-evenly">
-            <div class="userDetailHeading">phone</div>
-            <div class="userDetailInfo">12345678</div>
-          </div>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            height: 50px;
+            justify-content: space-evenly;
+          "
+        >
+          <div class="userDetailHeading">Date of Birth</div>
+          <div class="userDetailInfo">1993-03-04</div>
         </div>
       </div>
-  
+      <div style="display: flex; justify-content: space-between; margin-top: 5%">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            height: 50px;
+            justify-content: space-evenly;
+          "
+        >
+          <div class="userDetailHeading">Gender</div>
+          <div class="userDetailInfo">{{ currentcustomer ? currentcustomer.gender : '-' }}</div>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-top: 5%">
+        <div class="contactLine"></div>
+        <div class="contactDetailsHeading">Contact Details</div>
+        <div class="contactLine"></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-top: 5%">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            height: 50px;
+            justify-content: space-evenly;
+          "
+        >
+          <div class="userDetailHeading">email</div>
+          <div class="userDetailInfo">{{ currentcustomer ? currentcustomer.email : '-' }}</div>
+        </div>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            height: 50px;
+            justify-content: space-evenly;
+          "
+        >
+          <div class="userDetailHeading">phone</div>
+          <div class="userDetailInfo">12345678</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="user-activity-section" style="margin-top: 30px; padding: 20px">
+      <h3>My Community Posts</h3>
+      <div
+        *ngFor="let post of userPosts"
+        class="activity-card"
+        style=" padding: 10px; margin-bottom: 10px; border-radius: 5px"
+      >
+      <h4 style="margin:0 0 5px 0">{{post.title || post.story}}</h4>
+        <p>{{ post.content || post.description }}</p>
+        <small>Status: {{ post.status }} | Likes: {{ post.likes?.length || 0 }}</small>
+      </div>
+      <p *ngIf="userPosts.length === 0">No posts found.</p>
+
+      <h3 style="margin-top: 20px">My Forum Discussions</h3>
+      <div
+        *ngFor="let forum of userForums"
+        class="activity-card"
+        style=" padding: 10px; margin-bottom: 10px; border-radius: 5px"
+      >
+      <p style="margin: 0 0 5px 0; font-size: 13px; color: #555;">
+    Author: {{ forum.author || forum['newAuthor'] || forum['username'] || 'Anonymous' }}
+  </p>
+        <p>{{ forum.title || forum.question }}</p>
+        <small
+          >Tags:
+          <span *ngIf="forum.tags">
+            {{ forum.tags.name || forum.tags[0]?.name || (forum.tags | json) }}
+          </span>
+          <span *ngIf="!forum.tags">-</span>
+        </small>
+      </div>
+      <p *ngIf="userForums.length === 0">No forum discussions found.</p>
     </div>
   </div>
+</div>

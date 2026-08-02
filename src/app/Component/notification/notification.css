@@ -1,0 +1,25 @@
+.notification-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #e11b1f;
+  color: white;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+
+
+:host-context(.dark) .notification-popup {
+    background-color: #333333; 
+    color: #ffffff;
+    border-left: 4px solid #ef4444; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); 
+}
+
+
+:host-context(.dark) .close-btn:hover {
+    color: #ef4444; 
+}

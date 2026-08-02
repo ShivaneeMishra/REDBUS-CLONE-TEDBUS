@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Dataservice } from '../../service/dataservice';
 import { HttpClient } from '@angular/common/http';
@@ -9,6 +9,7 @@ import { BusService } from '../../service/bus';
   standalone: false,
   templateUrl: './payment-page.html',
   styleUrl: './payment-page.css',
+  encapsulation:ViewEncapsulation.None,
 })
 export class PaymentPage implements OnInit {
   passseatarray: any[] = [];
@@ -38,12 +39,13 @@ export class PaymentPage implements OnInit {
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      const passSeatsArray = params['selectedseat'];
+      const passSeatsArray = params['selectedseat'] ? JSON.parse(params['selectedseat']) : [];
       const email = params['passemail'];
       const phoneNumber = params['passphn'];
       const isBusinessTravel = params['passisbuisness'];
       const isInsurance = params['passinsurance'];
-      const passFare = params['seatprice'];
+      const seatPrice = Number(params['seatprice']) || 0;
+      const passFare = seatPrice * (passSeatsArray.length > 0 ? passSeatsArray.length : 1);
       const busId = params['busid'];
       const busArrivalTime = params['busarrivaltime'];
       const busDepartureTime = params['busdeparturetime'];
@@ -74,19 +76,24 @@ export class PaymentPage implements OnInit {
   }
 
   getloggedinuser(): any {
-    const loggedinuserjson = sessionStorage.getItem('Loggedinuser');
-    if (loggedinuserjson) {
+  const loggedinuserjson = sessionStorage.getItem('Loggedinuser');
+  if (loggedinuserjson) {
+    try {
+     
       this.customerid = JSON.parse(loggedinuserjson);
-    } else {
-      alert('please login to continue');
+    } catch (e) {
+     console.error('Error parsing logged in user JSON:', e);
+      //this.customerid = { _id: '6a42602ca6e2df2097654c19', email: 'shivaneem98@gmail.com' };
     }
-    return null;
-  }
+  }// else {
+    //this.customerid = { _id: '6a42602ca6e2df2097654c19', email: 'shivaneem98@gmail.com' };
+  //}
+}
   makepayment(): void {
     let myBooking: any = {};
-    myBooking.customerId = this.customerid._id;
+    myBooking.customerId = this.customerid?._id || this.customerid?.id ;
     myBooking.passengerDetails = this.passengerdetails;
-    myBooking.email = this.customerid.email;
+    myBooking.email = this.customerid?.email || this.email;
     myBooking.phoneNumber = this.phonenumber;
     myBooking.fare = this.passfare;
     myBooking.status = 'upcoming';

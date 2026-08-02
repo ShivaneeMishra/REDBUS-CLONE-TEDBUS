@@ -49,3 +49,118 @@
   .SingleTrip__persondetails.material-icons{
     font-size: 16px;
   }
+  .cancel-ticket-btn {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.change-schedule-btn {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* हॉरिजॉन्टल फॉर्म की स्टाइलिंग */
+.horizontal-schedule-form {
+    background-color: #f9f9f9;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* सभी चीज़ों के बीच की दूरी थोड़ी कम करें ताकि बाहर न जाए */
+    flex-wrap: wrap; 
+    justify-content: center;
+    
+   
+}
+
+
+.horizontal-schedule-form input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 150px; /* इनपुट की चौड़ाई सेट करने के लिए */
+}
+.form-actions{
+  display: flex;
+   
+  gap: 15px; /* दोनों बटन के बीच की दूरी */
+  margin-top: 20px; /* फॉर्म से ऊपर की दूरी */
+  justify-content: center
+}
+.save-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.form-buttons {
+    display: flex;
+    
+    gap: 10px; /* दोनों बटनों के बीच की दूरी */
+    
+    margin-left: auto;
+}
+/* =========================================
+   My Trip Component Dark Mode Styles
+   ========================================= */
+
+/* 1. मुख्य ट्रिप कार्ड का बैकग्राउंड डार्क करना */
+:host-context(.dark) .SingleTrip {
+    background-color: #1e1e1e !important;
+    border-color: #444444 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 2. बस डिटेल्स और पैसेंजर डिटेल्स वाले अंदर के डब्बे */
+:host-context(.dark) .SingleTrip_busdetails,
+:host-context(.dark) .SingleTrip_persondetails {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+/* 3. शेड्यूल चेंज करने वाला खुलने वाला फॉर्म (Horizontal Schedule Form) */
+:host-context(.dark) .horizontal-schedule-form {
+    background-color: #2a2a2a !important;
+    border-color: #555555 !important;
+    color: #ffffff !important;
+}
+
+/* 4. फॉर्म के अंदर के इनपुट बॉक्स और ड्रॉपडाउन */
+:host-context(.dark) .horizontal-schedule-form input,
+:host-context(.dark) .horizontal-schedule-form select {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+    border-color: #555555 !important;
+}
+
+:host-context(.dark) .horizontal-schedule-form input::placeholder {
+    color: #9ca3af !important;
+}

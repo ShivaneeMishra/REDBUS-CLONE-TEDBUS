@@ -1,10 +1,13 @@
-<div class="SingleTrip" *ngFor="let booking of booking">
+
+<p style="color: blue">Total Bookings Count: {{ myBookings.length }}</p>
+
+<div class="SingleTrip" *ngFor="let booking of myBookings">
   <div class="SingleTrip__image">
     <img [src]="randomimage" alt="bus" />
   </div>
   <div style="display: flex; justify-content: space-evenly">
     <div class="SingleTrip__busdetails">
-      <div class="heading" style="font-weight: 600; font-size: large">Bus Details</div>
+      <div class="heading" style="font-weight: 700; font-size: large">Bus Details</div>
       <!-- Insertion for Departure, Arrival details, and fare -->
       <p>
         <span class="material-icons">radio_button_checked</span> Departure Location:
@@ -31,24 +34,59 @@
         {{ booking.arrivalDetails.date }}
       </p>
       <p><span class="material-icons">radio_button_checked</span> Total Fare: {{ booking.fare }}</p>
+      
     </div>
     <div class="SingleTrip__persondetails">
       <div class="heading" style="font-weight: 600; font-size: large">Passenger Details</div>
 
       <!-- Insertion for Passenger details -->
-      <p><span class="material-icons">radio_button_checked</span> Contact Email:{{ booking.email }}</p>
+      <p>
+        <span class="material-icons">radio_button_checked</span> Contact Email:{{ booking.email }}
+      </p>
       <p>
         <span class="material-icons">radio_button_checked</span> Contact Phone Number:{{
           booking.phoneNumber
         }}
       </p>
+      <p><span class="material-icons">radio_button_checked</span> Notification Status: {{ booking.notificationStatus }}</p>
+     
       <div class="SingleTrip__customerDetails__passenger">
         <div *ngFor="let passenger of booking.passengerDetails">
           <p><span class="material-icons">radio_button_checked</span> Name:{{ passenger.name }}</p>
-          <p><span class="material-icons">radio_button_checked</span> Gender:{{ passenger.gender }}</p>
+          <p>
+            <span class="material-icons">radio_button_checked</span> Gender:{{ passenger.gender }}
+          </p>
           <p><span class="material-icons">radio_button_checked</span> Age:{{ passenger.age }}</p>
         </div>
       </div>
     </div>
   </div>
+ <!-- Cancel और Change Schedule बटन एक लाइन में -->
+<div style="margin-top: 15px; display: flex; justify-content: flex-end; gap: 10px; align-items: center;">
+    <button class="cancel-ticket-btn" (click)="cancelTicket(booking._id)">
+        Cancel Ticket
+    </button>
+
+    <button *ngIf="isAdmin" class="change-schedule-btn" (click)="toggleScheduleForm(booking._id)">
+        Change Schedule
+    </button>
 </div>
+
+<!-- हॉरिजॉन्टल (एक लाइन में) खुलने वाला फॉर्म बॉक्स -->
+<div *ngIf="isAdmin && selectedTripId === booking._id" class="horizontal-schedule-form">
+    <input type="text" [(ngModel)]="newCity" placeholder="New City" />
+    <input type="text" [(ngModel)]="newTime" placeholder="New Time" />
+    <input type="date" [(ngModel)]="newDate" />
+    <select [(ngModel)]="selectedLanguage" class="language-select">
+    <option value="en">English</option>
+    <option value="hi">हिंदी (Hindi)</option>
+</select>
+<div class="form-actions">
+  
+
+    <button class="save-btn" (click)="submitScheduleAndUpdate(booking._id)">Save</button>
+    <button class="close-btn" (click)="toggleScheduleForm(booking._id)">Cancel</button>
+</div>
+</div>
+  </div>
+

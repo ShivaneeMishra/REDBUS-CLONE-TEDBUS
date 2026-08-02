@@ -2,3 +2,16 @@
     display:grid;
     grid-template-columns: 20% 80%;
 }
+
+
+.SelectBus_MAINCONTENT {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+
+:host-context(.dark) .Selectbus,
+:host-context(.dark) .SelectBus_MAINCONTENT {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}

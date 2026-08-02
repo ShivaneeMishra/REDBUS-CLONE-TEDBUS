@@ -1,0 +1,22 @@
+
+:root {
+  --main-bg: #f5f5f5;
+  --text-color: #000000;
+  --nav-bg: #ffffff;
+  --card-bg: #ffffff;
+}
+
+
+[data-theme='dark'] {
+  --main-bg: #121212;
+  --text-color: #ffffff;
+  --nav-bg: #1e1e1e;
+  --card-bg: #2a2a2a;
+}
+
+
+body {
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}

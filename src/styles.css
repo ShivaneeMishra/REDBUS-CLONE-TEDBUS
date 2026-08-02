@@ -7,3 +7,408 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background: white;
     width: 0;
 }
+
+
+
+:root {
+  --main-bg: #f5f5f5;       
+  --text-color: #000000;    
+  --nav-bg: #ffffff;        
+  --card-bg: #ffffff;       
+  --search-bg: #ffffff;     
+  --border-color: #dddddd;  
+}
+
+
+[data-theme='dark'] {
+  --main-bg: #121212;
+  --text-color: #ffffff;
+  --nav-bg: #1e1e1e;
+  --card-bg: #2a2a2a;
+  --search-bg: #2a2a2a;
+  --border-color: #444444;
+}
+
+
+body {
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+html.dark .mat-dialog-container,
+html.dark .mdc-dialog__surface {
+  background-color: rgba(30,30,30,0.80)!important;
+  backdrop-filter: blur(6px) !important;
+  color: #ffffff !important;
+}
+
+
+html.dark .mat-table,
+html.dark .mat-mdc-table {
+  background-color: transparent !important;
+}
+
+
+html.dark .mat-header-cell, 
+html.dark .mat-cell,
+html.dark .mat-mdc-header-cell, 
+html.dark .mat-mdc-cell {
+  color: #ffffff !important;
+  border-bottom-color: #555555 !important;
+}
+
+
+html.dark .mat-dialog-title, 
+html.dark .mat-mdc-dialog-title {
+  color: #ffffff !important;
+}
+
+
+html.dark .mat-button, 
+html.dark .mat-mdc-button {
+  color: #93c5fd !important; 
+}
+/*
+   Angular Material Menu (Dropdown) Dark Mode*/
+  
+
+html.dark .mat-mdc-menu-panel,
+html.dark .mat-menu-panel {
+  background-color: #2a2a2a !important;
+}
+
+html.dark .mat-mdc-menu-item,
+html.dark .mat-menu-item {
+  color: #ffffff !important;
+}
+
+html.dark .mat-mdc-menu-item:hover,
+html.dark .mat-menu-item:hover {
+  background-color: #3b82f6 !important; 
+}
+
+
+
+html.dark .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background-color: #333333 !important;
+}
+
+
+html.dark .mat-mdc-snack-bar-container .mdc-snackbar__label {
+  color: #ffffff !important;
+}
+
+/* 3. 'Close'  */
+html.dark .mat-mdc-snack-bar-container .mat-mdc-button,
+html.dark .mat-mdc-snack-bar-container .mat-mdc-snack-bar-action {
+  color: #60a5fa !important; 
+}
+
+
+/* --- 1. POST FORM  --- */
+html.dark .post-form-container {
+    background-color: #1e1e1e !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark .post-form-container h3,
+html.dark .post-form-container label {
+    color: #ffffff !important;
+}
+html.dark .post-form-container input,
+html.dark .post-form-container textarea,
+html.dark .post-form-container select {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important; 
+    border: 1px solid #555555 !important;
+}
+html.dark .post-form-container input:focus,
+html.dark .post-form-container textarea:focus {
+    border-color: #e71010 !important; 
+}
+
+/* --- 2. POST LIST  --- */
+html.dark .post-card {
+    background-color: #1e1e1e !important;
+    border: 1px solid #444444 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark .post-card h2, 
+html.dark .post-card p,
+html.dark .post-card h4 {
+    color: #ffffff !important;
+}
+html.dark .comment-input {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border: 1px solid #555555 !important;
+}
+html.dark .action-btn {
+    color: #aaaaaa !important;
+}
+html.dark .action-btn:hover {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+}
+html.dark .share-menu {
+    background-color: #1e1e1e !important;
+}
+
+
+/* --- Payment Page Dark Mode Fix --- */
+
+
+html.dark app-payment-page .payment__fullContainer,
+.dark app-payment-page .payment__fullContainer {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+
+html.dark app-payment-page div[class*="payment__fullContainer"],
+html.dark app-payment-page div[class*="paymentInstruments"],
+html.dark app-payment-page div[class*="eachPaymentInstruments"] {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+html.dark app-payment-page .radioButtonText,
+html.dark app-payment-page .choose_payment_heading,
+html.dark app-payment-page label,
+html.dark app-payment-page span,
+html.dark app-payment-page p {
+    color: #ffffff !important;
+}
+
+.dark app-payment-page .paymentIconList img,
+.dark app-payment-page img[src*="amazonpay"],
+.dark app-payment-page img[src*="gpay"],
+.dark app-payment-page img[src*="phonepe"],
+.dark app-payment-page img[src*="upi"] {
+    background-color: #ffffff !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    object-fit: contain !important;
+}
+/* --- Final Fix for Unstyled Elements & Offer Code Input in Dark Mode --- */
+
+
+.dark app-payment-page input[class*="OfferCode"],
+.dark app-payment-page div[class*="infobar"],
+.dark app-payment-page div[class*="trip"],
+.dark app-payment-page div[class*="fair"],
+.dark app-payment-page div[class*="banner"] {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+/* 2. 'Enter Offer Code'*/
+.dark app-payment-page input {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important; 
+
+
+.dark app-payment-page input::placeholder {
+    color: #aaaaaa !important;
+    -webkit-text-fill-color: #aaaaaa !important;
+}
+
+
+.dark app-payment-page div[class*="infobar"] *,
+.dark app-payment-page div[class*="banner"] * {
+    color: #ffffff !important;
+}
+/* --- Right Side Dark Mode Fixes --- */
+
+
+.dark app-payment-page .payment__fullContainer div[style*="background"],
+.dark app-payment-page .payment__fullcontainer div[style*="background"],
+.dark app-payment-page .payment__fullContainer input,
+.dark app-payment-page .payment__fullContainer .mat-mdc-form-field,
+.dark app-payment-page .payment__fullContainer div[class*="rightContainer"] div[style*="background: white"],
+.dark app-payment-page .payment__fullContainer div[class*="rightContainer"] div[style*="background:#fff"] {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+
+.dark app-payment-page div[class*="rightContainer_trip_container"],
+.dark app-payment-page div[class*="rightContainer_fair_container"] {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+    border: 1px solid #333333 !important;
+}
+
+
+.dark app-payment-page div[class*="rightContainer"] * {
+    border-color: #333333 !important;
+}
+.dark app-payment-page div[class*="rightContainer"] div,
+.dark app-payment-page div[class*="rightContainer"] input {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+.dark app-notification,
+.dark .notification-container,
+.dark div[class*="notification"],
+.dark div[class*="toast"] {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+    border: 1px solid #333333 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+
+.dark app-notification *, 
+.dark div[class*="notification"] *,
+.dark div[class*="toast"] * {
+    color: #ffffff !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    dialog {
+        background-color: #1f1f1f !important;
+        color: #ffffff !important;
+    }
+}
+
+
+html.dark dialog,
+body.dark dialog {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+}
+}
+/* --- Corrected Datepicker & Popup Dark Mode Fix --- */
+
+
+html.dark .mat-datepicker-content,
+html.dark .mat-calendar,
+html.dark .cdk-overlay-pane mat-dialog-container,
+html.dark .cdk-overlay-pane div[class*="dialog"],
+html.dark .cdk-overlay-pane div[class*="popup"] {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+    border: 1px solid #333333 !important;
+}
+
+
+html.dark .mat-datepicker-content *,
+html.dark .mat-calendar *,
+html.dark .cdk-overlay-pane mat-dialog-container * {
+    color: #ffffff !important;
+}
+
+
+html.dark .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content,
+html.dark .mat-calendar-body-selected {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+}
+/* --- Rating Text Dark Mode Fix --- */
+html.dark app-bus-reviews .rating-text,
+.dark app-bus-reviews .rating-text {
+    color: #ffffff !important;
+}
+/* --- Global Center Report Popup & Dark Mode Fix --- */
+.report-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.report-modal-content {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+
+.report-modal-content p {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #333333;
+}
+
+.report-input-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.report-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-cancel {
+  padding: 8px 16px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+}
+
+.btn-ok {
+  padding: 8px 16px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* --- Dark Mode Styles for Modal --- */
+html.dark .report-modal-content,
+body.dark .report-modal-content,
+.dark .report-modal-content {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border: 1px solid #444444 !important;
+}
+
+html.dark .report-modal-content p,
+body.dark .report-modal-content p,
+.dark .report-modal-content p {
+  color: #ffffff !important;
+}
+
+html.dark .report-input-field,
+body.dark .report-input-field,
+.dark .report-input-field {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+  border: 1px solid #555555 !important;
+}
+
+html.dark .btn-cancel,
+body.dark .btn-cancel,
+.dark .btn-cancel {
+  background-color: #444444 !important;
+  color: #ffffff !important;
+}

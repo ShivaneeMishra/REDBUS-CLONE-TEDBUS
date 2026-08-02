@@ -119,3 +119,177 @@ body {
   .leftPannel > li:hover {
     background-color: #ddd;
   }
+ 
+.user-activity-section {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 20px auto;
+  max-width: 900px;
+  padding: 24px;
+}
+
+.user-activity-section h3 {
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 8px;
+}
+
+
+.activity-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #3498db;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.activity-card p {
+  color: #333333;
+  font-size: 15px;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.activity-card small {
+  color: #7f8c8d;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+.user-activity-section > p {
+  color: #95a5a6;
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 20px;
+
+}
+
+html.dark .profilebox,
+body.dark .profilebox,
+.dark .profilebox {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7) !important;
+}
+
+html.dark .user-activity-section,
+body.dark .user-activity-section,
+.dark .user-activity-section {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+html.dark .activity-card,
+body.dark .activity-card,
+.dark .activity-card {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+  border: 1px solid #444444 !important;
+  border-left: 4px solid #3498db !important;
+}
+
+html.dark .activity-card p,
+html.dark .activity-card h4,
+html.dark .activity-card small,
+body.dark .activity-card p,
+body.dark .activity-card h4,
+body.dark .activity-card small {
+  color: #ffffff !important;
+}
+
+html.dark .rightPanel span,
+html.dark .user-activity-section h3,
+body.dark .rightPanel span,
+body.dark .user-activity-section h3,
+.dark .rightPanel span,
+.dark .user-activity-section h3 {
+  color: #ffffff !important;
+}
+
+
+html.dark .activity-card p,
+html.dark .activity-card h4,
+html.dark .activity-card small,
+html.dark .activity-card span,
+body.dark .activity-card p,
+body.dark .activity-card h4,
+body.dark .activity-card small,
+body.dark .activity-card span,
+.dark .activity-card p,
+.dark .activity-card h4,
+.dark .activity-card small,
+.dark .activity-card span {
+  color: #ffffff !important;
+}
+
+html.dark .profilebox .user-detail-heading,
+html.dark .profilebox .userDetailHeading,
+html.dark .profilebox div[class*="Heading"],
+html.dark .profilebox div[class*="heading"],
+html.dark .profilebox span,
+html.dark .profilebox p,
+body.dark .profilebox .user-detail-heading,
+body.dark .profilebox .userDetailHeading,
+body.dark .profilebox div[class*="Heading"],
+body.dark .profilebox div[class*="heading"],
+body.dark .profilebox span,
+body.dark .profilebox p,
+.dark .profilebox .user-detail-heading,
+.dark .profilebox .userDetailHeading,
+.dark .profilebox div[class*="Heading"],
+.dark .profilebox div[class*="heading"],
+.dark .profilebox span,
+.dark .profilebox p {
+  color: #ffffff !important;
+}
+
+
+html.dark .profilebox .user-detail-info,
+html.dark .profilebox .userDetailInfo,
+body.dark .profilebox .user-detail-info,
+body.dark .profilebox .userDetailInfo,
+.dark .profilebox .user-detail-info,
+.dark .profilebox .userDetailInfo {
+  color: #ffffff !important;
+}
+
+html.dark .rightPanel .profileHeading,
+body.dark .rightPanel .profileHeading,
+.dark .rightPanel .profileHeading,
+html.dark span[class*="profileHeading"],
+.dark span[class*="profileHeading"] {
+  color: #ffffff !important;
+}
+
+
+html.dark .leftPart .leftPannel_eachListItem_text,
+body.dark .leftPart .leftPannel_eachListItem_text,
+.dark .leftPart .leftPannel_eachListItem_text,
+html.dark .leftPart span,
+html.dark .leftPart div,
+.dark .leftPart span,
+.dark .leftPart div {
+  color: #ffffff !important;
+}
+
+
+html.dark .leftPart mat-icon,
+html.dark .leftPart i.material-icons,
+body.dark .leftPart mat-icon,
+body.dark .leftPart i.material-icons,
+.dark .leftPart mat-icon,
+.dark .leftPart i.material-icons {
+  color: #ffffff !important;
+}

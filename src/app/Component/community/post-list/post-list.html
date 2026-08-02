@@ -1,0 +1,58 @@
+<div class="post-list-container">
+  <div *ngFor="let post of posts" class="post-card">
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+
+    <div class="post-actions">
+      <input #commentInput type="text" [placeholder]="'ADD_COMMENT_PLACEHOLDER' | translate" class="comment-input" />
+      <button
+        type="button"
+        (click)="addComment(post._id, { text: commentInput.value })"
+        class="action-btn"
+      >
+        <i class="fas fa-comment"></i>{{'COMMENT_BTN' | translate}}
+      </button>
+      <button type="button" (click)="likePost(post._id)" class="action-btn">
+        <i class="fas fa-thumbs-up"></i> {{'LIKE_BTN' | translate}}
+      </button>
+      <div class="share-dropdown">
+        <button
+          type="button"
+          (click)="toggleShareMenu(post._id)" class="action-btn"
+         
+        >
+          <i class="fas fa-share-alt" ></i> {{ 'SHARE' | translate }}
+        </button>
+
+        <!-- ड्रॉपडाउन मेनू -->
+        <div class="share-menu" *ngIf="activeSharePostId === post._id">
+          <a (click)="shareOnFacebook(post._id)"><i class="fab fa-facebook"></i> {{ 'FACEBOOK' | translate }}</a>
+          <a (click)="shareOnTwitter(post._id)"><i class="fab fa-twitter"></i>  {{ 'TWITTER' | translate }}</a>
+          <a (click)="shareOnWhatsApp(post._id)"><i class="fab fa-whatsapp"></i>{{ 'WHATSAPP' | translate }}</a>
+        </div>
+      </div>
+      <button
+        (click)="onReportPost(post._id)"
+       class="action-btn report-btn"
+      >
+       {{ 'REPORT' | translate }}
+      </button>
+      <div class="report-modal-overlay" *ngIf="reportingThreadId !== null">
+          <div class="report-modal-content">
+            <p>{{ 'REPORT_PROMPT_MSG' | translate }}</p>
+
+            <input type="text" [(ngModel)]="reportReason" class="report-input-field" />
+
+            <div class="report-modal-buttons">
+              <button (click)="cancelReport()" class="btn-cancel">
+                {{ 'CANCEL' | translate }}
+              </button>
+              <button (click)="submitReport(reportingThreadId)" class="btn-ok">
+                {{ 'OK' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

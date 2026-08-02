@@ -33,6 +33,25 @@ import { PaymentPage } from './Component/payment-page/payment-page';
 import { ProfilePage } from './Component/profile-page/profile-page';
 import { MyTrip } from './Component/profile-page/my-trip/my-trip';
 import { provideHttpClient } from '@angular/common/http';
+import { Community } from './Component/community/community';
+import { PostList } from './Component/community/post-list/post-list';
+import { PostForm } from './Component/community/post-form/post-form';
+import { Notification } from './Component/notification/notification';
+import { Forum } from './Component/community/forum/forum';
+import { Reply } from './Component/community/forum/reply/reply';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Moderation } from './Component/community/moderation/moderation';
+
+import { NotificationPreferences } from './Component/notification-preferences/notification-preferences';
+import { NotificationHistory } from './Component/notification-history/notification-history';
+import { RoutePlanner } from './Component/route-planner/route-planner';
+import { provideTranslateService,  TranslateDirective } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslatePipe } from '@ngx-translate/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BusReviews } from './Component/selectbus-page/right/bus-book/bus-reviews/bus-reviews';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 @NgModule({
   declarations: [
     App,
@@ -54,6 +73,17 @@ import { provideHttpClient } from '@angular/common/http';
     PaymentPage,
     ProfilePage,
     MyTrip,
+    Community,
+    PostList,
+    PostForm,
+    Notification,
+    Forum,
+    Reply,
+    Moderation,
+    NotificationPreferences,
+    NotificationHistory,
+    RoutePlanner,
+    BusReviews,
   ],
   imports: [
     BrowserModule,
@@ -69,9 +99,21 @@ import { provideHttpClient } from '@angular/common/http';
     MatSidenavModule,
     CommonModule,
     MatDividerModule,
-  
+    ReactiveFormsModule,
+    TranslatePipe,
+    MatSnackBarModule,
+    TranslateDirective,
+    MatTooltipModule,
+],
+  providers: [
+    provideBrowserGlobalErrorListeners(),
+    provideNativeDateAdapter(),
+    provideHttpClient(),
+    provideTranslateService({
+      fallbackLang: 'en',
+      loader: provideTranslateHttpLoader(),
+    }),
   ],
-  providers: [provideBrowserGlobalErrorListeners(), provideNativeDateAdapter(), provideHttpClient()],
   bootstrap: [App],
 })
 export class AppModule {}

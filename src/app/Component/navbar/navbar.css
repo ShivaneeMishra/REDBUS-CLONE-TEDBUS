@@ -1,0 +1,21 @@
+/* भाषा चयनकर्ता (Language Selector) के लिए CSS */
+.language-selector select {
+  background-color: var(--nav-bg);
+  color:var(--text-color);
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.language-selector select:hover {
+  border-color: #e88c8c; 
+}
+
+.language-selector select:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}

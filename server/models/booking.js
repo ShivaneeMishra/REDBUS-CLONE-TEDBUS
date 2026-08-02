@@ -42,7 +42,7 @@ const bookingSchema = new Schema({
   },
   departureDetails: {
     city: { type: String, required: true },
-    time: { type: Number, required: true },
+    time: { type: String, required: true },
     date: { type: String, required: true },
   },
   arrivalDetails: {
@@ -72,6 +72,11 @@ const bookingSchema = new Schema({
     type: Boolean,
     required: false,
   },
+  notificationStatus: {
+    type: String,
+    enum: ['PENDING', 'SENT', 'FAILED'],
+    default: 'PENDING'
+},
 });
 
 module.exports = mongoose.model("Bookings", bookingSchema);

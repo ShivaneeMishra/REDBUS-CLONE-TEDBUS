@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Dialog } from './dialog/dialog';
 
+import { MatSnackBar} from '@angular/material/snack-bar';
+
+
+
 @Component({
   selector: 'app-landing-page',
   standalone: false,
@@ -16,6 +20,8 @@ export class LandingPage {
   constructor(
     private router: Router,
     private dialog: MatDialog,
+    private snackBar:MatSnackBar,
+   
   ) {}
 
   fromEvent(option: string) {
@@ -66,10 +72,13 @@ export class LandingPage {
 
           dialogRef.afterClosed().subscribe((result) => {
             console.log(`Dialog result: ${result}`);
+            
           });
         }
       } else {
-        alert('fill up the details!!!');
+        this.snackBar.open('fill up the details!!!', 'Close',{
+          duration:3000,
+        });
       }
     }
   }

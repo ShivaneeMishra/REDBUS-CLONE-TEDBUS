@@ -231,9 +231,48 @@
     font-size: 10px;
   }
   
-  /* Bus box section 3 */
+ 
   
   .busBoxSection3 {
     min-height:45%;
     height: auto;
   }
+  
+
+:host-context(.dark) .bus-box {
+    background-color: #1e1e1e !important;
+    border-color: #333333 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+
+:host-context(.dark) .bus-box div,
+:host-context(.dark) .bus-box span {
+    color: inherit; 
+}
+
+
+:host-context(.dark) .busBoxSection11 div,
+:host-context(.dark) .busBoxSection12 div,
+:host-context(.dark) .busBoxSection14 div,
+:host-context(.dark) .busBoxSection16 div {
+    color: #ffffff !important;
+}
+
+:host-context(.dark) .busBoxSection12 div:nth-child(2),
+:host-context(.dark) .busBoxSection14 div:nth-child(2),
+:host-context(.dark) .busBoxSection16 div:nth-child(2) {
+    color: #9ca3af !important; 
+}
+
+
+:host-context(.dark) .busBoxSection17 > div:nth-child(2),
+:host-context(.dark) .busBoxSection17 > div:nth-child(3) {
+    color: #e5e7eb !important;
+}
+
+:host-context(.dark) .busBoxSection22 > div {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+}

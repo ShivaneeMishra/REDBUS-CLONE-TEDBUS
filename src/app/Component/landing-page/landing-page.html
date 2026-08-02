@@ -1,343 +1,382 @@
 <section
-    class="h-[32rem] bg-main-color bg-[url('/hero-img.png')] bg-center  bg-no-repeat bg-cover flex justify-center">
-    <div class="flex flex-col items-center w-full max-w-[1400px]">
-        <h1 class="text-2xl mx-4 md:text-[2rem] text-white font-bold mt-16 mb-4 text-center">India's No. 1 Online Bus
-            Ticket Booking Site</h1>
+  class="h-[32rem] bg-main-color bg-[url('/hero-img.png')] bg-center bg-no-repeat bg-cover flex justify-center"
+>
+  <div class="flex flex-col items-center w-full max-w-[1400px]">
+    <h1 class="text-2xl mx-4 md:text-[2rem] text-white font-bold mt-16 mb-4 text-center">
+      {{ 'WELCOME_MSG' | translate }}
+    </h1>
 
-        <!-- travel search section sharts here -->
+    <!-- travel search section sharts here -->
+    <div
+      class="w-[90%] sm:w-[80%] lg:h-24 mt-4 bg-white dark:bg-[#2a2a2a] cursor-pointer relative bottom-7 sm:bottom-0 
+      flex flex-col lg:flex-row rounded-3xl overflow-hidden hover:drop-shadow-lg"
+    >
+      <!-- travel search left side  -->
+      <div class="h-full flex flex-col sm:flex-row items-center justify-center lg:w-1/2">
+        <div class="h-full border-b sm:border-r border-gray-300 w-full md:w-[50%] sm:w-auto">
+          <div class="px-7 py-8 flex items-center h-full gap-3">
+            <i class="fa-solid fa-bus-simple text-gray-500 dark:text-gray-300 text-2xl"></i>
+            <input
+              class="dark:bg-transparent dark:text-white outline-none w-full"
+              type="text"
+              name=""
+              id=""
+              [placeholder]="'FROM' | translate"
+              [matMenuTriggerFor]="menu"
+              [ngModel]="fromoption | translate"
+              (ngModelChange)="fromoption = $event"
+            />
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="fromEvent('Delhi')">{{ 'DELHI' | translate }}</button>
+              <button mat-menu-item (click)="fromEvent('Mumbai')">
+                {{ 'MUMBAI' | translate }}
+              </button>
+              <button mat-menu-item (click)="fromEvent('Banglore')">
+                {{ 'BANGLORE' | translate }}
+              </button>
+              <button mat-menu-item (click)="fromEvent('Kolkata')">
+                {{ 'KOLKATA' | translate }}
+              </button>
+              <button mat-menu-item (click)="fromEvent('Chennai')">
+                {{ 'CHENNAI' | translate }}
+              </button>
+            </mat-menu>
+          </div>
+        </div>
         <div
-            class="w-[90%] sm:w-[80%] lg:h-24 mt-4 bg-white cursor-pointer relative bottom-7 sm:bottom-0 flex flex-col lg:flex-row rounded-3xl overflow-hidden hover:drop-shadow-lg">
-            <!-- travel search left side  -->
-            <div class="h-full flex flex-col sm:flex-row items-center justify-center lg:w-1/2">
-                <div class="h-full border-b sm:border-r border-gray-300 w-full md:w-[50%] sm:w-auto">
-                    <div class="px-7 py-8 flex items-center h-full gap-3">
-                        <i class="fa-solid fa-bus-simple text-gray-500 text-2xl"></i>
-                        <input class="outline-none w-full" type="text" name="" id="" placeholder="From"
-                            [matMenuTriggerFor]="menu" [(ngModel)]="fromoption">
-                        <mat-menu #menu="matMenu">
-                            <button mat-menu-item (click)="fromEvent('Delhi')">Delhi</button>
-                            <button mat-menu-item (click)="fromEvent('Mumbai')">Mumbai</button>
-                            <button mat-menu-item (click)="fromEvent('Banglore')">Banglore</button>
-                            <button mat-menu-item (click)="fromEvent('Kolkata')">Kolkata</button>
-                            <button mat-menu-item (click)="fromEvent('Chennai')">Chennai</button>
-                        </mat-menu>
-                    </div>
-                </div>
-                <div class="w-10 h-10 bg-white rounded-full  grid place-content-center absolute border border-gray-300">
-                    <i class="fa-solid fa-arrows-turn-to-dots text-gray-500 text-xl"></i>
-                </div>
-                <div class="h-full border-b sm:border-r border-gray-300 w-full md:w-[50%] sm:w-auto">
-                    <div class="px-7 py-8 flex items-center h-full gap-3">
-                        <i class="fa-solid fa-person-walking-luggage text-gray-500 text-2xl"></i>
-                        <input class="outline-none w-full" type="text" name="" id="" placeholder="To"
-                            [matMenuTriggerFor]="menu2" [(ngModel)]="tooption">
-                        <mat-menu #menu2="matMenu">
-                            <button mat-menu-item (click)="toEvent('Jaipur')">Jaipur</button>
-                            <button mat-menu-item (click)="toEvent('Goa')">Goa</button>
-                            <button mat-menu-item (click)="toEvent('Mysore')">Mysore</button>
-                            <button mat-menu-item (click)="toEvent('Darjeeling')">Darjeeling</button>
-                            <button mat-menu-item (click)="toEvent('Pondicherry')">Pondicherry</button>
-                        </mat-menu>
-                    </div>
-                </div>
-            </div>
-            <!-- travel search right section  -->
-            <div class="flex bg-white flex-col sm:flex-row lg:w-1/2">
-                <div class="h-full border-b sm:border-r border-gray-300 sm:w-1/2 w-full">
-                    <div class="px-7 py-8 flex items-center h-full gap-3 group relative pr-12">
-
-                        <i class="fa-solid fa-calendar-days text-gray-500 text-2xl"></i>
-                        <input matInput class="outline-none opacity-0 scale-[3] h-14 w-[30px] absolute left-14 z-10"
-                            placeholder="Date" [matDatepicker]="picker" (click)="picker.open()" (dateChange)="matchDate($event)">
-                        <p class="text-gray-400">Date</p>
-                        <mat-datepicker #picker></mat-datepicker>
-                        <!-- <p class="text-gray-400">Date</p> -->
-                    </div>
-                </div>
-                <button
-                    class=" px-7 py-8 flex items-center justify-center bg-red-400 whitespace-nowrap text-white font-bold w-full sm:w-1/2 text-center"
-                    (click)="submit()">
-                    SEARCH BUSES
-                </button>
-            </div>
-
+          class="w-10 h-10 bg-white dark:bg-[#2a2a2a] rounded-full grid place-content-center absolute border border-gray-300 dark:border-gray-600"
+        >
+          <i class="fa-solid fa-arrows-turn-to-dots text-gray-500 dark:text-gray-300 dark:border-gray-600 text-xl"></i>
         </div>
-        <!-- travel search section ends here -->
+        <div class="h-full border-b sm:border-r border-gray-300 dark:border-gray-600 w-full md:w-[50%] sm:w-auto">
+          <div class="px-7 py-8 flex items-center h-full gap-3">
+            <i class="fa-solid fa-person-walking-luggage text-gray-500 text-2xl"></i>
+            <input
+              class="dark:bg-transparent dark:text-white outline-none w-full"
+              type="text"
+              name=""
+              id=""
+              [placeholder]="'TO' | translate"
+              [matMenuTriggerFor]="menu2"
+              [ngModel]="tooption | translate"
+              (ngModelChange)="fromoption = $event"
+            />
+            <mat-menu #menu2="matMenu">
+              <button mat-menu-item (click)="toEvent('Jaipur')">{{ 'JAIPUR' | translate }}</button>
+              <button mat-menu-item (click)="toEvent('Goa')">{{ 'GOA' | translate }}</button>
+              <button mat-menu-item (click)="toEvent('Mysore')">{{ 'MYSORE' | translate }}</button>
+              <button mat-menu-item (click)="toEvent('Darjeeling')">
+                {{ 'DARJEELING' | translate }}
+              </button>
+              <button mat-menu-item (click)="toEvent('Pondicherry')">
+                {{ 'PONDICHERRY' | translate }}
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+      <!-- travel search right section  -->
+      <div class="flex bg-white dark:bg-[#2a2a2a] flex-col sm:flex-row lg:w-1/2">
+        <div class="h-full border-b sm:border-r border-gray-300  dark:border-gray-600 sm:w-1/2 w-full">
+          <div class="px-7 py-8 flex items-center h-full gap-3 group relative pr-12">
+            <i class="fa-solid fa-calendar-days text-gray-500 text-2xl"></i>
+            <input
+              matInput
+              class="dark:bg-transparent dark:text-white outline-none opacity-0 scale-[3] h-14 w-[30px] absolute left-14 z-10"
+              [placeholder]="'Date' | translate"
+              [matDatepicker]="picker"
+              (click)="picker.open()"
+              (dateChange)="matchDate($event)"
+            />
+            <p class="text-gray-400">{{ 'DATE' | translate }}</p>
+            <mat-datepicker #picker></mat-datepicker>
+            <!-- <p class="text-gray-400">Date</p> -->
+          </div>
+        </div>
+        <button
+          class="px-7 py-8 flex items-center justify-center bg-red-400 whitespace-nowrap text-white 
+          font-bold w-full sm:w-1/2 text-center"
+          (click)="submit()"
+        >
+          {{ 'SEARCH_BUSES' | translate }}
+        </button>
+      </div>
     </div>
+    <!-- travel search section ends here -->
+  </div>
 </section>
-<!-- -------------------------- hero section ends here ---------------------------  -->
 
 
 
-
-
-<!-- ------------------------------- offers section starts here -------------------- -->
 <section class="flex relative md:bottom-[150px] mb-20 mt-10 md:my-0 justify-center">
-    <div class="flex flex-col items-center w-full max-w-[1400px] py-6 pb-0">
-        <div class="w-full md:w-[83%] md:p-8 flex flex-col gap-6 bg-white md:rounded-3xl md:drop-shadow-xl">
-            <div class="flex justify-between px-4 md:px-0">
-                <h2 class="text-xl md:text-3xl text-gray-600">TRENDING OFFERS</h2>
-                <button
-                    class="text-blue-600 py-1 font-semibold text-base  px-4 rounded-full border border-gray-500 hover:shadow-lg">View
-                    All</button>
+  <div class="flex flex-col items-center w-full max-w-[1400px] py-6 pb-0">
+    <div
+      class="w-full md:w-[83%] md:p-8 flex flex-col gap-6 bg-white dark:bg-[#2a2a2a] md:rounded-3xl md:drop-shadow-xl"
+    >
+      <div class="flex justify-between px-4 md:px-0">
+        <h2 class="text-xl md:text-3xl text-gray-600 dark:text-gray-200 ">{{ 'BUS_TICKET' | translate }}</h2>
+        <button
+          class="text-blue-600  dark:text-blue-400 py-1 font-semibold text-base px-4 rounded-full border border-gray-500 dark:border-gray-400 hover:shadow-lg"
+        >
+          {{ 'VIEW_ALL' | translate }}
+        </button>
+      </div>
+      <div class="flex text-white gap-6 overflow-auto pl-4 md:pl-0">
+        <!-- offer card one  -->
+        <div
+          class="h-36 w-64 rounded-xl bg-gradient-to-r from-blue-800 to-blue-500 flex p-3 cursor-pointer flex-shrink-0"
+        >
+          <div class="h-full grid place-content-center px-2">
+            <img class="rounded-full w-24" src="offer1.png" alt="" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <p
+              class="text-xs px-1 py-[1px] bg-[#ffffff4c] rounded-full w-10 grid place-content-center"
+            >
+              {{ 'BUS' | translate }}
+            </p>
+            <h3 class="font-bold text-base leading-5">{{ 'OFFER_SAVE_250' | translate }}</h3>
+            <p class="text-xs">{{ 'VALID_TILL_30_NOV' | translate }}</p>
+            <div class="flex gap-3 items-center">
+              <p
+                class="grid place-content-center bg-[#ffffff4c] h-6 font-semibold px-2 rounded-sm border border-dashed border-white text-xs"
+              >
+                {{ 'PROMO_FIRS' | translate }}
+              </p>
+              <i class="fa-regular fa-copy text-xl"></i>
             </div>
-            <div class="flex text-white gap-6 overflow-auto pl-4 md:pl-0">
-
-                <!-- offer card one  -->
-                <div
-                    class="h-36 w-64 rounded-xl bg-gradient-to-r from-blue-800 to-blue-500 flex p-3 cursor-pointer flex-shrink-0">
-                    <div class="h-full grid place-content-center px-2">
-                        <img class="rounded-full w-24" src="offer1.png" alt="">
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <p class="text-xs px-1 py-[1px] bg-[#ffffff4c] rounded-full w-10 grid place-content-center">BUS
-                        </p>
-                        <h3 class="font-bold text-base leading-5">Save up to Rs 250 on bus tickets</h3>
-                        <p class="text-xs">Valid till 30 Nov</p>
-                        <div class="flex gap-3 items-center">
-                            <p
-                                class="grid place-content-center bg-[#ffffff4c] h-6 font-semibold px-2 rounded-sm border border-dashed border-white text-xs">
-                                FIRST</p>
-                            <i class="fa-regular fa-copy text-xl"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- offer card two  -->
-                <div
-                    class="h-36 w-64 rounded-xl bg-gradient-to-r from-red-800 to-red-500 flex p-3 cursor-pointer flex-shrink-0">
-                    <div class="h-full grid place-content-center px-2">
-                        <img class="rounded-full w-24" src="offer2.png" alt="">
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <p class="text-xs px-1 py-[1px] bg-[#ffffff4c] rounded-full w-10 grid place-content-center">BUS
-                        </p>
-                        <h3 class="font-bold text-base leading-5">Save up to Rs 300 on AP, TS routes</h3>
-                        <p class="text-xs">Valid till 30 Nov</p>
-                        <div class="flex gap-3 items-center">
-                            <p
-                                class="grid place-content-center bg-[#ffffff4c] h-6 font-semibold px-2 rounded-sm border border-dashed border-white text-xs">
-                                SUPERHIT</p>
-                            <i class="fa-regular fa-copy text-xl"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- offer card three  -->
-                <div
-                    class="h-36 w-64 rounded-xl bg-gradient-to-r from-green-800 to-green-500 flex p-3 cursor-pointer flex-shrink-0">
-                    <div class="h-full grid place-content-center px-2">
-                        <img class="rounded-full w-24" src="offer3.png" alt="">
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <p class="text-xs px-1 py-[1px] bg-[#ffffff4c] rounded-full w-10 grid place-content-center">BUS
-                        </p>
-                        <h3 class="font-bold text-base leading-5">Save up to Rs 300 on RJ,MH, Goa, MP,</h3>
-                        <p class="text-xs">Valid till 30 Nov</p>
-                        <div class="flex gap-3 items-center">
-                            <p
-                                class="grid place-content-center bg-[#ffffff4c] h-6 font-semibold px-2 rounded-sm border border-dashed border-white text-xs">
-                                BUS300</p>
-                            <i class="fa-regular fa-copy text-xl"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- offer card four  -->
-                <div
-                    class="h-36 w-64 rounded-xl bg-gradient-to-r from-sky-800 to-sky-500 flex p-3 cursor-pointer flex-shrink-0">
-                    <div class="h-full grid place-content-center px-2">
-                        <img class="rounded-full w-24" src="offer4.png" alt="">
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <p class="text-xs px-1 py-[1px] bg-[#ffffff4c] rounded-full w-10 grid place-content-center">BUS
-                        </p>
-                        <h3 class="font-bold text-base leading-5">Save up to Rs 200 in Kerala routes.</h3>
-                        <p class="text-xs">Valid till 30 Nov</p>
-                        <div class="flex gap-3 items-center">
-                            <p
-                                class="grid place-content-center bg-[#ffffff4c] h-6 font-semibold px-2 rounded-sm border border-dashed border-white text-xs">
-                                RBTRIP</p>
-                            <i class="fa-regular fa-copy text-xl"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <!-- offer card two  -->
+        <div
+          class="h-36 w-64 rounded-xl bg-gradient-to-r from-red-800 to-red-500 flex p-3 cursor-pointer flex-shrink-0"
+        >
+          <div class="h-full grid place-content-center px-2">
+            <img class="rounded-full w-24" src="offer2.png" alt="" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <p
+              class="text-xs px-1 py-[1px] bg-[#ffffff4c] rounded-full w-10 grid place-content-center"
+            >
+              {{ 'BUS' | translate }}
+            </p>
+            <h3 class="font-bold text-base leading-5">{{ 'OFFER_SAVE_300_AP_TS' | translate }}</h3>
+            <p class="text-xs">{{ 'VALID_TILL_30_NOV' | translate }}</p>
+            <div class="flex gap-3 items-center">
+              <p
+                class="grid place-content-center bg-[#ffffff4c] h-6 font-semibold px-2 rounded-sm border border-dashed border-white text-xs"
+              >
+                {{ 'PROMO_SUPERHIT' | translate }}
+              </p>
+              <i class="fa-regular fa-copy text-xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- offer card three  -->
+        <div
+          class="h-36 w-64 rounded-xl bg-gradient-to-r from-green-800 to-green-500 flex p-3 cursor-pointer flex-shrink-0"
+        >
+          <div class="h-full grid place-content-center px-2">
+            <img class="rounded-full w-24" src="offer3.png" alt="" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <p
+              class="text-xs px-1 py-[1px] bg-[#ffffff4c] rounded-full w-10 grid place-content-center"
+            >
+              {{ 'BUS' | translate }}
+            </p>
+            <h3 class="font-bold text-base leading-5">{{ 'OFFER_SAVE_300_RJ_MH' | translate }}</h3>
+            <p class="text-xs">{{ 'VALID_TILL_30_NOV' | translate }}</p>
+            <div class="flex gap-3 items-center">
+              <p
+                class="grid place-content-center bg-[#ffffff4c] h-6 font-semibold px-2 rounded-sm border border-dashed border-white text-xs"
+              >
+                {{ 'PROMO_BUS300' | translate }}
+              </p>
+              <i class="fa-regular fa-copy text-xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- offer card four  -->
+        <div
+          class="h-36 w-64 rounded-xl bg-gradient-to-r from-sky-800 to-sky-500 flex p-3 cursor-pointer flex-shrink-0"
+        >
+          <div class="h-full grid place-content-center px-2">
+            <img class="rounded-full w-24" src="offer4.png" alt="" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <p
+              class="text-xs px-1 py-[1px] bg-[#ffffff4c] rounded-full w-10 grid place-content-center"
+            >
+              {{ 'BUS' | translate }}
+            </p>
+            <h3 class="font-bold text-base leading-5">{{ 'OFFER_SAVE_200_KERALA' | translate }}</h3>
+            <p class="text-xs">{{ 'VALID_TILL_30_NOV' | translate }}</p>
+            <div class="flex gap-3 items-center">
+              <p
+                class="grid place-content-center bg-[#ffffff4c] h-6 font-semibold px-2 rounded-sm border border-dashed border-white text-xs"
+              >
+                {{ 'PROMO_RBTRIP' | translate }}
+              </p>
+              <i class="fa-regular fa-copy text-xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
+<section class="flex justify-center my-20 md:my-40">
+  <div class="flex flex-col w-full px-6 md:px-0 md:w-[80%] max-w-[1300px]">
+    <h1 class="text-gray-700  dark:text-gray-200 text-2xl md:text-[2.5rem] mb-6 md:mb-12">
+      {{ 'FAQ_HEADING' | translate }}
+    </h1>
 
-
-<section class="flex justify-center  my-20 md:my-40">
-    <div class="flex flex-col w-full px-6 md:px-0 md:w-[80%] max-w-[1300px]">
-        <h1 class="text-gray-700 text-2xl md:text-[2.5rem] mb-6 md:mb-12">FREQUENTY ASKED QUESTIONS</h1>
-
-        <!-- faq navigation buttons starts here  -->
-        <div class="flex gap-6 text-sm md:text-base lg:text-lg">
-            <a class="py-2 px-2 border-b-[3px] border-main-color text-main-color" href="">General</a>
-            <a class="py-2 px-2 hover:border-b-[3px] border-gray-300" href="">Ticket-related</a>
-            <a href=""
-                class=" leading-none flex justify-center items-center gap-3 py-2 px-2 hover:border-b-[3px] border-gray-300 sm:hidden">More
-                <i class="fa-solid fa-chevron-right"></i></a>
-            <a class="hidden sm:inline-block py-2 px-2 hover:border-b-[3px] border-gray-300" href="">Payment</a>
-            <a class="hidden sm:inline-block py-2 px-2 hover:border-b-[3px] border-gray-300" href="">Cancellation &
-                Refund</a>
-            <a class="hidden sm:inline-block py-2 px-2 hover:border-b-[3px] border-gray-300" href="">Insurance</a>
-        </div>
-        <!-- faq navigation buttons starts here  -->
-
-        <!-- faq ans stats here  -->
-        <div class="flex flex-col gap-6 md:gap-10 mt-11">
-
-            <!-- 1st faq  -->
-            <div class="p-4 md:p-7 cursor-pointer bg-white group hover:bg-slate-100 rounded-2xl border border-gray-100">
-                <!-- displayed part  -->
-                <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
-                    <h3>Can I track the location of my booked bus online?</h3>
-                    <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
-                    <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
-                </div>
-
-                <!-- hidden content -->
-                <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
-                    <p>Yes, you can track your <strong>bus online</strong> by using our bus tracking app feature called
-                        <a class="text-blue-500">Track My Bus</a>. This feature allows passengers and their families to
-                        track the live bus tracking location. You may follow your bus on a map and use the information
-                        to plan your trip to the boarding point and to get off at the correct stop. Family and friends
-                        may also check the bus position to plan pick-ups and ensure your safety.</p>
-                </div>
-            </div>
-            <!-- 1st faq ends here  -->
-
-
-
-
-            <div
-                class="p-4 md:p-7  cursor-pointer bg-white group hover:bg-slate-100 rounded-2xl border border-gray-100">
-                <!-- displayed part  -->
-                <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
-                    <h3>Why book bus tickets online on tedbus?</h3>
-                    <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
-                    <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
-                </div>
-
-                <!-- hidden content -->
-                <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
-                    <p>Yes, you can track your <strong>bus online</strong> by using our bus tracking app feature called
-                        <a class="text-blue-500">Track My Bus</a>. This feature allows passengers and their families to
-                        track the live bus tracking location. You may follow your bus on a map and use the information
-                        to plan your trip to the boarding point and to get off at the correct stop. Family and friends
-                        may also check the bus position to plan pick-ups and ensure your safety.</p>
-                </div>
-            </div>
-
-
-            <div
-                class="p-4 md:p-7  cursor-pointer bg-white group hover:bg-slate-100 rounded-2xl border border-gray-100">
-                <!-- displayed part  -->
-                <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
-                    <h3>Do I need to create an account on the tedbus site to book my bus ticket?</h3>
-                    <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
-                    <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
-                </div>
-
-                <!-- hidden content -->
-                <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
-                    <p>Yes, you can track your <strong>bus online</strong> by using our bus tracking app feature called
-                        <a class="text-blue-500">Track My Bus</a>. This feature allows passengers and their families to
-                        track the live bus tracking location. You may follow your bus on a map and use the information
-                        to plan your trip to the boarding point and to get off at the correct stop. Family and friends
-                        may also check the bus position to plan pick-ups and ensure your safety.</p>
-                </div>
-            </div>
-
-
-
-            <div
-                class="p-4 md:p-7  cursor-pointer bg-white group hover:bg-slate-100 rounded-2xl border border-gray-100">
-                <!-- displayed part  -->
-                <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
-                    <h3>Does bus booking online cost me more?</h3>
-                    <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
-                    <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
-                </div>
-
-                <!-- hidden content -->
-                <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
-                    <p>Yes, you can track your <strong>bus online</strong> by using our bus tracking app feature called
-                        <a class="text-blue-500">Track My Bus</a>. This feature allows passengers and their families to
-                        track the live bus tracking location. You may follow your bus on a map and use the information
-                        to plan your trip to the boarding point and to get off at the correct stop. Family and friends
-                        may also check the bus position to plan pick-ups and ensure your safety.</p>
-                </div>
-            </div>
-
-
-
-            <div
-                class="p-4 md:p-7  cursor-pointer bg-white group hover:bg-slate-100 rounded-2xl border border-gray-100">
-                <!-- displayed part  -->
-                <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
-                    <h3>How can I get the discounts on the bus booking?</h3>
-                    <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
-                    <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
-                </div>
-
-                <!-- hidden content -->
-                <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
-                    <p>Yes, you can track your <strong>bus online</strong> by using our bus tracking app feature called
-                        <a class="text-blue-500">Track My Bus</a>. This feature allows passengers and their families to
-                        track the live bus tracking location. You may follow your bus on a map and use the information
-                        to plan your trip to the boarding point and to get off at the correct stop. Family and friends
-                        may also check the bus position to plan pick-ups and ensure your safety.</p>
-                </div>
-            </div>
-
-
-
-            <div
-                class="p-4 md:p-7  cursor-pointer bg-white group hover:bg-slate-100 rounded-2xl border border-gray-100">
-                <!-- displayed part  -->
-                <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
-                    <h3>What's New in Bus Booking on tedbus?</h3>
-                    <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
-                    <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
-                </div>
-
-                <!-- hidden content -->
-                <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
-                    <p>Yes, you can track your <strong>bus online</strong> by using our bus tracking app feature called
-                        <a class="text-blue-500">Track My Bus</a>. This feature allows passengers and their families to
-                        track the live bus tracking location. You may follow your bus on a map and use the information
-                        to plan your trip to the boarding point and to get off at the correct stop. Family and friends
-                        may also check the bus position to plan pick-ups and ensure your safety.</p>
-                </div>
-            </div>
-
-
-            <div
-                class="p-4 md:p-7  cursor-pointer bg-white group hover:bg-slate-100 rounded-2xl border border-gray-100">
-                <!-- displayed part  -->
-                <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
-                    <h3>Can I book a Government bus ticket on tedbus?</h3>
-                    <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
-                    <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
-                </div>
-
-                <!-- hidden content -->
-                <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
-                    <p>Yes, you can track your <strong>bus online</strong> by using our bus tracking app feature called
-                        <a class="text-blue-500">Track My Bus</a>. This feature allows passengers and their families to
-                        track the live bus tracking location. You may follow your bus on a map and use the information
-                        to plan your trip to the boarding point and to get off at the correct stop. Family and friends
-                        may also check the bus position to plan pick-ups and ensure your safety.</p>
-                </div>
-            </div>
-
-
-        </div>
-        <!-- faq ans ends here  -->
-
+    <!-- faq navigation buttons starts here  -->
+    <div class="flex gap-6 text-sm md:text-base lg:text-lg">
+      <a class="py-2 px-2 border-b-[3px] border-main-color text-main-color" href="">
+        {{ 'TAB_GENERAL' | translate }}</a
+      >
+      <a class="py-2 px-2 hover:border-b-[3px] border-gray-300 dark:border-gray-600 drak:text-gray-300" href="">
+        {{ 'TAB_TICKET_RELATED' | translate }}</a
+      >
+      <a
+        href=""
+        class="leading-none flex justify-center items-center gap-3 py-2 px-2 hover:border-b-[3px] border-gray-300 sm:hidden"
+        >More <i class="fa-solid fa-chevron-right"></i
+      ></a>
+      <a class="hidden sm:inline-block py-2 px-2 hover:border-b-[3px] border-gray-300 dark:border-gray-600 drak:text-gray-300" href="">{{
+        'TAB_PAYMENT' | translate
+      }}</a>
+      <a class="hidden sm:inline-block py-2 px-2 hover:border-b-[3px] border-gray-300 dark:border-gray-600 drak:text-gray-300" href=""
+        >{{ 'TAB_CANCELLATION_REFUND' | translate }}
+      </a>
+      <a class="hidden sm:inline-block py-2 px-2 hover:border-b-[3px] border-gray-300 dark:border-gray-600 drak:text-gray-300" href="">{{
+        'TAB_INSURANCE' | translate
+      }}</a>
     </div>
+    <!-- faq navigation buttons starts here  -->
+
+    <!-- faq ans stats here  -->
+    <div class="flex flex-col gap-6 md:gap-10 mt-11">
+      <!-- 1st faq  -->
+      <div
+        class="p-4 md:p-7 cursor-pointer bg-white dark:bg-[#1e1e1e] group hover:bg-slate-100 dark:hover:bg-[#2a2a2a] rounded-2xl border border-gray-100 dark:border-gray-700"
+      >
+        <!-- displayed part  -->
+        <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
+          <h3 dark:text-white>{{ 'FAQ_Q1_TRACK_BUS' | translate }}</h3>
+          <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
+          <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
+        </div>
+
+        <!-- hidden content -->
+        <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
+          <p [innerHTML]="'FAQ_A1_TRACK_BUS' | translate"></p>
+        </div>
+      </div>
+      <!-- 1st faq ends here  -->
+
+      <div
+        class="p-4 md:p-7 cursor-pointer bg-white dark:bg-[#1e1e1e] group hover:bg-slate-100  dark:hover:bg-[#2a2a2a] rounded-2xl border border-gray-100 dark:border-gray-700"
+      >
+        <!-- displayed part  -->
+        <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
+          <h3 dark:text-white>{{ 'FAQ_Q2_WHY_BOOK' | translate }}</h3>
+          <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
+          <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
+        </div>
+
+        <!-- hidden content -->
+        <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
+          <p [innerHTML]="'FAQ_A1_TRACK_BUS' | translate"></p>
+        </div>
+      </div>
+
+      <div
+        class="p-4 md:p-7 cursor-pointer bg-white dark:bg-[#1e1e1e] group hover:bg-slate-100 dark:hover:bg-[#2a2a2a] rounded-2xl border border-gray-100 dark:border-gray-700"
+      >
+        <!-- displayed part  -->
+        <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
+          <h3 dark:text-white>{{ 'FAQ_Q3_CREATE_ACCOUNT' | translate }}</h3>
+          <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
+          <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
+        </div>
+
+        <!-- hidden content -->
+        <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
+          <p [innerHTML]="'FAQ_A1_TRACK_BUS' | translate"></p>
+        </div>
+      </div>
+
+      <div
+        class="p-4 md:p-7 cursor-pointer bg-white dark:bg-[#1e1e1e] group hover:bg-slate-100  dark:hover:bg-[#2a2a2a] rounded-2xl border border-gray-100 dark:border-gray-700"
+      >
+        <!-- displayed part  -->
+        <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
+          <h3 dark:text-white>{{ 'FAQ_Q4_COST_MORE' | translate }}</h3>
+          <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
+          <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
+        </div>
+
+        <!-- hidden content -->
+        <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
+          <p [innerHTML]="'FAQ_A1_TRACK_BUS' | translate"></p>
+        </div>
+      </div>
+
+      <div
+        class="p-4 md:p-7 cursor-pointer bg-white  dark:bg-[#1e1e1e] group hover:bg-slate-100 dark:hover:bg-[#2a2a2a] rounded-2xl border border-gray-100 dark:border-gray-700"
+      >
+        <!-- displayed part  -->
+        <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
+          <h3 dark:text-white>{{ 'FAQ_Q5_DISCOUNTS' | translate }}</h3>
+          <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
+          <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
+        </div>
+
+        <!-- hidden content -->
+        <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
+          <p [innerHTML]="'FAQ_A1_TRACK_BUS' | translate"></p>
+        </div>
+      </div>
+
+      <div
+        class="p-4 md:p-7 cursor-pointer bg-white dark:bg-[#1e1e1e] group hover:bg-slate-100 dark:hover:bg-[#2a2a2a] rounded-2xl border border-gray-100 dark:border-gray-700"
+      >
+        <!-- displayed part  -->
+        <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
+          <h3 dark:text-white>{{ 'FAQ_Q6_WHATS_NEW' | translate }}</h3>
+          <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
+          <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
+        </div>
+
+        <!-- hidden content -->
+        <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
+          <p [innerHTML]="'FAQ_A1_TRACK_BUS' | translate"></p>
+        </div>
+      </div>
+
+      <div
+        class="p-4 md:p-7 cursor-pointer bg-white  dark:bg-[#1e1e1e] group hover:bg-slate-100 dark:hover:bg-[#2a2a2a] rounded-2xl border border-gray-100 dark:border-gray-700"
+      >
+        <!-- displayed part  -->
+        <div class="flex md:text-base text-sm justify-between items-center font-semibold gap-2">
+          <h3 dark:text-white>{{ 'FAQ_Q7_GOVT_BUS' | translate }}</h3>
+          <i class="fa-solid fa-plus inline-block group-hover:hidden"></i>
+          <i class="fa-solid fa-minus hidden group-hover:inline-block"></i>
+        </div>
+
+        <!-- hidden content -->
+        <div class="text-xs md:text-sm mt-6 hidden group-hover:inline-block">
+          <p [innerHTML]="'FAQ_A1_TRACK_BUS' | translate"></p>
+        </div>
+      </div>
+    </div>
+   
+  </div>
 </section>

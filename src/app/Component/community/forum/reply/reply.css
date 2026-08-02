@@ -1,0 +1,97 @@
+.replies-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  margin-top: 15px;
+  background-color: #fff;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.replies-section h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.reply-card {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 10px;
+}
+
+form {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input, 
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+
+:host-context(.dark) .replies-section {
+    background-color: #1e1e1e;
+    border-top-color: #444444; 
+    color: #ffffff;
+}
+
+
+:host-context(.dark) .replies-section h3,
+:host-context(.dark) .form-group label {
+    color: #ffffff;
+}
+
+
+:host-context(.dark) .reply-card {
+    border-bottom-color: #333333;
+}
+
+
+:host-context(.dark) form {
+    border-top-color: #444444;
+}
+
+
+:host-context(.dark) .form-group input,
+:host-context(.dark) .form-group textarea {
+    background-color: #2a2a2a; 
+    color: #ffffff; 
+    border-color: #555555;
+}
+
+
+:host-context(.dark) .form-group input:focus,
+:host-context(.dark) .form-group textarea:focus {
+    border-color: #007bff; 
+    outline: none;
+}
+
