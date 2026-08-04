@@ -24,11 +24,11 @@ export class Navbar implements OnInit{
     this.isLoggedIn=false
   }
 
-     //google.accounts.id.initialize({
-      //client_id:'826997276246-v9hldbj9qca23jd50vopnep7esc3jve8.apps.googleusercontent.com',
-      //callback:(response:any)=>{this.handlelogin(response)}
+     google.accounts.id.initialize({
+      client_id:'826997276246-v9hldbj9qca23jd50vopnep7esc3jve8.apps.googleusercontent.com',
+      callback:(response:any)=>{this.handlelogin(response)}
       
-    //})
+    })
     const savedLang = localStorage.getItem('preferredLanguage');
     if(savedLang){
       this.translate.use(savedLang);
@@ -51,10 +51,10 @@ export class Navbar implements OnInit{
   
   if (this.isDarkMode) {
     localStorage.setItem('tedbus_theme', 'dark');
-    document.documentElement.classList.add('dark'); // 'dark' क्लास जोड़ेगा
+    document.documentElement.classList.add('dark'); 
   } else {
     localStorage.setItem('tedbus_theme', 'light');
-    document.documentElement.classList.remove('dark'); // 'dark' क्लास हटाएगा
+    document.documentElement.classList.remove('dark'); 
   }
 }
 
