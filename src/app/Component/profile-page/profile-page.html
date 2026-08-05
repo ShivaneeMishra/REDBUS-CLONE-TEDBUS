@@ -7,32 +7,32 @@
         >
 
         <div class="leftPannel_eachListItem_text">
-          {{ 'Dashboard' }}
+          {{ 'DASHBOARD' | translate }}
         </div>
       </li>
       <div class="line"></div>
       <li class="leftPannel_eachListOption" (click)="handleListitemclick('trips')">
         <i class="material-icons" style="color: grey; font-size: 30px">location_on</i>
 
-        <div class="leftPannel_eachListItem_text">My Trips</div>
+        <div class="leftPannel_eachListItem_text">{{ 'MY_TRIPS' | translate }}</div>
       </li>
       <div class="line"></div>
       <!-- Add other list items here -->
       <li class="leftPannel_eachListOption" (click)="handleListitemclick('profile')">
         <i class="material-icons" style="color: grey; font-size: 30px">settings</i>
-        <div class="leftPannel_eachListItem_text">My Profile</div>
+        <div class="leftPannel_eachListItem_text">{{ 'MY_PROFILE' | translate }}</div>
       </li>
       <div class="line"></div>
       <li class="leftPannel_eachListOption" (click)="handleListitemclick('community')">
         <i class="material-icons" style="color: grey; font-size: 30px">forum</i>
 
-        <div class="leftPannel_eachListItem_text">Community</div>
+        <div class="leftPannel_eachListItem_text">{{ 'COMMUNITY' | translate }}</div>
       </li>
       <div class="line"></div>
       <li class="leftPannel_eachListOption" (click)="handleListitemclick('wallet')">
         <i class="material-icons" style="color: grey; font-size: 30px">account_balance_wallet</i>
 
-        <div class="leftPannel_eachListItem_text">Wallet</div>
+        <div class="leftPannel_eachListItem_text">{{ 'WALLET' | translate }}</div>
       </li>
       <div class="line"></div>
     </ul>
@@ -48,7 +48,7 @@
     <app-community></app-community>
   </div>
   <div *ngIf="selectedItem === 'profile'" class="rightPannel">
-    <span class="profileHeading">{{ 'My Profile' }}</span>
+    <span class="profileHeading">{{ 'MY_PROFILE' | translate }}</span>
     <div class="profilebox">
       <div style="display: flex; justify-content: space-between">
         <div
@@ -60,7 +60,7 @@
             justify-content: space-evenly;
           "
         >
-          <div class="userDetailHeading">Your name</div>
+          <div class="userDetailHeading">{{ 'YOUR_NAME' | translate }}</div>
           <div class="userDetailInfo">{{ currentcustomer ? currentcustomer.name : 'User' }}</div>
         </div>
         <div
@@ -72,7 +72,7 @@
             justify-content: space-evenly;
           "
         >
-          <div class="userDetailHeading">Date of Birth</div>
+          <div class="userDetailHeading">{{ 'DATE_OF_BIRTH' | translate }}</div>
           <div class="userDetailInfo">1993-03-04</div>
         </div>
       </div>
@@ -86,13 +86,13 @@
             justify-content: space-evenly;
           "
         >
-          <div class="userDetailHeading">Gender</div>
+          <div class="userDetailHeading">{{ 'GENDER' | translate }}</div>
           <div class="userDetailInfo">{{ currentcustomer ? currentcustomer.gender : '-' }}</div>
         </div>
       </div>
       <div style="display: flex; justify-content: space-between; margin-top: 5%">
         <div class="contactLine"></div>
-        <div class="contactDetailsHeading">Contact Details</div>
+        <div class="contactDetailsHeading">{{ 'CONTACT_DETAILS' | translate }}</div>
         <div class="contactLine"></div>
       </div>
       <div style="display: flex; justify-content: space-between; margin-top: 5%">
@@ -105,7 +105,7 @@
             justify-content: space-evenly;
           "
         >
-          <div class="userDetailHeading">email</div>
+          <div class="userDetailHeading">{{ 'EMAIL' | translate }}</div>
           <div class="userDetailInfo">{{ currentcustomer ? currentcustomer.email : '-' }}</div>
         </div>
         <div
@@ -117,14 +117,14 @@
             justify-content: space-evenly;
           "
         >
-          <div class="userDetailHeading">phone</div>
+          <div class="userDetailHeading">{{ 'PHONE' | translate }}</div>
           <div class="userDetailInfo">12345678</div>
         </div>
       </div>
     </div>
     
     <div class="user-activity-section" style="margin-top: 30px; padding: 20px">
-      <h3>My Community Posts</h3>
+      <h3>{{ 'MY_COMMUNITY_POSTS' | translate }}</h3>
       <div
         *ngFor="let post of userPosts"
         class="activity-card"
@@ -134,9 +134,9 @@
         <p>{{ post.content || post.description }}</p>
         <small>Status: {{ post.status }} | Likes: {{ post.likes?.length || 0 }}</small>
       </div>
-      <p *ngIf="userPosts.length === 0">No posts found.</p>
+      <p *ngIf="userPosts.length === 0">{{ 'NO_POSTS_FOUND' | translate }}</p>
 
-      <h3 style="margin-top: 20px">My Forum Discussions</h3>
+      <h3 style="margin-top: 20px">{{ 'MY_FORUM_DISCUSSIONS' | translate }}</h3>
       <div
         *ngFor="let forum of userForums"
         class="activity-card"
@@ -154,7 +154,7 @@
           <span *ngIf="!forum.tags">-</span>
         </small>
       </div>
-      <p *ngIf="userForums.length === 0">No forum discussions found.</p>
+      <p *ngIf="userForums.length === 0">{{ 'NO_FORUM_DISCUSSIONS_FOUND' | translate }}</p>
     </div>
   </div>
 </div>

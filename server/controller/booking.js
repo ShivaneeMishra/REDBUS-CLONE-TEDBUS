@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer');
 
 exports.addbooking = async (req, res) => {
   try {
+    let currentStatus = 'PENDING';
     const booking = await Booking.create(req.body);
     console.log(req.body);
 
@@ -17,27 +18,29 @@ exports.addbooking = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'shivaneem98@gmail.com', // यहाँ अपनी जीमेल आईडी लिखें
-        pass: 'jhkw mdzs rlta fqch', // यहाँ अपना Gmail App Password लिखें (यह कैसे बनाना है, मैं नीचे बता रहा हूँ)
+        user: 'shivaneem98@gmail.com', 
+        pass: 'jhkw mdzs rlta fqch', 
       },
     });
 
-    // (b) ईमेल क्या भेजना है, वह सेट करें
     const mailOptions = {
       from: '"TedBus" <shivaneem98@gmail.com>',
-      to: req.body.email || 'shivanee03mishra@gmail.com', // जिसे ईमेल भेजना है (Customer Email)
+      to: req.body.email || 'shivanee03mishra@gmail.com',
       subject: 'Booking Confirmed - TedBus',
       text: `Hello! Your bus ticket has been successfully booked. Thank you for choosing TedBus!`,
     };
 
-    // (c) ईमेल भेज दें!
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.log('Email error: ', error);
-      } else {
-        console.log('Email sent successfully: ' + info.response);
-      }
-    });
+   
+   try {
+      await transporter.sendMail(mailOptions);
+      console.log('Email sent successfully');
+      currentStatus = 'SENT';
+    } catch (emailError) {
+      console.log('Email error: ', emailError.message);
+      currentStatus = 'FAILED';
+    }
+
+    await Booking.findByIdAndUpdate(booking._id, { notificationStatus: currentStatus });
 
     res.send(booking);
   } catch (error) {
@@ -52,19 +55,18 @@ exports.getBooking = async (req, res) => {
   let filteredBookings = booking.filter((booking) => booking.customerId.toString() == id);
   res.send(filteredBookings);
 };
-// टिकट कैंसल करने और नोटिफिकेशन सेव करने का फंक्शन
+
 exports.cancelBooking = async (req, res) => {
   try {
     const bookingId = req.params.id;
 
-    // डेटाबेस से बुकिंग ढूंढकर डिलीट करें
+    
     const cancelledBooking = await Booking.findByIdAndDelete(bookingId);
 
     if (!cancelledBooking) {
       return res.status(404).send({ success: false, message: 'Booking not found' });
     }
 
-    // बुकिंग कैंसल होते ही नोटिफिकेशन हिस्ट्री में सेव करें
     await Notification.create({
       userId: cancelledBooking.customerId || '6a42602ca6e2df2097654c19',
       title: 'Bus Ticket Cancelled',
@@ -74,20 +76,20 @@ exports.cancelBooking = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'shivaneem98@gmail.com', // यहाँ अपनी जीमेल आईडी लिखें
-        pass: 'jhkw mdzs rlta fqch', // यहाँ अपना Gmail App Password लिखें (यह कैसे बनाना है, मैं नीचे बता रहा हूँ)
+        user: 'shivaneem98@gmail.com', 
+        pass: 'jhkw mdzs rlta fqch',
       },
     });
-    // (b) ईमेल क्या भेजना है, वह सेट करें
+    
     const mailOptions = {
       from: '"TedBus" <shivaneem98@gmail.com>',
-      to: cancelledBooking.email || 'shivanee03mishra@gmail.com', // जिसे ईमेल भेजना है (Customer Email)
+      to: cancelledBooking.email || 'shivanee03mishra@gmail.com',
       subject: 'Booking Cancelled - TedBus',
       text: `Hello! Your bus ticket has been successfully cancelled. We hope to se you again!`,
     };
 
-    // (c) ईमेल भेज दें!
-    transporter.sendMail(mailOptions, (error, info) => {
+    
+    transporter.sendMail(mailOptions, async(error, info) => {
       if (error) {
         console.log('Email error: ', error);
       } else {
@@ -105,14 +107,14 @@ exports.updateBooking = async (req, res) => {
     try {
         const bookingId = req.params.id;
         
-        // 1. डेटाबेस में अपडेट करें
+        
         const updatedBooking = await Booking.findByIdAndUpdate(bookingId, req.body, { new: true });
         
         if (!updatedBooking) {
             return res.status(404).send({ success: false, message: 'Booking not found' });
         }
 
-        // 2. नोटिफिकेशन बनाएं (सुरक्षित तरीके से)
+       
         try {
             await Notification.create({
                 userId: updatedBooking.customerId || '6a42602ca6e2df2097654c19',
@@ -124,7 +126,7 @@ exports.updateBooking = async (req, res) => {
             console.log('Notification creation skipped:', notifError.message);
         }
 
-       // 3. ईमेल भेजें (Retry मैकेनिज्म के साथ)
+      
 let currentStatus = 'PENDING';
 const maxRetries = 3;
 
@@ -137,7 +139,7 @@ for (let attempt = 1; attempt <= maxRetries; attempt++) {
                 pass: 'jhkw mdzs rlta fqch'
             }
         });
-        // यूज़र की भाषा चेक करें (लोकलाइजेशन सपोर्ट)
+        
 const userLang = req.body.language || 'en'; 
 
 let subjectText = '';
@@ -161,20 +163,20 @@ if (userLang === 'hi') {
         await transporter.sendMail(mailOptions);
         console.log(`Email sent successfully on attempt ${attempt}`);
         currentStatus = 'SENT';
-        break; // अगर मेल चला गया, तो लूप से बाहर आ जाएं
+        break; 
 
     } catch (emailError) {
         console.log(`Attempt ${attempt} failed:`, emailError.message);
         if (attempt === maxRetries) {
-            currentStatus = 'FAILED'; // अगर तीनों बार फेल हो गया
+            currentStatus = 'FAILED'; 
         }
     }
 }
 
-// अंत में डेटाबेस में सही स्टेटस सेव करें
+
 await Booking.findByIdAndUpdate(bookingId, { notificationStatus: currentStatus });
 
-        // 4. अंत में क्लाइंट को सफलता का संदेश भेजें
+        
         return res.status(200).send({ 
             success: true, 
             message: 'Booking updated and notification sent successfully!', 

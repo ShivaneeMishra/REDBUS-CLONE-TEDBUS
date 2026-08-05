@@ -355,7 +355,56 @@
   "DROPPING_POINT": "ड्रॉपिंग पॉइंट",
   "FARE_BREAKUP": "किराये का विवरण",
   "TOTAL_PAYABLE": "कुल देय राशि",
-  "SEATER_AC_SLEEPER": "सीटर / एसी / स्लीपर"
+  "SEATER_AC_SLEEPER": "सीटर / एसी / स्लीपर",
+
+  "TOTAL_BOOKINGS_COUNT": "कुल बुकिंग संख्या",
+  "BUS_DETAILS": "बस विवरण",
+  
+  "DEPARTURE_DATE": "प्रस्थान की तारीख",
+  
+  "ARRIVAL_DATE": "आगमन की तारीख",
+  "TOTAL_FARE": "कुल किराया",
+  "PASSENGER_DETAILS": "यात्री विवरण",
+  "CONTACT_EMAIL": "संपर्क ईमेल",
+  "CONTACT_PHONE_NUMBER": "संपर्क फ़ोन नंबर",
+  "NOTIFICATION_STATUS": "नोटिफिकेशन स्थिति",
+  
+  "CANCEL_TICKET": "टिकट रद्द करें",
+  "CHANGE_SCHEDULE": "शेड्यूल बदलें",
+  "NEW_CITY_PLACEHOLDER": "नया शहर",
+  "NEW_TIME_PLACEHOLDER": "नया समय",
+  "SAVE": "सहेजें",
+  "TICKET_CANCELLED_SUCCESS": "टिकट सफलतापूर्वक रद्द कर दिया गया है!",
+  "SCHEDULE_UPDATED_SUCCESS": "शेड्यूल अपडेट हो गया है और ईमेल सफलतापूर्वक भेज दिया गया है!",
+  "SCHEDULE_UPDATE_FAILED": "शेड्यूल अपडेट करने में विफल।",
+
+
+  "DASHBOARD": "डैशबोर्ड",
+  "MY_TRIPS": "मेरी ट्रिप्स",
+  "MY_PROFILE": "मेरी प्रोफाइल",
+  "COMMUNITY": "कम्युनिटी",
+  "WALLET": "वॉलेट",
+  "WALLET_FEATURE_COMING_SOON": "वॉलेट फीचर जल्द आ रहा है...",
+  "YOUR_NAME": "आपका नाम",
+  "USER": "यूज़र",
+  "DATE_OF_BIRTH": "जन्म तिथि",
+  "GENDER": "लिंग",
+  "CONTACT_DETAILS": "संपर्क विवरण",
+  "EMAIL": "ईमेल",
+  "PHONE": "फ़ोन",
+  "MY_COMMUNITY_POSTS": "मेरी कम्युनिटी पोस्ट",
+  "STATUS": "स्थिति",
+  "LIKES": "पसंद (Likes)",
+  "NO_POSTS_FOUND": "कोई पोस्ट नहीं मिली।",
+  "MY_FORUM_DISCUSSIONS": "मेरी फोरम चर्चाएं",
+  "AUTHOR": "लेखक",
+  "ANONYMOUS": "अज्ञात",
+  "TAGS": "टैग",
+  "NO_FORUM_DISCUSSIONS_FOUND": "कोई फोरम चर्चा नहीं मिली।"
+
+
+  
+
 
 
 

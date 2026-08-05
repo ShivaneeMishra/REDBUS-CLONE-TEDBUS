@@ -4,7 +4,10 @@ const cors=require('cors')
 const mongoose=require('mongoose')
 
 const app=express();
-app.use(cors({ origin: ['https://helpful-dodol-6eed54.netlify.app', 'http://localhost:4200'] }));
+app.use(cors({ origin: ['https://helpful-dodol-6eed54.netlify.app', 'http://localhost:4200'],
+  credentials: true
+ }));
+ 
 app.use(bodyparser.json())
 app.use('uploads',express.static('uploads'))
 const customerroutes=require("./routes/customer");

@@ -1,5 +1,5 @@
 
-<p style="color: blue">Total Bookings Count: {{ myBookings.length }}</p>
+<p style="color: blue">{{ 'TOTAL_BOOKINGS_COUNT' | translate }}: {{ myBookings.length }}</p>
 
 <div class="SingleTrip" *ngFor="let booking of myBookings">
   <div class="SingleTrip__image">
@@ -7,75 +7,75 @@
   </div>
   <div style="display: flex; justify-content: space-evenly">
     <div class="SingleTrip__busdetails">
-      <div class="heading" style="font-weight: 700; font-size: large">Bus Details</div>
+      <div class="heading" style="font-weight: 700; font-size: large">{{'BUS_DETAILS' | translate}}</div>
       <!-- Insertion for Departure, Arrival details, and fare -->
       <p>
-        <span class="material-icons">radio_button_checked</span> Departure Location:
+        <span class="material-icons">radio_button_checked</span>{{'DEPARTURE_LOCATION' | translate}}:
         {{ booking.departureDetails.city }}
       </p>
       <p>
-        <span class="material-icons">radio_button_checked</span> Departure Time:
+        <span class="material-icons">radio_button_checked</span> {{'DEPARTURE_TIME' | translate}}:
         {{ booking.departureDetails.time }}:00 hrs
       </p>
       <p>
-        <span class="material-icons">radio_button_checked</span> Departure Date:
+        <span class="material-icons">radio_button_checked</span> {{'DEPARTURE_DATE' | translate}}:
         {{ booking.departureDetails.date }}
       </p>
       <p>
-        <span class="material-icons">radio_button_checked</span> Arrival Location:
+        <span class="material-icons">radio_button_checked</span> {{'ARRIVAL_LOCATION' | translate}}:
         {{ booking.arrivalDetails.city }}
       </p>
       <p>
-        <span class="material-icons">radio_button_checked</span> Arrival Time:
+        <span class="material-icons">radio_button_checked</span> {{'ARRIVAL_TIME' | translate}}:
         {{ booking.arrivalDetails.time }}:00 hrs
       </p>
       <p>
-        <span class="material-icons">radio_button_checked</span> Arrival Date:
+        <span class="material-icons">radio_button_checked</span> {{'ARRIVAL_DATE' | translate}}:
         {{ booking.arrivalDetails.date }}
       </p>
-      <p><span class="material-icons">radio_button_checked</span> Total Fare: {{ booking.fare }}</p>
+      <p><span class="material-icons">radio_button_checked</span> {{'TOTAL_FARE' | translate}}: {{ booking.fare }}</p>
       
     </div>
     <div class="SingleTrip__persondetails">
-      <div class="heading" style="font-weight: 600; font-size: large">Passenger Details</div>
+      <div class="heading" style="font-weight: 600; font-size: large">{{'PASSENGER_DETAILS' | translate}}</div>
 
       <!-- Insertion for Passenger details -->
       <p>
-        <span class="material-icons">radio_button_checked</span> Contact Email:{{ booking.email }}
+        <span class="material-icons">radio_button_checked</span> {{'CONTACT_EMAIL' | translate}}:{{ booking.email }}
       </p>
       <p>
-        <span class="material-icons">radio_button_checked</span> Contact Phone Number:{{
+        <span class="material-icons">radio_button_checked</span> {{'CONTACT_PHONE_NUMBER' | translate}}:{{
           booking.phoneNumber
         }}
       </p>
-      <p><span class="material-icons">radio_button_checked</span> Notification Status: {{ booking.notificationStatus }}</p>
+      <p><span class="material-icons">radio_button_checked</span> {{'NOTIFICATION_STATUS' | translate}}: {{ booking.notificationStatus }}</p>
      
       <div class="SingleTrip__customerDetails__passenger">
         <div *ngFor="let passenger of booking.passengerDetails">
-          <p><span class="material-icons">radio_button_checked</span> Name:{{ passenger.name }}</p>
+          <p><span class="material-icons">radio_button_checked</span> {{'NAME' | translate}}:{{ passenger.name }}</p>
           <p>
-            <span class="material-icons">radio_button_checked</span> Gender:{{ passenger.gender }}
+            <span class="material-icons">radio_button_checked</span> {{'GENDER' | translate}}:{{ passenger.gender }}
           </p>
-          <p><span class="material-icons">radio_button_checked</span> Age:{{ passenger.age }}</p>
+          <p><span class="material-icons">radio_button_checked</span> {{'AGE' | translate}}:{{ passenger.age }}</p>
         </div>
       </div>
     </div>
   </div>
- <!-- Cancel और Change Schedule बटन एक लाइन में -->
+ 
 <div style="margin-top: 15px; display: flex; justify-content: flex-end; gap: 10px; align-items: center;">
     <button class="cancel-ticket-btn" (click)="cancelTicket(booking._id)">
-        Cancel Ticket
+        {{'CANCEL_TICKET' | translate}}
     </button>
 
     <button *ngIf="isAdmin" class="change-schedule-btn" (click)="toggleScheduleForm(booking._id)">
-        Change Schedule
+        {{'CHANGE_SCHEDULE' | translate}}
     </button>
 </div>
 
-<!-- हॉरिजॉन्टल (एक लाइन में) खुलने वाला फॉर्म बॉक्स -->
+
 <div *ngIf="isAdmin && selectedTripId === booking._id" class="horizontal-schedule-form">
-    <input type="text" [(ngModel)]="newCity" placeholder="New City" />
-    <input type="text" [(ngModel)]="newTime" placeholder="New Time" />
+    <input type="text" [(ngModel)]="newCity" placeholder="{{'NEW_CITY_PLACEHOLDER' | translate}}" />
+    <input type="text" [(ngModel)]="newTime" placeholder="{{'NEW_TIME_PLACEHOLDER' | translate}}" />
     <input type="date" [(ngModel)]="newDate" />
     <select [(ngModel)]="selectedLanguage" class="language-select">
     <option value="en">English</option>
@@ -84,8 +84,8 @@
 <div class="form-actions">
   
 
-    <button class="save-btn" (click)="submitScheduleAndUpdate(booking._id)">Save</button>
-    <button class="close-btn" (click)="toggleScheduleForm(booking._id)">Cancel</button>
+    <button class="save-btn" (click)="submitScheduleAndUpdate(booking._id)">{{'SAVE' | translate}}</button>
+    <button class="close-btn" (click)="toggleScheduleForm(booking._id)">{{'CANCEL' | translate}}</button>
 </div>
 </div>
   </div>

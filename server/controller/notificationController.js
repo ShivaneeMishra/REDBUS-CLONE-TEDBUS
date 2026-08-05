@@ -1,6 +1,6 @@
 const { Notification, NotificationPreference } = require('../models/notificationModel');
 
-// नोटिफिकेशन हिस्ट्री प्राप्त करने के लिए
+
 exports.getNotificationHistory = async (req, res) => {
   try {
     const { userId } = req.params;
@@ -11,7 +11,6 @@ exports.getNotificationHistory = async (req, res) => {
   }
 };
 
-// नोटिफिकेशन को 'Read' मार्क करने के लिए
 exports.markAsRead = async (req, res) => {
   try {
     const { id } = req.params;
@@ -22,13 +21,12 @@ exports.markAsRead = async (req, res) => {
   }
 };
 
-// यूजर की प्रेफरेंस देखने या अपडेट करने के लिए
 exports.getPreferences = async (req, res) => {
   try {
     const { userId } = req.params;
     let prefs = await NotificationPreference.findOne({ userId });
     if (!prefs) {
-      prefs = await NotificationPreference.create({ userId }); // डिफ़ॉल्ट क्रिएट करें
+      prefs = await NotificationPreference.create({ userId }); 
     }
     res.status(200).json({ success: true, data: prefs });
   } catch (error) {

@@ -78,7 +78,7 @@
     margin-top: 10px;
     display: flex;
     align-items: center;
-    gap: 10px; /* सभी चीज़ों के बीच की दूरी थोड़ी कम करें ताकि बाहर न जाए */
+    gap: 10px; 
     flex-wrap: wrap; 
     justify-content: center;
     
@@ -91,13 +91,13 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-  width: 150px; /* इनपुट की चौड़ाई सेट करने के लिए */
+  width: 150px; 
 }
 .form-actions{
   display: flex;
    
-  gap: 15px; /* दोनों बटन के बीच की दूरी */
-  margin-top: 20px; /* फॉर्म से ऊपर की दूरी */
+  gap: 15px; 
+  margin-top: 20px; 
   justify-content: center
 }
 .save-btn {
@@ -122,15 +122,11 @@
 .form-buttons {
     display: flex;
     
-    gap: 10px; /* दोनों बटनों के बीच की दूरी */
+    gap: 10px; 
     
     margin-left: auto;
 }
-/* =========================================
-   My Trip Component Dark Mode Styles
-   ========================================= */
 
-/* 1. मुख्य ट्रिप कार्ड का बैकग्राउंड डार्क करना */
 :host-context(.dark) .SingleTrip {
     background-color: #1e1e1e !important;
     border-color: #444444 !important;
@@ -138,7 +134,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* 2. बस डिटेल्स और पैसेंजर डिटेल्स वाले अंदर के डब्बे */
+
 :host-context(.dark) .SingleTrip_busdetails,
 :host-context(.dark) .SingleTrip_persondetails {
     background-color: #2a2a2a !important;
@@ -146,14 +142,14 @@
     border-color: #444444 !important;
 }
 
-/* 3. शेड्यूल चेंज करने वाला खुलने वाला फॉर्म (Horizontal Schedule Form) */
+
 :host-context(.dark) .horizontal-schedule-form {
     background-color: #2a2a2a !important;
     border-color: #555555 !important;
     color: #ffffff !important;
 }
 
-/* 4. फॉर्म के अंदर के इनपुट बॉक्स और ड्रॉपडाउन */
+
 :host-context(.dark) .horizontal-schedule-form input,
 :host-context(.dark) .horizontal-schedule-form select {
     background-color: #333333 !important;
@@ -163,4 +159,48 @@
 
 :host-context(.dark) .horizontal-schedule-form input::placeholder {
     color: #9ca3af !important;
+}
+
+
+:host-context(.dark) .my-trip-container,
+.dark .my-trip-container,
+html.dark body .my-trip-container {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+
+:host-context(.dark) .trip-card,
+:host-context(.dark) .booking-card,
+.dark .trip-card,
+.dark .booking-card,
+html.dark .trip-card,
+html.dark .booking-card {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border: 1px solid #333333 !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+
+:host-context(.dark) .trip-card h3,
+:host-context(.dark) .trip-card p,
+:host-context(.dark) .trip-card span,
+.dark .trip-card h3,
+.dark .trip-card p,
+.dark .trip-card span {
+  color: #e0e0e0 !important;
+}
+
+
+:host-context(.dark) .trip-card button,
+.dark .trip-card button {
+  background-color: #2c2c2c !important;
+  color: #ffffff !important;
+  border: 1px solid #444444 !important;
+}
+
+:host-context(.dark) .trip-card button:hover,
+.dark .trip-card button:hover {
+  background-color: #3d3d3d !important;
 }

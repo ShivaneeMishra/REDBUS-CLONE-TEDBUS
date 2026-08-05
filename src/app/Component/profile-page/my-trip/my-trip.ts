@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectorRef } from '@angular/core';
 import { NotificationService } from '../../../service/notification';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-my-trip',
@@ -147,7 +148,7 @@ throw new Error('Method not implemented.');
 
   constructor(
     private notificationService: NotificationService,
-    private cdr: ChangeDetectorRef,
+    private cdr: ChangeDetectorRef,private translate: TranslateService,
   ) {}
 
   ngOnInit() {
@@ -173,7 +174,7 @@ throw new Error('Method not implemented.');
   cancelTicket(bookingId: string) {
     this.notificationService.cancelBooking(bookingId).subscribe((res: any) => {
       if (res.success) {
-        alert('Ticket Cancelled Successfully!');
+         this.notificationService.showNotification(this.translate.instant('TICKET_CANCELLED_SUCCESS'));
         this.loadUserBookings(); 
         this.cdr.detectChanges();
       }
@@ -212,14 +213,14 @@ throw new Error('Method not implemented.');
 
     this.notificationService.updateSchedule(bookingId, updatedData).subscribe(
       (res: any) => {
-        this.notificationService.showNotification('Schedule updated and email sent successfully!');
+        this.notificationService.showNotification(this.translate.instant('SCHEDULE_UPDATED_SUCCESS'));
         this.selectedTripId = null;
         this.loadUserBookings();
         this.cdr.detectChanges();
       },
       (error) => {
         console.error('Error updating schedule:', error);
-        this.notificationService.showNotification('Failed to update schedule.');
+        this.notificationService.showNotification(this.translate.instant('SCHEDULE_UPDATE_FAILED'));
       },
     );
   }
