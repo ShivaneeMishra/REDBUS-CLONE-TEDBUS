@@ -1,0 +1,17 @@
+/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए राइट सेक्शन का रिस्पॉन्सिव फिक्स --- */
+@media screen and (max-width: 992px) {
+    :host, .right-container, div {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0 5px !important;
+        margin: 0 !important;
+    }
+
+    /* मोबाइल और टैब पर अंदर के सभी एलिमेंट्स को ओवरलैप होने से रोकने के लिए */
+    app-bus-box, app-sorting-bar {
+        width: 100% !important;
+        display: block !important;
+        box-sizing: border-box !important;
+    }
+}

@@ -1,0 +1,10 @@
+/* --- लैपटॉप को सुरक्षित रखते हुए मोबाइल और टैब के लिए बेसिक्स --- */
+@media screen and (max-width: 992px) {
+    :host, .bus-book-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 5px !important;
+        margin: 0 !important;
+    }
+}

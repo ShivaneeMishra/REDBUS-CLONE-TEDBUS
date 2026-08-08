@@ -276,3 +276,91 @@
     background-color: #2a2a2a !important;
     color: #ffffff !important;
 }
+
+
+
+.bus-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    height: auto !important;
+    padding: 12px !important;
+}
+
+
+.busBoxSection1 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    height: auto !important;
+    gap: 10px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+
+.busBoxSection11, .busBoxSection12, .busBoxSection13, 
+.busBoxSection14, .busBoxSection15, .busBoxSection16, .busBoxSection17 {
+    width: auto !important;
+    flex: 1 1 120px !important;
+    box-sizing: border-box !important;
+}
+
+.busBoxSection2 {
+    height: auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin-top: 10px !important;
+}
+
+.busBoxSection21, .busBoxSection22 {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+}
+
+
+.bus-box div, .bus-box span, .bus-box p {
+    font-size: clamp(11px, 1.6vw, 14px) !important;
+    word-break: break-word !important;
+}
+
+
+/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए रेटिंग्स और बॉक्स फिक्स --- */
+@media screen and (max-width: 992px) {
+    .bus-box {
+        width: 100% !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+        padding: 10px !important;
+    }
+
+    /* रेटिंग्स वाले सेक्शन या कॉलम को फिक्स चौड़ाई देना ताकि नंबर एक-दूसरे पर न आएं */
+    [class*="rating"], .busBoxSection15, .busBoxSection16 {
+        max-width: 120px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    /* रेटिंग्स के अंदर के एलिमेंट्स सीधे लाइन में रहें */
+    [class*="rating"] *, .busBoxSection15 *, .busBoxSection16 * {
+        display: inline-block !important;
+        word-break: normal !important;
+    }
+}
+/* उस सेक्शन पर जाएं जहाँ रेटिंग्स दिख रही हैं (जैसे busBoxSection15 या 16) */
+.busBoxSection15, .busBoxSection16 {
+    width: 90px !important;
+    min-width: 90px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+}
+
+/* ताकि अंदर के नंबर एक-दूसरे के ऊपर न आएं */
+.busBoxSection15 *, .busBoxSection16 * {
+    white-space: nowrap !important;
+    word-break: normal !important;
+}

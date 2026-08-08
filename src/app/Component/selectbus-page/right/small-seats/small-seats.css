@@ -1,3 +1,21 @@
 .main-container{
     cursor: pointer;
 }
+/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए रिस्पॉन्सिव फिक्स --- */
+@media screen and (max-width: 992px) {
+    .main-container {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 4px !important;
+        box-sizing: border-box !important;
+    }
+
+    .main-container i, .main-container mat-icon {
+        font-size: 18px !important;
+        width: auto !important;
+        height: auto !important;
+    }
+}

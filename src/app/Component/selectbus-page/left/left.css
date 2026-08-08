@@ -56,3 +56,44 @@
     background-color: #1e1e1e !important;
     color: #ffffff !important;
 }
+
+
+
+.left {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+}
+
+.left_filters {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.left ul {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.left ul li {
+    width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+}
+
+
+.first-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.left p, .left span, .left li {
+    font-size: clamp(12px, 1.8vw, 15px);
+}

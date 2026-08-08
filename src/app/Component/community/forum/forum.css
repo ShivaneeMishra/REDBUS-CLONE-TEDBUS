@@ -466,3 +466,35 @@ body.dark .btn-cancel,
   background-color: #444444 !important;
   color: #ffffff !important;
 }
+
+/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए फोरम पेज का रिस्पॉन्सिव फिक्स --- */
+@media screen and (max-width: 992px) {
+    .forum-wrapper, .thread-card, .create-thread-box, .trending-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 10px !important;
+        margin: 5px auto !important;
+    }
+
+    /* थ्रेड कार्ड के अंदर जो हिस्से अलग-अलग चौड़ाई में बंटे हैं, उन्हें मोबाइल पर नीचे-ऊपर सेट करने के लिए */
+    .thread-card {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .user-info, .thread-content, .thread-stats, .thread-activity {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+
+    .input-group {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .input-group input, .btn-post {
+        width: 100% !important;
+    }
+}

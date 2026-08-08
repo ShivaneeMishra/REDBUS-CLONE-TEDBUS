@@ -1,11 +1,18 @@
 .history-container {
   max-width: 700px;
-  margin: 40px auto;
-  padding: 20px;
+  width: 92%;
+  margin: 30px auto;
+  padding: 15px;
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
+}
+@media (min-width: 768px) {
+    .history-container {
+        padding: 25px;
+        margin: 40px auto;
+    }
 }
 
 .history-container h2 {

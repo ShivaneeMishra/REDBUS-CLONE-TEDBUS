@@ -2,7 +2,8 @@
 
 <div class="bus-booking-form" style="border: 1px solid black;">
     <h4 class="passenger-main-title">{{'ENTER_PASSENGER_DETAILS' | translate}}</h4>
-    <div class="content-block" style="height: 500px; width: 100%; overflow-y: scroll; box-shadow: 0 0 4px 0 hsla(0, 0%, 64%, 0.5);">
+    <div class="content-block" style="height: 500px; width: 100%; overflow-y: scroll; 
+    box-shadow: 0 0 4px 0 hsla(0, 0%, 64%, 0.5);">
 
         <ng-container *ngFor="let seat of selectedseat; let index = index" class="content-block">
 
@@ -50,7 +51,8 @@
         </div>
         <div class="passenger-contact-msg">{{'TICKET_SENT_MSG' | translate}}</div>
         <div class="form-label">{{'EMAIL' | translate}}</div>
-        <input class="form-input" [placeholder]="'EMAIL_PLACEHOLDER' | translate" type="email" name="email" [(ngModel)]="passemail" />
+        <input class="form-input" [placeholder]="'EMAIL_PLACEHOLDER' | translate" type="email" name="email" 
+        [(ngModel)]="passemail" />
         <div class="form-label">{{'PHONE' | translate}}</div>
         <div style="display: flex; justify-content: space-between;">
             <input class="form-input" placeholder="+91" type="text" style="width: 50px; color: #4f91d9;" />

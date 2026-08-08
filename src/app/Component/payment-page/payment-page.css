@@ -7,7 +7,7 @@ body {
   }
   /* Stripe payment start */
   .Payment__stripe {
-    /* border: 1px solid red; */
+   
     margin-top: 50px;
   }
   .Payment__stripe button {
@@ -31,7 +31,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 2px 20px !important;
-    min-width: 1200px;
+    width: 100%;
     box-sizing: border-box;
   }
   .payment__header {
@@ -227,6 +227,8 @@ body {
   }
   .paymentIconList{
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   .icons{
     width:auto;
@@ -307,3 +309,62 @@ body.dark input,
     background-color: #1f1f1f !important;
     color: #ffffff !important;
     border-color: #333333 !important;}
+
+
+    @media screen and (max-width: 992px) {
+    
+    
+    .payment_fullContainer {
+        flex-direction: column;
+        margin: 20px 10px; 
+    }
+
+    
+    .payment_fullContainer_leftContainer,
+    .payment_fullContainer_rightContainer {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    
+    .payment_fullContainer_rightContainer {
+        margin-top: 20px; 
+    }
+}
+/* --- मोबाइल व्यू के लिए पेमेंट पेज का फाइनल और पक्का फिक्स --- */
+@media screen and (max-width: 768px) {
+    .payment_fullContainer {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .payment_fullContainer_leftContainer {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    .payment_fullContainer_rightContainer {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10px !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+
+    /* राइट साइड के अंदर के सभी एलिमेंट्स की फिक्स विड्थ को तोड़ने के लिए */
+    .payment_fullContainer_rightContainer div, 
+    .payment_fullContainer_rightContainer span,
+    .payment_fullContainer_rightContainer p {
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+    }
+}

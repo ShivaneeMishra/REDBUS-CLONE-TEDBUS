@@ -386,28 +386,29 @@
 
 
     "DASHBOARD": "Dashboard",
-  "MY_TRIPS": "My Trips",
-  "MY_PROFILE": "My Profile",
-  "COMMUNITY": "Community",
+  
   "WALLET": "Wallet",
   "WALLET_FEATURE_COMING_SOON": "Wallet feature coming soon...",
   "YOUR_NAME": "Your name",
   "USER": "User",
   "DATE_OF_BIRTH": "Date of Birth",
-  "GENDER": "Gender",
+  
   "CONTACT_DETAILS": "Contact Details",
-  "EMAIL": "email",
-  "PHONE": "phone",
+  
   "MY_COMMUNITY_POSTS": "My Community Posts",
   "STATUS": "Status",
   "LIKES": "Likes",
   "NO_POSTS_FOUND": "No posts found.",
   "MY_FORUM_DISCUSSIONS": "My Forum Discussions",
-  "AUTHOR": "Author",
+  
   "ANONYMOUS": "Anonymous",
-  "TAGS": "Tags",
-  "NO_FORUM_DISCUSSIONS_FOUND": "No forum discussions found."
-
+  
+  "NO_FORUM_DISCUSSIONS_FOUND": "No forum discussions found.",
+  "DARK_MODE": "Dark Mode",
+"LIGHT_MODE": "Light Mode",
+"LOGIN_WITH_GOOGLE": "Sign in with Google",
+"LIGHT": "Light",
+"DARK": "Dark"
 
 
 

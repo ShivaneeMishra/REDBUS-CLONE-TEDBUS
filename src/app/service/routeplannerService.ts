@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 class RoutePlannerService {
-  private apiUrl = 'http://localhost:8000'; // आपका बैकएंड पोर्ट
+  private apiUrl = 'http://localhost:8000';
 
   constructor(private http: HttpClient) {}
 

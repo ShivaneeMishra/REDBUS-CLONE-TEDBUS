@@ -177,3 +177,37 @@
 :host-context(.dark) .mainContainer26 > div {
     color: #4ade80 !important; 
 }
+
+/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए रिस्पॉन्सिव फिक्स --- */
+@media screen and (max-width: 992px) {
+    .mainContainer {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 5px !important;
+        box-sizing: border-box !important;
+    }
+
+    .mainContainer1 {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 10px 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .mainContainer2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 10px 0 !important;
+        padding: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* मोबाइल और टैब पर टेक्स्ट या सीट्स का साइज ऑटो-एडजस्ट करने के लिए */
+    .view-seats div, .view-seats span {
+        word-break: break-word !important;
+    }
+}

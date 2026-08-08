@@ -205,3 +205,25 @@ body.dark .btn-cancel,
   background-color: #444444 !important;
   color: #ffffff !important;
 }
+/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए पोस्ट लिस्ट का रिस्पॉन्सिव फिक्स --- */
+@media screen and (max-width: 992px) {
+    .post-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 15px !important;
+        margin: 10px auto !important;
+    }
+
+    .post-actions {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+    }
+
+    .comment-input {
+        width: 100% !important;
+        min-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}

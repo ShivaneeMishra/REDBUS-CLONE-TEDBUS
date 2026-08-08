@@ -55,6 +55,9 @@ export class BusBookingForm {
     this.passdetails[index].age = target.value;
   }
   handleproceedtopay(): void {
+     console.log("Booking Form me mila time -> Arrival:", this.busarrivaltime, "Departure:", this.busdeparturetime);
+
+
     const routeParams = {
       operatorname: this.operatorname,
       selectedseat: this.selectedseat,

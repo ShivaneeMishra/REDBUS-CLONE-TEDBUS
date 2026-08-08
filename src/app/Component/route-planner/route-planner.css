@@ -132,3 +132,28 @@ button {
 :host-context(.dark) p {
     color: #cccccc !important; 
 }
+
+
+
+@media screen and (max-width: 992px) {
+    
+    .route-planner-container {
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 10px !important;
+    }
+
+   
+    .left-panel {
+        width: 100% !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+        margin-bottom: 20px !important;
+    }
+
+    .right-map-panel {
+        width: 100% !important;
+        height: 350px !important;
+        flex: none !important;
+    }
+}

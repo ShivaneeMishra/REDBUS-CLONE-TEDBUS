@@ -1,4 +1,4 @@
-/* भाषा चयनकर्ता (Language Selector) के लिए CSS */
+
 .language-selector select {
   background-color: var(--nav-bg);
   color:var(--text-color);

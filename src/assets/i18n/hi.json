@@ -380,28 +380,29 @@
 
 
   "DASHBOARD": "डैशबोर्ड",
-  "MY_TRIPS": "मेरी ट्रिप्स",
-  "MY_PROFILE": "मेरी प्रोफाइल",
-  "COMMUNITY": "कम्युनिटी",
+  
   "WALLET": "वॉलेट",
   "WALLET_FEATURE_COMING_SOON": "वॉलेट फीचर जल्द आ रहा है...",
   "YOUR_NAME": "आपका नाम",
   "USER": "यूज़र",
   "DATE_OF_BIRTH": "जन्म तिथि",
-  "GENDER": "लिंग",
+ 
   "CONTACT_DETAILS": "संपर्क विवरण",
-  "EMAIL": "ईमेल",
-  "PHONE": "फ़ोन",
+  
   "MY_COMMUNITY_POSTS": "मेरी कम्युनिटी पोस्ट",
   "STATUS": "स्थिति",
   "LIKES": "पसंद (Likes)",
   "NO_POSTS_FOUND": "कोई पोस्ट नहीं मिली।",
   "MY_FORUM_DISCUSSIONS": "मेरी फोरम चर्चाएं",
-  "AUTHOR": "लेखक",
-  "ANONYMOUS": "अज्ञात",
-  "TAGS": "टैग",
-  "NO_FORUM_DISCUSSIONS_FOUND": "कोई फोरम चर्चा नहीं मिली।"
 
+  "ANONYMOUS": "अज्ञात",
+  
+  "NO_FORUM_DISCUSSIONS_FOUND": "कोई फोरम चर्चा नहीं मिली।",
+  "LOGIN_WITH_GOOGLE": "गूगल से लॉगिन करें",
+  "DARK_MODE": "डार्क मोड",
+"LIGHT_MODE": "लाइट मोड",
+"LIGHT": "लाइट",
+"DARK": "डार्क"
 
   
 

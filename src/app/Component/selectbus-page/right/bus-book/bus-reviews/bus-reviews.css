@@ -285,3 +285,47 @@ html.dark .btn-action {
 .btn-action.edit {
   margin-right: 5px;
 }
+
+
+
+
+.reviews-container {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 15px !important;
+}
+
+
+.reviews-summary {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+
+.review-form-card, .review-card {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12px !important;
+}
+
+
+.form-control {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.review-footer, .actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+}
+
+
+.reviews-container p, .reviews-container span, .reviews-container h4 {
+    font-size: clamp(12px, 1.8vw, 15px);
+    word-break: break-word;
+}

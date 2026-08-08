@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { NotificationService } from '../../service/notification'; // अपना सही पाथ चेक कर लें
+import { NotificationService } from '../../service/notification'; 
 
 @Component({
   selector: 'app-notification',

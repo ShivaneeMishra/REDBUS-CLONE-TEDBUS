@@ -95,3 +95,32 @@ button[type="submit"] {
     outline: none;
 }
 
+/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए रिप्लाई सेक्शन का रिस्पॉन्सिव फिक्स --- */
+@media screen and (max-width: 992px) {
+    .replies-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 10px !important;
+        margin: 0 !important;
+    }
+
+    form {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .form-group input, 
+    .form-group textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    button[type="submit"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}

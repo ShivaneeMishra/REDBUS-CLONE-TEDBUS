@@ -3,6 +3,8 @@
     "operatorName": "MetroBus",
     "busType": "Standard",
     "departureTime": "11",
+    "arrivalTime": "15",
+    
     "rating": [
         {
             "$numberDouble": "3.9"
@@ -31,6 +33,7 @@
     "operatorName": "TravelXpress",
     "busType": "Sleeper",
     "departureTime": "08",
+    "arrivalTime": "12",
     "rating": [
         {
             "$numberInt": "4"
@@ -58,6 +61,7 @@
     "operatorName": "FastTransit",
     "busType": "A/C Seater",
     "departureTime": "10",
+    "arrivalTime": "14",
     "rating": [
         {
             "$numberDouble": "4.5"
@@ -86,6 +90,7 @@
     "operatorName": "CityLink",
     "busType": "Sleeper",
     "departureTime": "12",
+    "arrivalTime": "16",
     "rating": [
         {
             "$numberDouble": "4.2"
@@ -114,6 +119,7 @@
     "operatorName": "SwiftTrans",
     "busType": "A/C Seater",
     "departureTime": "09",
+    "arrivalTime": "13",
     "rating": [
         {
             "$numberDouble": "4.8"
@@ -142,6 +148,7 @@
     "operatorName": "ExpressLine",
     "busType": "AC Seater",
     "departureTime": "02",
+    "arrivalTime": "06",
     "rating": [
         {
             "$numberDouble": "4.4"
@@ -170,6 +177,7 @@
     "operatorName": "TransitHub",
     "busType": "standard",
     "departureTime": "03",
+    "arrivalTime": "07",
     "rating": [
         {
             "$numberDouble": "4.6"
@@ -198,6 +206,7 @@
     "operatorName": "EliteTravels",
     "busType": "Sleeper",
     "departureTime": "06",
+    "arrivalTime": "10",
     "rating": [
         {
             "$numberDouble": "4.3"
@@ -226,6 +235,7 @@
     "operatorName": "TravelMax",
     "busType": "AC Sleeper",
     "departureTime": "08",
+    "arrivalTime": "12",
     "rating": [
         {
             "$numberDouble": "4.5"
@@ -254,6 +264,7 @@
     "operatorName": "SunriseTransit",
     "busType": "standard",
     "departureTime": "05",
+    "arrivalTime": "09",
     "rating": [
         {
             "$numberDouble": "4.7"
@@ -282,6 +293,7 @@
     "operatorName": "RapidTransport",
     "busType": "Sleeper",
     "departureTime": "01",
+    "arrivalTime": "05",
     "rating": [
         {
             "$numberDouble": "4.1"

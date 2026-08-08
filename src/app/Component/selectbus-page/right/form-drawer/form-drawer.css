@@ -58,3 +58,26 @@
     color: #ffffff !important;
     border-color: #444444 !important;
 }
+/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए रिस्पॉन्सिव फिक्स --- */
+@media screen and (max-width: 992px) {
+    .example-container {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        box-sizing: border-box !important;
+    }
+
+    .example-sidenav {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* फॉर्म के अंदर के सभी एलिमेंट्स मोबाइल पर सही से फिट हों */
+    .bus-booking-form, .content-block {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 10px !important;
+    }
+}

@@ -26,7 +26,7 @@
         <div class="busBoxSection15">
             <div>
                 <i class="material-icons">star</i>
-                <div>{{avgrating}}</div>
+                <div>{{avgrating | number:'1.1-1'}}</div>
             </div>
             <div><i class="material-icons">people</i>
                 <div>{{totalreview}}</div>
@@ -35,7 +35,7 @@
         <div class="busBoxSection16">
             <div>
                 <div>INR</div>
-                <div>{{seatprivce}}</div>
+                <div>{{seatprice}}</div>
             </div>
             <div><i class="material-icons">local_offer</i>
                 <div>{{'RE_DEAL_APPLIED' | translate}}</div>
@@ -78,7 +78,7 @@
         </div>
     </div>
     <div class="busBoxSection3">
-        <app-bottom-tab [busid]="busid" [routedetials]="routedetails"
+        <app-bottom-tab [busid]="busid" [filledseats]="filledseats" [seatprice]="seatprice" [routedetials]="routedetails"
             [busarrivaltime]="busarrivaltime" [busdeparturetime]="busdeparturetime"
             [operatorname]="operatorname"></app-bottom-tab>
     </div>

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar} from '@angular/material/snack-bar';
 import { url } from '../../config/index';
+import RoutePlannerService from '../../service/routeplannerService';
 
 
 declare let L: any;
@@ -24,7 +25,8 @@ export class RoutePlanner implements AfterViewInit {
   routeLayers: any[]=[];
 
 
-  constructor(private http: HttpClient, private  translate:TranslateService , private snackBar:MatSnackBar) {}
+  constructor(private http: HttpClient, private  translate:TranslateService , private snackBar:MatSnackBar,
+     private routePlannerService: RoutePlannerService) {}
   addWaypoint(): void {
     this.waypoints.push({ name: '' });
   }
@@ -188,7 +190,7 @@ if (this.allLatLngs.length > 0 && this.map) {
     };
 
    
-    this.http.post(`${url}/routeplannerRoutes/save`, routeData).subscribe(
+    this.routePlannerService.saveRoute(routeData).subscribe(
       (response: any) => {
        this.snackBar.open(this.translate.instant('ROUTE_SAVED_SUCCESS'),'Close',{duration:3000});
         console.log(response);

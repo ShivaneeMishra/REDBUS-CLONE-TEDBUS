@@ -60,3 +60,42 @@
 :host-context(.dark) .displayArea p {
     color: #ffffff !important;
 }
+
+
+
+.mainBar {
+    width: 100% !important;
+    margin-left: 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-around !important;
+    gap: 8px !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+}
+
+.mainBar > div {
+    font-size: clamp(11px, 1.5vw, 14px) !important;
+    padding: 6px 10px !important;
+    white-space: nowrap !important;
+}
+
+.displayArea {
+    width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+}
+
+
+@media screen and (max-width: 768px) {
+    .mainBar {
+        justify-content: space-between !important;
+    }
+    
+    .mainBar > div {
+        flex: 1 1 auto;
+        text-align: center;
+        font-size: 11px !important;
+        padding: 5px !important;
+    }
+}
