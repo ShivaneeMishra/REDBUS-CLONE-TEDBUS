@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 class RoutePlannerService {
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = 'https://redbus-clone-tedbus.onrender.com';
 
   constructor(private http: HttpClient) {}
 
