@@ -1,10 +1,9 @@
-<div class="ProfilePannel">
+<div class="ProfilePannel flex flex-col md:flex-row w-full">
   <div class="leftPart">
     <ul class="leftPannel">
-      <li class="leftPannel_eachListItem">
-        <mat-icon style="color: grey; font-size: 30px; height: 100%; width: 100%"
-          >perm_identity</mat-icon
-        >
+      <li class="leftPannel_eachListOption"  (click)="handleListitemclick('dashboard')">
+        <i class="material-icons" style="color: grey; font-size: 30px">
+          perm_identity</i>
 
         <div class="leftPannel_eachListItem_text">
           {{ 'DASHBOARD' | translate }}
@@ -37,7 +36,7 @@
       <div class="line"></div>
     </ul>
   </div>
-  <div class="seprator"></div>
+  <div class="seprator hidden md:block"></div>
 
   <div *ngIf="selectedItem === 'trips'">
     <!-- MyTrips component or content -->

@@ -225,7 +225,5 @@ throw new Error('Method not implemented.');
     );
   }
 
-  // getrandomimage():string{
-  //   return this.imageArr[Math.floor(Math.random()*(18-0+1)+0)].images
-  // }
+  
 }

@@ -89,7 +89,7 @@
 :host-context(.dark) .form-group input[type="file"] {
     color: #cccccc;
 }
-/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए पोस्ट फॉर्म का रिस्पॉन्सिव फिक्स --- */
+
 @media screen and (max-width: 992px) {
     .post-form-container {
         width: 100% !important;

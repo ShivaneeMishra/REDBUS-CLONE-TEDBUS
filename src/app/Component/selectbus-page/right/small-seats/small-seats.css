@@ -1,7 +1,7 @@
 .main-container{
     cursor: pointer;
 }
-/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए रिस्पॉन्सिव फिक्स --- */
+
 @media screen and (max-width: 992px) {
     .main-container {
         width: 100% !important;

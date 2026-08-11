@@ -183,7 +183,7 @@ if (this.allLatLngs.length > 0 && this.map) {
     const routeData = {
       startLocation: this.startLocation,
       destination: this.destination,
-      waypoints: this.waypoints,
+      waypoints: this.waypoints.map(wp => typeof wp ==="object" ? wp.name : wp),
       routeName: chosenRoute.name,
       distance: chosenRoute.distance,
       time: chosenRoute.time,

@@ -325,7 +325,7 @@
 }
 
 
-/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए रेटिंग्स और बॉक्स फिक्स --- */
+
 @media screen and (max-width: 992px) {
     .bus-box {
         width: 100% !important;
@@ -334,7 +334,7 @@
         padding: 10px !important;
     }
 
-    /* रेटिंग्स वाले सेक्शन या कॉलम को फिक्स चौड़ाई देना ताकि नंबर एक-दूसरे पर न आएं */
+    
     [class*="rating"], .busBoxSection15, .busBoxSection16 {
         max-width: 120px !important;
         white-space: nowrap !important;
@@ -342,13 +342,13 @@
         text-overflow: ellipsis !important;
     }
 
-    /* रेटिंग्स के अंदर के एलिमेंट्स सीधे लाइन में रहें */
+    
     [class*="rating"] *, .busBoxSection15 *, .busBoxSection16 * {
         display: inline-block !important;
         word-break: normal !important;
     }
 }
-/* उस सेक्शन पर जाएं जहाँ रेटिंग्स दिख रही हैं (जैसे busBoxSection15 या 16) */
+
 .busBoxSection15, .busBoxSection16 {
     width: 90px !important;
     min-width: 90px !important;
@@ -359,8 +359,35 @@
     overflow: hidden !important;
 }
 
-/* ताकि अंदर के नंबर एक-दूसरे के ऊपर न आएं */
+
 .busBoxSection15 *, .busBoxSection16 * {
     white-space: nowrap !important;
     word-break: normal !important;
+}
+
+
+:host-context(.dark) .busBoxSection17 div {
+    color: #ffffff !important;
+}
+
+
+:host-context(.dark) .busBoxSection17 > div:nth-child(2) > div:nth-child(1) {
+    color: #ffffff !important;
+}
+
+:host-context(.dark) .bus-box .busBoxSection1 *,
+:host-context(.dark) .bus-box .busBoxSection2 *,
+:host-context(.dark) .bus-box .busBoxSection11 *,
+:host-context(.dark) .bus-box .busBoxSection12 *,
+:host-context(.dark) .bus-box .busBoxSection13 *,
+:host-context(.dark) .bus-box .busBoxSection14 *,
+:host-context(.dark) .bus-box .busBoxSection16 * {
+    color: #ffffff !important;
+}
+
+
+:host-context(.dark) .bus-box div, 
+:host-context(.dark) .bus-box span, 
+:host-context(.dark) .bus-box p {
+    color: #ffffff !important;
 }

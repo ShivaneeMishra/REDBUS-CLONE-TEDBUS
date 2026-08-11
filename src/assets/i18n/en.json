@@ -18,10 +18,10 @@
   "FROM": "From",
   "TO": "To",
   "DATE": "Date",
-   "BUS": "BUS",
+  "BUS": "BUS",
   "TRENDING_OFFERS": "TRENDING OFFERS",
   "VIEW_ALL": "View All",
-  "SUPERHIT":"SUPERHIT",
+  "SUPERHIT": "SUPERHIT",
   "OFFER_SAVE_250": "Save up to Rs 250 on bus tickets",
   "OFFER_SAVE_300_AP_TS": "Save up to Rs 300 on AP, TS routes",
   "OFFER_SAVE_300_RJ_MH": "Save up to Rs 300 on RJ,MH, Goa, MP",
@@ -48,7 +48,7 @@
   "TAB_CANCELLATION_REFUND": "Cancellation & Refund",
   "TAB_INSURANCE": "Insurance",
   "FAQ_Q1_TRACK_BUS": "Can I track the location of my booked bus online?",
-  
+
   "FAQ_Q2_WHY_BOOK": "Why book bus tickets online on tedbus?",
   "FAQ_A1_TRACK_BUS": "Yes, you can track your <strong>bus online</strong> by using our bus tracking app feature called <a class=\"text-blue-500\">Track My Bus</a>. This feature allows passengers and their families to track the live bus tracking location. You may follow your bus on a map and use the information to plan your trip to the boarding point and to get off at the correct stop. Family and friends may also check the bus position to plan pick-ups and ensure your safety.",
 
@@ -72,8 +72,7 @@
   "Darjeeling": "Darjeeling",
   "Chennai": "Chennai",
   "Pondicherry": "Pondicherry",
-  
-  
+
   "FOOTER_TOP_RTCS": "Top RTCs",
   "FOOTER_OTHERS": "Others",
   "FOOTER_TOP_BUS_ROUTES": "Top bus routes",
@@ -98,7 +97,7 @@
   "RAIL_TRAINS_BETWEEN_STATIONS": "Trains between Stations",
 
   "FOOTER_DESC": "tedbus is the world's largest online bus ticket booking service trusted by over 25 million happy customers globally. tedbus offers bus ticket booking through its website, iOS and Android mobile apps for all major routes.",
-  
+
   "FOOTER_ABOUT_TEDBUS": "About tedbus",
   "LINK_ABOUT_US": "About us",
   "LINK_INVESTOR_RELATIONS": "Investor Relations",
@@ -151,7 +150,7 @@
   "DISTANCE": "Distance",
   "TIME": "Time",
   "MAP_PLACEHOLDER": "Interactive Map Area (Load Map API here)",
-  
+
   "ALERT_ENTER_BOTH_LOCATIONS": "Please enter both Start Location and Destination!",
   "ALERT_SUGGEST_ROUTES_FIRST": "Please suggest routes first before comparing!",
   "ALERT_SELECT_ROUTE_TO_SAVE": "Please select a route to save!",
@@ -166,8 +165,8 @@
   "ALT_ROUTE_2": "Alternative Route 2",
   "START_NOT_FOUND": "Start location not found.",
   "DEST_NOT_FOUND": "Destination not found.",
-  
- "COMMUNITY_FORUM": "COMMUNITY FORUM",
+
+  "COMMUNITY_FORUM": "COMMUNITY FORUM",
   "TRENDING_TOPICS": " 🔥 Trending Topics (Most Viewed)",
   "NO_TRENDING_TOPICS": "No trending topics available right now.",
   "START_NEW_TOPIC": "Start New Topic",
@@ -197,15 +196,12 @@
   "CANCEL": "Cancel",
   "OK": "OK",
 
-
   "REPLIESFORM": "Replies",
   "BYREPLIESFORM": "By",
   "NAME": "Name",
   "REPLY_LABEL": "Reply",
   "ADD_REPLY": "Add Reply",
   "REPLY_ADDED_SUCCESS": "Reply added successfully",
-
-
 
   "COMMUNITY_POST_MODERATION": "Community Post Moderation",
   "FORUM_MODERATION": "Forum Moderation",
@@ -218,7 +214,6 @@
   "FORUM_DELETED_SUCCESS": "Forum post deleted successfully!",
   "COMMUNITY_DELETED_SUCCESS": "Community post deleted successfully!",
 
-
   "SHARE_YOUR_JOURNEY_HEADING": "Share Your Journey",
   "TITLE_LABEL": "Title",
   "STORY_TIP_LABEL": "Story or Tip",
@@ -229,13 +224,11 @@
   "LOGIN_TO_SHARE_MESSAGE": "Please login to share your travel stories, tips, and photos!",
   "POST_ADDED_SUCCESS": "Post added successfully!",
 
-
-   "ADD_COMMENT_PLACEHOLDER": "Add a comment...",
+  "ADD_COMMENT_PLACEHOLDER": "Add a comment...",
   "COMMENT_BTN": "Comment",
   "LIKE_BTN": "Like",
   "REPORT_PROMPT_MSG": "Why do you want to report this  post?",
 
-  
   "NO_NOTIFICATIONS_FOUND": "No notifications found.",
   "NOTIFICATION_PREFERENCES": "Notification Preferences",
   "ENABLE_EMAIL_NOTIFICATIONS": "Enable Email Notifications",
@@ -263,10 +256,9 @@
   "RATINGS": "Ratings",
   "FARE": "Fare",
 
-
   "HOME": "Home",
   "BUS_TICKETS": "Bus Tickets",
- 
+
   "FARE_STARTS_FROM": "Fare Starts from",
   "DEPARTURE_TO": "Departure to",
   "ON": "on",
@@ -279,7 +271,6 @@
   "REVIEWS": "Reviews",
   "BOOKING_POLICIES": "Booking Policies",
   "VIEW_SEATS": "VIEW SEATS",
-
 
   "BUS_RATINGS_AND_REVIEWS": "Bus Ratings & Reviews",
   "GENUINE_FEEDBACK_TEXT": "Genuine feedback from verified travelers",
@@ -298,7 +289,6 @@
   "EDIT": "Edit",
   "HELPFUL": "Helpful",
 
-
   "CHANGE": "Change",
   "DEPARTURE_LOCATION": "Departure Location",
   "ARRIVAL_LOCATION": "Arrival Location",
@@ -307,13 +297,11 @@
   "AMOUNT": "Amount",
   "TAXES_DURING_PAYMENT": "Taxes will be calculated during Payment",
 
-
-
   "ENTER_PASSENGER_DETAILS": "Enter Passenger Details",
   "PASSENGER_INFORMATION": "Passenger Information",
   "PASSENGER": "Passenger",
   "SEAT": "Seat",
-  
+
   "NAME_PLACEHOLDER": "Name",
   "GENDER": "Gender",
   "MALE": "Male",
@@ -338,7 +326,7 @@
   "PROCEED_AGREE_TEXT": "By clicking on proceed, I agree that I have read and understood the TnCs and the Privacy Policy",
   "PROCEED_TO_PAY": "proceed to pay",
 
-   "ENTER_OFFER_CODE_PLACEHOLDER": "ENTER OFFER CODE",
+  "ENTER_OFFER_CODE_PLACEHOLDER": "ENTER OFFER CODE",
   "SAFE_AND_SECURE": "Safe and Secure",
   "ONLINE_PAYMENTS": "Online Payments",
   "TRANSACTIONS": "transactions",
@@ -359,22 +347,20 @@
   "DROPPING_POINT": "Dropping Point",
   "FARE_BREAKUP": "FARE BREAKUP",
   "TOTAL_PAYABLE": "Total Payable",
-   "SEATER_AC_SLEEPER": "Seater / A/C / Sleeper",
+  "SEATER_AC_SLEEPER": "Seater / A/C / Sleeper",
 
-
-
-   "TOTAL_BOOKINGS_COUNT": "Total Bookings Count",
+  "TOTAL_BOOKINGS_COUNT": "Total Bookings Count",
   "BUS_DETAILS": "Bus Details",
-  
+
   "DEPARTURE_DATE": "Departure Date",
-  
+
   "ARRIVAL_DATE": "Arrival Date",
   "TOTAL_FARE": "Total Fare",
   "PASSENGER_DETAILS": "Passenger Details",
   "CONTACT_EMAIL": "Contact Email",
   "CONTACT_PHONE_NUMBER": "Contact Phone Number",
   "NOTIFICATION_STATUS": "Notification Status",
-  
+
   "CANCEL_TICKET": "Cancel Ticket",
   "CHANGE_SCHEDULE": "Change Schedule",
   "NEW_CITY_PLACEHOLDER": "New City",
@@ -384,57 +370,28 @@
   "SCHEDULE_UPDATED_SUCCESS": "Schedule updated and email sent successfully!",
   "SCHEDULE_UPDATE_FAILED": "Failed to update schedule.",
 
+  "DASHBOARD": "Dashboard",
 
-    "DASHBOARD": "Dashboard",
-  
   "WALLET": "Wallet",
   "WALLET_FEATURE_COMING_SOON": "Wallet feature coming soon...",
   "YOUR_NAME": "Your name",
   "USER": "User",
   "DATE_OF_BIRTH": "Date of Birth",
-  
+
   "CONTACT_DETAILS": "Contact Details",
-  
+
   "MY_COMMUNITY_POSTS": "My Community Posts",
   "STATUS": "Status",
   "LIKES": "Likes",
   "NO_POSTS_FOUND": "No posts found.",
   "MY_FORUM_DISCUSSIONS": "My Forum Discussions",
-  
+
   "ANONYMOUS": "Anonymous",
-  
+
   "NO_FORUM_DISCUSSIONS_FOUND": "No forum discussions found.",
   "DARK_MODE": "Dark Mode",
-"LIGHT_MODE": "Light Mode",
-"LOGIN_WITH_GOOGLE": "Sign in with Google",
-"LIGHT": "Light",
-"DARK": "Dark"
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
+  "LIGHT_MODE": "Light Mode",
+  "LOGIN_WITH_GOOGLE": "Sign in with Google",
+  "LIGHT": "Light",
+  "DARK": "Dark"
 }

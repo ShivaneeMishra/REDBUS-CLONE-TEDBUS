@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 declare var google: any;
 import { Customer } from '../../service/customer';
 import { Customer as CustomerModel } from '../../model/customer.model';
@@ -14,6 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class Navbar implements OnInit {
   isDarkMode: boolean = false;
+ 
 
   constructor(
     private router: Router,
@@ -30,15 +31,18 @@ export class Navbar implements OnInit {
     } else {  
       this.isLoggedIn = false;
     }
+    if (typeof google !== 'undefined' && google.accounts) {
+      google.accounts.id.initialize({
+        client_id: '826997276246-v9hldbj9qca23jd50vopnep7esc3jve8.apps.googleusercontent.com',
+        callback: (response: any) => {
+          this.handlelogin(response);
+          this.cdr.detectChanges();
+        }
     
 
-    google.accounts.id.initialize({
-      client_id: '826997276246-v9hldbj9qca23jd50vopnep7esc3jve8.apps.googleusercontent.com',
-      callback: (response: any) => {
-        this.handlelogin(response);
-        this.cdr.detectChanges();
-      },
+    
     });
+  }
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang) {
       this.translate.use(savedLang);
@@ -55,16 +59,14 @@ export class Navbar implements OnInit {
     if (targetNode) {
       const observer = new MutationObserver(() => {
         if (targetNode.childElementCount === 0) {
-          this.rendergooglebutton();
+          this.renderDesktopGoogleButton();
         }
       });
       observer.observe(targetNode, { childList: true, subtree: true });
     }
   }, 1000);
 }
-  
-  
-  toggleTheme() {
+toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
 
     if (this.isDarkMode) {
@@ -77,47 +79,43 @@ export class Navbar implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.rendergooglebutton();
+    this.renderDesktopGoogleButton();
   }
   
-
-   rendergooglebutton(): void {
+renderDesktopGoogleButton(): void {
   setTimeout(() => {
-    if (typeof google !== 'undefined' && google.accounts) {
-      google.accounts.id.initialize({
-        client_id: '826997276246-v9hldbj9qca23jd50vopnep7esc3jve8.apps.googleusercontent.com',
-        callback: (response: any) => {
-          this.handlelogin(response);
-          this.cdr.detectChanges();
-        }
+    const desktopBtn = document.getElementById('google-btn');
+    if (desktopBtn && typeof google !== 'undefined') {
+      desktopBtn.innerHTML = '';
+      google.accounts.id.renderButton(desktopBtn, {
+        theme: 'outline',
+        size: 'medium',
+        shape: 'pill',
+        width: 220,
       });
-
-    
-      const desktopBtn = document.getElementById('google-btn');
-      if (desktopBtn) {
-        desktopBtn.innerHTML = ''; 
-        google.accounts.id.renderButton(desktopBtn, {
-          theme: 'outline',
-          size: 'medium',
-          shape: 'pill',
-          width: 220,
-        });
-      }
-
-     
-      const mobileBtn = document.getElementById('google-btn-mobile');
-      if (mobileBtn) {
-        mobileBtn.innerHTML = ''; 
-        google.accounts.id.renderButton(mobileBtn, {
-          theme: 'outline',
-          size: 'medium',
-          shape: 'pill',
-          width: 200,
-        });
-      }
     }
   }, 200);
 }
+
+
+renderMobileGoogleButton(): void {
+  
+  setTimeout(() => {
+    const mobileBtn = document.getElementById('google-btn-mobile');
+    if (mobileBtn && typeof google !== 'undefined' && google.accounts) {
+      console.log(mobileBtn)
+      mobileBtn.innerHTML = '';
+      google.accounts.id.renderButton(mobileBtn, {
+        theme: 'outline',
+        size: 'medium',
+        shape: 'pill',
+        width: 200,
+      });
+    }
+  }, 400); 
+}
+
+   
   private decodetoken(token: String) {
     return JSON.parse(atob(token.split('.')[1]));
   }

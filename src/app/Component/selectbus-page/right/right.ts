@@ -40,7 +40,7 @@ export class Right implements OnInit {
       this.routes=response.route;
       this.seats=response.busidwithseatobj;
       this.cdr.detectChanges()
-      // console.log(this.routes)
+      
     });
    });
   }

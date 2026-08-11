@@ -12,7 +12,7 @@ exports.addReview = async (req, res) => {
     }
 };
 
-// किसी खास बस के सभी रिव्यू लाने और एवरेज रेटिंग निकालने के लिए
+
 exports.getReviewsByBus = async (req, res) => {
     try {
         const { busId } = req.params;
@@ -30,7 +30,7 @@ exports.getReviewsByBus = async (req, res) => {
     }
 };
 
-// अपवोट बढ़ाने के लिए
+
 exports.upvoteReview = async (req, res) => {
     try {
         const { id } = req.params;
@@ -45,7 +45,7 @@ exports.upvoteReview = async (req, res) => {
     }
 };
 
-// रिपोर्ट करने पर रिव्यू को छुपाने (Hide) के लिए
+
 exports.reportReview = async (req, res) => {
     try {
         const { id } = req.params;
@@ -59,7 +59,7 @@ exports.reportReview = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
-// रिव्यू अपडेट करने के लिए (24 घंटे की जांच के साथ)
+
 exports.updateReview = async (req, res) => {
   try {
     const { id } = req.params;
@@ -70,7 +70,7 @@ exports.updateReview = async (req, res) => {
       return res.status(404).json({ message: "Review not found" });
     }
 
-    // 24 घंटे (Milliseconds) की जांच
+    
     const hoursElapsed = (Date.now() - new Date(review.createdAt).getTime()) / (1000 * 60 * 60);
     if (hoursElapsed > 24) {
       return res.status(400).json({ message: "24-hour edit window has expired." });

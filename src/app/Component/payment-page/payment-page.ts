@@ -83,11 +83,11 @@ export class PaymentPage implements OnInit {
       this.customerid = JSON.parse(loggedinuserjson);
     } catch (e) {
      console.error('Error parsing logged in user JSON:', e);
-      //this.customerid = { _id: '6a42602ca6e2df2097654c19', email: 'shivaneem98@gmail.com' };
+      
     }
-  }// else {
-    //this.customerid = { _id: '6a42602ca6e2df2097654c19', email: 'shivaneem98@gmail.com' };
-  //}
+  }
+    
+  
 }
   makepayment(): void {
     let myBooking: any = {};
@@ -115,7 +115,7 @@ export class PaymentPage implements OnInit {
     myBooking.isBusinessTravel = this.isbuisnesstravel;
     myBooking.isInsurance = this.isinsurance;
     myBooking.isCovidDonated = this.iscoviddonated;
-    // console.log(myBooking)
+    
     this.busservice.addbusmongo(myBooking).subscribe({
       next: (response) => {
         console.log('Bus post request success', response);

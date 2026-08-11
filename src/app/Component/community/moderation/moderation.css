@@ -116,7 +116,7 @@
     color: #ffffff; 
 }
 
-/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए मॉडरेशन पेज का रिस्पॉन्सिव फिक्स --- */
+
 @media screen and (max-width: 992px) {
     .moderation-container {
         width: 100% !important;

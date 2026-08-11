@@ -1,4 +1,4 @@
-/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए कम्युनिटी पेज का रिस्पॉन्सिव फिक्स --- */
+
 @media screen and (max-width: 992px) {
     :host, .community-container {
         width: 100% !important;
@@ -10,7 +10,7 @@
         margin: 0 !important;
     }
 
-    /* अंदर के तीनों सब-कॉम्पोनेन्ट्स मोबाइल स्क्रीन पर एक के नीचे एक व्यवस्थित रहें */
+    
     app-post-form, app-post-list, app-forum {
         width: 100% !important;
         max-width: 100% !important;

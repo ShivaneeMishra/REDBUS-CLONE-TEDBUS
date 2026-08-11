@@ -467,7 +467,7 @@ body.dark .btn-cancel,
   color: #ffffff !important;
 }
 
-/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए फोरम पेज का रिस्पॉन्सिव फिक्स --- */
+
 @media screen and (max-width: 992px) {
     .forum-wrapper, .thread-card, .create-thread-box, .trending-section {
         width: 100% !important;
@@ -477,7 +477,7 @@ body.dark .btn-cancel,
         margin: 5px auto !important;
     }
 
-    /* थ्रेड कार्ड के अंदर जो हिस्से अलग-अलग चौड़ाई में बंटे हैं, उन्हें मोबाइल पर नीचे-ऊपर सेट करने के लिए */
+   
     .thread-card {
         flex-direction: column !important;
         align-items: flex-start !important;

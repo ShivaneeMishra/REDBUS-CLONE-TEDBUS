@@ -18,15 +18,15 @@
   "FROM": "से",
   "TO": "तक",
   "DATE": "दिनांक",
-   "BUS": "बस",
+  "BUS": "बस",
   "TRENDING_OFFERS": "ट्रेंडिंग ऑफर्स",
   "VIEW_ALL": "सभी देखें",
-  "SUPERHIT":"SUPERHIT",
+  "SUPERHIT": "SUPERHIT",
   "OFFER_SAVE_250": "बस टिकटों पर 250 रुपये तक बचाएं",
   "OFFER_SAVE_300_AP_TS": "AP, TS रूट पर 300 रुपये तक बचाएं",
   "OFFER_SAVE_300_RJ_MH": "RJ, MH, Goa, MP रूट पर 300 रुपये तक बचाएं",
   "VALID_TILL_30_NOV": "30 नवंबर तक वैध",
-  
+
   "OFFER_SAVE_200_KERALA": "केरल रूट पर 200 रुपये तक बचाएं",
   "FAQ_HEADING": "अक्सर पूछे जाने वाले प्रश्न",
   "DELHI": "दिल्ली",
@@ -72,7 +72,7 @@
   "Darjeeling": "दार्जिलिंग",
   "Chennai": "चेन्नई",
   "Pondicherry": "पांडिचेरी",
-  
+
   "FOOTER_TOP_RTCS": "टॉप RTCs",
   "FOOTER_OTHERS": "अन्य",
   "FOOTER_TOP_BUS_ROUTES": "टॉप बस रूट",
@@ -97,7 +97,7 @@
   "RAIL_TRAINS_BETWEEN_STATIONS": "स्टेशनों के बीच ट्रेनें",
 
   "FOOTER_DESC": "tedbus दुनिया की सबसे बड़ी ऑनलाइन बस टिकट बुकिंग सेवा है जिस पर विश्व स्तर पर 2.5 करोड़ से अधिक खुश ग्राहक भरोसा करते हैं। tedbus अपनी वेबसाइट, iOS और Android मोबाइल ऐप के माध्यम से सभी प्रमुख रूटों के लिए बस टिकट बुकिंग की पेशकश करता है।",
-  
+
   "FOOTER_ABOUT_TEDBUS": "tedbus के बारे में",
   "LINK_ABOUT_US": "हमारे बारे में",
   "LINK_INVESTOR_RELATIONS": "निवेशक संबंध",
@@ -145,12 +145,12 @@
   "ROUTE_HELPER_TEXT": "स्थान दर्ज करें और रास्ते देखने के लिए 'रूट सुझाएं' पर क्लिक करें।",
   "COMPARE_ROUTES": "रूट की तुलना करें",
   "SAVE_ROUTE": "रूट सेव करें",
-   "WAYPOINT": "पड़ाव",
+  "WAYPOINT": "पड़ाव",
   "ENTER_WAYPOINT": "पड़ाव दर्ज करें",
   "DISTANCE": "दूरी",
   "TIME": "समय",
   "MAP_PLACEHOLDER": "इंटरैक्टिव मैप क्षेत्र (यहाँ मैप API लोड करें)",
-  
+
   "ALERT_ENTER_BOTH_LOCATIONS": "कृपया शुरुआती स्थान और गंतव्य दोनों दर्ज करें!",
   "ALERT_SUGGEST_ROUTES_FIRST": "तुलना करने से पहले कृपया रूट सुझाएं!",
   "ALERT_SELECT_ROUTE_TO_SAVE": "कृपया सेव करने के लिए एक रूट चुनें!",
@@ -176,7 +176,7 @@
   "SEND": "भेजें",
   "WANT_TO_SHARE_JOURNEY": "क्या आप अपनी यात्रा साझा करना चाहते हैं?",
   "LOGIN_REQUIRED_MESSAGE": "पोस्ट करने या टिप्पणी का उत्तर देने के लिए आपको लॉगिन करना होगा।",
-  
+
   "REPLIES": "प्रतिक्रियाएं",
   "VIEWS": "देखा गया",
   "LAST_ACTIVITY": "अंतिम गतिविधि",
@@ -228,8 +228,6 @@
   "LIKE_BTN": "लाइक",
   "REPORT_PROMPT_MSG": "आप इस पोस्ट की रिपोर्ट क्यों करना चाहते हैं?",
 
-
-  
   "NO_NOTIFICATIONS_FOUND": "कोई नोटिफिकेशन नहीं मिला।",
   "NOTIFICATION_PREFERENCES": "नोटिफिकेशन प्राथमिकताएं",
   "ENABLE_EMAIL_NOTIFICATIONS": "ईमेल नोटिफिकेशन सक्षम करें",
@@ -237,7 +235,6 @@
   "ENABLE_PROMOTIONAL_MESSAGES": "प्रमोशनल संदेश सक्षम करें",
   "SAVE_PREFERENCES_BTN": "प्राथमिकताएं सहेजें",
   "PREFERENCES_UPDATED_SUCCESS": "प्राथमिकताएं सफलतापूर्वक अपडेट कर दी गई हैं!",
-
 
   "RE_DEAL_APPLIED": "री-डील लागू (ReDeal applied)",
   "SEATS_AVAILABLE": " सीटें उपलब्ध",
@@ -258,10 +255,9 @@
   "RATINGS": "रेटिंग",
   "FARE": "किराया",
 
-
   "HOME": "होम",
   "BUS_TICKETS": "बस टिकट",
-  
+
   "FARE_STARTS_FROM": "किराया शुरू होता है",
   "DEPARTURE_TO": "के लिए प्रस्थान",
   "ON": "तारीख को",
@@ -275,8 +271,7 @@
   "BOOKING_POLICIES": "बुकिंग नियम",
   "VIEW_SEATS": "सीटें देखें",
 
-
-   "BUS_RATINGS_AND_REVIEWS": "बस रेटिंग और समीक्षाएं",
+  "BUS_RATINGS_AND_REVIEWS": "बस रेटिंग और समीक्षाएं",
   "GENUINE_FEEDBACK_TEXT": "सत्यापित यात्रियों से वास्तविक प्रतिक्रिया",
   "REVIEWS_COUNT_TEXT": "समीक्षाएं",
   "RATE_YOUR_JOURNEY": "अपनी यात्रा को रेट करें",
@@ -293,8 +288,6 @@
   "EDIT": "संपादित करें",
   "HELPFUL": "उपयोगी",
 
-
-
   "CHANGE": "बदलें",
   "DEPARTURE_LOCATION": "प्रस्थान स्थान",
   "ARRIVAL_LOCATION": "आगमन स्थान",
@@ -303,13 +296,11 @@
   "AMOUNT": "राशि",
   "TAXES_DURING_PAYMENT": "भुगतान के दौरान टैक्स जोड़े जाएंगे",
 
-
-
   "ENTER_PASSENGER_DETAILS": "यात्री विवरण दर्ज करें",
   "PASSENGER_INFORMATION": "यात्री की जानकारी",
   "PASSENGER": "यात्री",
   "SEAT": "सीट",
-  
+
   "NAME_PLACEHOLDER": "नाम",
   "GENDER": "लिंग",
   "MALE": "पुरुष",
@@ -359,16 +350,16 @@
 
   "TOTAL_BOOKINGS_COUNT": "कुल बुकिंग संख्या",
   "BUS_DETAILS": "बस विवरण",
-  
+
   "DEPARTURE_DATE": "प्रस्थान की तारीख",
-  
+
   "ARRIVAL_DATE": "आगमन की तारीख",
   "TOTAL_FARE": "कुल किराया",
   "PASSENGER_DETAILS": "यात्री विवरण",
   "CONTACT_EMAIL": "संपर्क ईमेल",
   "CONTACT_PHONE_NUMBER": "संपर्क फ़ोन नंबर",
   "NOTIFICATION_STATUS": "नोटिफिकेशन स्थिति",
-  
+
   "CANCEL_TICKET": "टिकट रद्द करें",
   "CHANGE_SCHEDULE": "शेड्यूल बदलें",
   "NEW_CITY_PLACEHOLDER": "नया शहर",
@@ -378,17 +369,16 @@
   "SCHEDULE_UPDATED_SUCCESS": "शेड्यूल अपडेट हो गया है और ईमेल सफलतापूर्वक भेज दिया गया है!",
   "SCHEDULE_UPDATE_FAILED": "शेड्यूल अपडेट करने में विफल।",
 
-
   "DASHBOARD": "डैशबोर्ड",
-  
+
   "WALLET": "वॉलेट",
   "WALLET_FEATURE_COMING_SOON": "वॉलेट फीचर जल्द आ रहा है...",
   "YOUR_NAME": "आपका नाम",
   "USER": "यूज़र",
   "DATE_OF_BIRTH": "जन्म तिथि",
- 
+
   "CONTACT_DETAILS": "संपर्क विवरण",
-  
+
   "MY_COMMUNITY_POSTS": "मेरी कम्युनिटी पोस्ट",
   "STATUS": "स्थिति",
   "LIKES": "पसंद (Likes)",
@@ -396,38 +386,11 @@
   "MY_FORUM_DISCUSSIONS": "मेरी फोरम चर्चाएं",
 
   "ANONYMOUS": "अज्ञात",
-  
+
   "NO_FORUM_DISCUSSIONS_FOUND": "कोई फोरम चर्चा नहीं मिली।",
   "LOGIN_WITH_GOOGLE": "गूगल से लॉगिन करें",
   "DARK_MODE": "डार्क मोड",
-"LIGHT_MODE": "लाइट मोड",
-"LIGHT": "लाइट",
-"DARK": "डार्क"
-
-  
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  "LIGHT_MODE": "लाइट मोड",
+  "LIGHT": "लाइट",
+  "DARK": "डार्क"
 }
-
-
-  
-
-
-

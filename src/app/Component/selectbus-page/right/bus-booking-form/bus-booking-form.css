@@ -130,7 +130,7 @@ body {
     border: 1px solid #444444 !important;
 }
 
-/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैबलेट के लिए रिस्पॉन्सिव फिक्स --- */
+
 @media screen and (max-width: 992px) {
     .content-block {
         width: 100% !important;
@@ -142,13 +142,13 @@ body {
 
    
 
-    /* फोन नंबर के दोनों बॉक्स को एक करने और सही दिखने के लिए */
+   
     input[type="number"][name="phone"], input[name="phone"] {
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* जेंडर और लेबल्स को मोबाइल पर सीधा और करीने से दिखाने के लिए */
+   
     .form-radio-label, .radio-button-container {
         white-space: nowrap !important;
     }
@@ -159,16 +159,16 @@ body {
     }
 }
 
-/* --- लैपटॉप और टैब पर जेंडर टेक्स्ट का फाइनल फिक्स --- */
+
 @media screen and (min-width: 768px) {
-    /* जेंडर वाले हिस्से को पर्याप्त चौड़ाई दें ताकि शब्द टूटे नहीं */
+    
     .form-radio-label, [class*="gender"], div[style*="flex"] {
         white-space: nowrap !important;
         word-break: keep-all !important;
         min-width: max-content !important;
     }
 
-    /* पैसेंजर फॉर्म के अंदर के रेडियो और लेबल्स की फ्लेक्स सेटिंग को सुधारना */
+   
     .bus-booking-form div[style*="display: flex"] {
         flex-wrap: nowrap !important;
     }

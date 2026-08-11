@@ -148,7 +148,7 @@
     color: #f87171 !important; 
 }
 
-/* --- लैपटॉप को सुरक्षित रखते हुए केवल मोबाइल और टैब के लिए रिस्पॉन्सिव फिक्स --- */
+
 @media screen and (max-width: 992px) {
     .main-container {
         width: 100% !important;
@@ -158,7 +158,7 @@
         box-sizing: border-box !important;
     }
 
-    /* सभी शॉर्टिंग सेक्शन्स को मोबाइल/टैब पर सही से सेट करने के लिए */
+  
     .main-container1, .main-container2, .main-container3, 
     .main-container4, .main-container5, .main-container6, .main-container7 {
         width: auto !important;
@@ -173,7 +173,7 @@
     }
     
 }
-/* --- रेटिंग्स कॉलम का ओवरलैप फिक्स --- */
+
 [class*="rating"], .ratings-container, .main-container5 {
     white-space: nowrap !important;
     overflow: hidden !important;
@@ -181,7 +181,7 @@
     max-width: 100px !important;
 }
 
-/* सुनिश्चित करें कि रेटिंग्स के अंदर के नंबर्स या आइकॉन्स एक के ऊपर एक न आएं */
+
 [class*="rating"] *, .ratings-container * {
     display: inline-block !important;
     vertical-align: middle !important;

@@ -1,0 +1,29 @@
+
+
+
+.overflow-x-auto::-webkit-scrollbar {
+    height: 7px !important;
+}
+
+
+.overflow-x-auto::-webkit-scrollbar-track {
+    background: transparent !important; 
+    border-radius: 10px;
+}
+
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+    background: #cccccc !important;
+    border-radius: 10px;
+}
+
+
+:host-context(.dark) .overflow-x-auto::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+:host-context(.dark) .overflow-x-auto::-webkit-scrollbar-thumb {
+    
+    background: #666666 !important; 
+    border-radius: 10px;
+}

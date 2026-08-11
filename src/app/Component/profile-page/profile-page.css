@@ -77,12 +77,14 @@ body {
     font-weight: 500;
   }
   .profilebox {
-    margin: 7px 0 15px 120px;
+    margin:  15px auto;
     background-color: #fff;
-    width: 78%;
+    width: 100%;
+    max-width: 600px;
     border-radius: 0.5em;
     box-shadow: 0 0 10px #bdbcbc;
     padding: 4% 8%;
+    box-sizing: border-box;
   }
   .userDetailHeading {
     font-size: 12px;
@@ -292,4 +294,30 @@ body.dark .leftPart i.material-icons,
 .dark .leftPart mat-icon,
 .dark .leftPart i.material-icons {
   color: #ffffff !important;
+}
+@media screen and (max-width: 992px) {
+  
+  .ProfilePannel {
+    flex-direction: column !important;
+  }
+
+  
+  .leftPart {
+    width: 100% !important;
+  }
+
+  
+  .rightPanel {
+    width: 100% !important;
+    padding: 10px !important;
+  }
+
+  
+  .seprator {
+    display: none !important;
+  }
+  .profilebox {
+    padding: 4% !important;
+    width: 95% !important;
+  }
 }

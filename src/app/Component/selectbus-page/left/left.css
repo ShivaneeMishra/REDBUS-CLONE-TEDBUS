@@ -48,7 +48,7 @@
 
 :host-context(.dark) .left span,
 :host-context(.dark) .left label {
-    color: #cccccc !important;
+    color: #ffffff!important;
 }
 
 
@@ -96,4 +96,11 @@
 
 .left p, .left span, .left li {
     font-size: clamp(12px, 1.8vw, 15px);
+}
+
+:host-context(.dark) .left span,
+:host-context(.dark) .left label,
+:host-context(.dark) .left p,
+:host-context(.dark) .left i { 
+    color: #ffffff !important;
 }

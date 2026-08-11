@@ -7,7 +7,7 @@ describe('Bus', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    // Bus is a type-only export, so create a mock instance for tests
+   
     service = {} as Bus;
   });
 
