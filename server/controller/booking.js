@@ -15,13 +15,15 @@ exports.addbooking = async (req, res) => {
       type: 'BOOKING',
     });
     console.log('notification is save');
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'shivaneem98@gmail.com', 
-        pass: 'jhkw mdzs rlta fqch', 
-      },
-    });
+   const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+        user: 'shivaneem98@gmail.com',
+        pass: 'jhkw mdzs rlta fqch'
+    }
+});
 
     const mailOptions = {
       from: '"TedBus" <shivaneem98@gmail.com>',
@@ -74,12 +76,14 @@ exports.cancelBooking = async (req, res) => {
       type: 'CANCELLATION',
     });
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'shivaneem98@gmail.com', 
-        pass: 'jhkw mdzs rlta fqch',
-      },
-    });
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+        user: 'shivaneem98@gmail.com',
+        pass: 'jhkw mdzs rlta fqch'
+    }
+});
     
     const mailOptions = {
       from: '"TedBus" <shivaneem98@gmail.com>',
@@ -133,7 +137,9 @@ const maxRetries = 3;
 for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
             auth: {
                 user: 'shivaneem98@gmail.com',
                 pass: 'jhkw mdzs rlta fqch'
