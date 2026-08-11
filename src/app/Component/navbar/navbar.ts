@@ -102,8 +102,9 @@ renderMobileGoogleButton(): void {
   
   setTimeout(() => {
     const mobileBtn = document.getElementById('google-btn-mobile');
+    console.log('Mobile button element:', mobileBtn);
     if (mobileBtn && typeof google !== 'undefined' && google.accounts) {
-      console.log(mobileBtn)
+      
       mobileBtn.innerHTML = '';
       google.accounts.id.renderButton(mobileBtn, {
         theme: 'outline',
@@ -112,7 +113,7 @@ renderMobileGoogleButton(): void {
         width: 200,
       });
     }
-  }, 400); 
+  }, 500); 
 }
 
    
