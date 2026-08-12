@@ -19,8 +19,8 @@ exports.addbooking = async (req, res) => {
     service: 'gmail',
     
     auth: {
-        user: 'shivaneem98@gmail.com',
-        pass: 'jhkwmdzsrltafqch'
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
     }
 });
 
@@ -78,8 +78,8 @@ exports.cancelBooking = async (req, res) => {
       service: 'gmail',
    
     auth: {
-        user: 'shivaneem98@gmail.com',
-        pass: 'jhkwmdzsrltafqch'
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
     }
 });
     
@@ -138,8 +138,8 @@ for (let attempt = 1; attempt <= maxRetries; attempt++) {
             service: 'gmail',
             
             auth: {
-                user: 'shivaneem98@gmail.com',
-                pass: 'jhkwmdzsrltafqch'
+                user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
             }
         });
         

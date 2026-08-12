@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express=require('express')
 const bodyparser=require('body-parser')
 const cors=require('cors')
 const mongoose=require('mongoose')
+
 
 const app=express();
 app.use(cors({ origin: ['https://helpful-dodol-6eed54.netlify.app', 'http://localhost:4200'],
@@ -73,8 +75,8 @@ cron.schedule('0 8 * * *', async () => {
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'shivaneem98@gmail.com',
-          pass: 'jhkwmdzsrltafqch' 
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS
         }
       });
 
