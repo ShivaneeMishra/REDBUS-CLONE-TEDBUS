@@ -16,9 +16,10 @@ exports.addbooking = async (req, res) => {
     });
     console.log('notification is save');
    const transporter = nodemailer.createTransport({
+    service: 'gmail',
     host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
+    port: 587,
+    secure: false,
     auth: {
         user: 'shivaneem98@gmail.com',
         pass: 'jhkwmdzsrltafqch'
@@ -76,9 +77,10 @@ exports.cancelBooking = async (req, res) => {
       type: 'CANCELLATION',
     });
     const transporter = nodemailer.createTransport({
+      service: 'gmail',
     host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
+    port: 578,
+    secure: false,
     auth: {
         user: 'shivaneem98@gmail.com',
         pass: 'jhkwmdzsrltafqch'
@@ -137,9 +139,10 @@ const maxRetries = 3;
 for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
         const transporter = nodemailer.createTransport({
+            service: 'gmail',
             host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
+            port: 578,
+            secure: false,
             auth: {
                 user: 'shivaneem98@gmail.com',
                 pass: 'jhkwmdzsrltafqch'
