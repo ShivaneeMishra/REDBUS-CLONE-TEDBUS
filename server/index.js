@@ -74,7 +74,7 @@ cron.schedule('0 8 * * *', async () => {
         service: 'gmail',
         auth: {
           user: 'shivaneem98@gmail.com',
-          pass: 'jhkw mdzs rlta fqch' 
+          pass: 'jhkwmdzsrltafqch' 
         }
       });
 

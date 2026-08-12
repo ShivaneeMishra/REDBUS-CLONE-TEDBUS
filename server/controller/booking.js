@@ -9,7 +9,7 @@ exports.addbooking = async (req, res) => {
     console.log(req.body);
 
     await Notification.create({
-      userId: req.body.customerId || '6a42602ca6e2df2097654c19',
+      userId: req.body.customerId ,
       title: 'Bus Ticket Booked',
       message: 'Your bus ticket has been successfully booked!',
       type: 'BOOKING',
@@ -21,13 +21,13 @@ exports.addbooking = async (req, res) => {
     secure: true,
     auth: {
         user: 'shivaneem98@gmail.com',
-        pass: 'jhkw mdzs rlta fqch'
+        pass: 'jhkwmdzsrltafqch'
     }
 });
 
     const mailOptions = {
       from: '"TedBus" <shivaneem98@gmail.com>',
-      to: req.body.email || 'shivanee03mishra@gmail.com',
+      to: req.body.email ,
       subject: 'Booking Confirmed - TedBus',
       text: `Hello! Your bus ticket has been successfully booked. Thank you for choosing TedBus!`,
     };
@@ -70,7 +70,7 @@ exports.cancelBooking = async (req, res) => {
     }
 
     await Notification.create({
-      userId: cancelledBooking.customerId || '6a42602ca6e2df2097654c19',
+      userId: cancelledBooking.customerId,
       title: 'Bus Ticket Cancelled',
       message: 'Your bus ticket has been successfully cancelled.',
       type: 'CANCELLATION',
@@ -81,13 +81,13 @@ exports.cancelBooking = async (req, res) => {
     secure: true,
     auth: {
         user: 'shivaneem98@gmail.com',
-        pass: 'jhkw mdzs rlta fqch'
+        pass: 'jhkwmdzsrltafqch'
     }
 });
     
     const mailOptions = {
       from: '"TedBus" <shivaneem98@gmail.com>',
-      to: cancelledBooking.email || 'shivanee03mishra@gmail.com',
+      to: cancelledBooking.email ,
       subject: 'Booking Cancelled - TedBus',
       text: `Hello! Your bus ticket has been successfully cancelled. We hope to se you again!`,
     };
@@ -121,7 +121,7 @@ exports.updateBooking = async (req, res) => {
        
         try {
             await Notification.create({
-                userId: updatedBooking.customerId || '6a42602ca6e2df2097654c19',
+                userId: updatedBooking.customerId ,
                 title: 'Bus Schedule Changed',
                 message: `Important: The schedule for your bus trip to ${updatedBooking.departureDetails?.city || 'destination'} has been updated.`,
                 type: 'SCHEDULE_CHANGE',
@@ -142,7 +142,7 @@ for (let attempt = 1; attempt <= maxRetries; attempt++) {
             secure: true,
             auth: {
                 user: 'shivaneem98@gmail.com',
-                pass: 'jhkw mdzs rlta fqch'
+                pass: 'jhkwmdzsrltafqch'
             }
         });
         
@@ -161,7 +161,7 @@ if (userLang === 'hi') {
 
         const mailOptions = {
             from: 'TedBus <shivaneem98@gmail.com>',
-            to: updatedBooking.email || 'shivanee83mishra@gmail.com',
+            to: updatedBooking.email,
             subject: subjectText,
             text: messageText
         };

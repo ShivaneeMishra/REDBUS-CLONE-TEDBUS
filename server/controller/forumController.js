@@ -84,7 +84,7 @@ exports.getTrendingForum = async (req, res) => {
 exports.updatePostStatus = async (req, res) => {
   try {
     const { id } = req.params;
-    const { status } = req.body; // 'approved' या 'rejected'
+    const { status } = req.body;
 
     const updatedPost = await Forum.findByIdAndUpdate(
       id, 
