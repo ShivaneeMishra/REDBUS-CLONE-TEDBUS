@@ -79,7 +79,7 @@ exports.cancelBooking = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
     host: 'smtp.gmail.com',
-    port: 578,
+    port: 587,
     secure: false,
     auth: {
         user: 'shivaneem98@gmail.com',
@@ -141,7 +141,7 @@ for (let attempt = 1; attempt <= maxRetries; attempt++) {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             host: 'smtp.gmail.com',
-            port: 578,
+            port: 587,
             secure: false,
             auth: {
                 user: 'shivaneem98@gmail.com',
