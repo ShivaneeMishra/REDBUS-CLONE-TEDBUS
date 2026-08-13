@@ -16,8 +16,8 @@ exports.addbooking = async (req, res) => {
     });
     console.log('notification is save');
     const transporter = nodemailer.createTransport({
-      service: 'Brevo',
-      host: 'smtp-relay.brevo.com',
+      service: 'gmail',
+      host: 'smtp.gmail.com',
       port: 587,
       secure: false,
 
@@ -25,14 +25,10 @@ exports.addbooking = async (req, res) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-      tls: {
-        rejectUnauthorized:false
-      }
-
     });
 
     const mailOptions = {
-      from: '"TedBus" <b55d5c001@smtp-brevo.com>',
+      from: '"TedBus" <shivaneem98@gmail.com>',
       to: req.body.email,
       subject: 'Booking Confirmed - TedBus',
       text: `Hello! Your bus ticket has been successfully booked. Thank you for choosing TedBus!`,
@@ -80,21 +76,19 @@ exports.cancelBooking = async (req, res) => {
       type: 'CANCELLATION',
     });
     const transporter = nodemailer.createTransport({
-      service: 'Brevo',
-      host: 'smtp-relay.brevo.com',
+      service: 'gmail',
+      host: 'smtp.gmail.com',
       port: 587,
-      secure:false,
+      secure: false,
+
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-      tls: {
-        rejectUnauthorized:false
-      }
     });
 
     const mailOptions = {
-      from: '"TedBus" <b55d5c001@smtp-brevo.com>',
+      from: '"TedBus" <shivaneem98@gmail.com>',
       to: cancelledBooking.email,
       subject: 'Booking Cancelled - TedBus',
       text: `Hello! Your bus ticket has been successfully cancelled. We hope to se you again!`,
@@ -141,17 +135,14 @@ exports.updateBooking = async (req, res) => {
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
       try {
         const transporter = nodemailer.createTransport({
-          service: 'Brevo',
-          host: 'smtp-relay.brevo.com',
+          service: 'gmail',
+          host: 'smtp.gmail.com',
           port: 587,
-          secure:false,
+          secure: false,
           auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
           },
-          tls: {
-        rejectUnauthorized:false
-      }
         });
 
         const userLang = req.body.language || 'en';
@@ -168,7 +159,7 @@ exports.updateBooking = async (req, res) => {
         }
 
         const mailOptions = {
-          from: 'TedBus <b55d5c001@smtp-brevo.com>',
+          from: 'TedBus <shivaneem98@gmail.com>',
           to: updatedBooking.email,
           subject: subjectText,
           text: messageText,
