@@ -9,32 +9,31 @@ exports.addbooking = async (req, res) => {
     console.log(req.body);
 
     await Notification.create({
-      userId: req.body.customerId ,
+      userId: req.body.customerId,
       title: 'Bus Ticket Booked',
       message: 'Your bus ticket has been successfully booked!',
       type: 'BOOKING',
     });
     console.log('notification is save');
-   const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    
-    auth: {
+    const transporter = nodemailer.createTransport({
+      service: 'Brevo',
+      host: 'smtp-relay.brevo.com',
+      port: 587,
+
+      auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
-});
+        pass: process.env.EMAIL_PASS,
+      },
+    });
 
     const mailOptions = {
-      from: '"TedBus" <shivaneem98@gmail.com>',
-      to: req.body.email ,
+      from: '"TedBus" <b55d5c001@smtp-brevo.com>',
+      to: req.body.email,
       subject: 'Booking Confirmed - TedBus',
       text: `Hello! Your bus ticket has been successfully booked. Thank you for choosing TedBus!`,
     };
 
-   
-   try {
+    try {
       await transporter.sendMail(mailOptions);
       console.log('Email sent successfully');
       currentStatus = 'SENT';
@@ -63,7 +62,6 @@ exports.cancelBooking = async (req, res) => {
   try {
     const bookingId = req.params.id;
 
-    
     const cancelledBooking = await Booking.findByIdAndDelete(bookingId);
 
     if (!cancelledBooking) {
@@ -77,24 +75,23 @@ exports.cancelBooking = async (req, res) => {
       type: 'CANCELLATION',
     });
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
+      service: 'Brevo',
+      host: 'smtp-relay.brevo.com',
+      port: 587,
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
-});
-    
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
     const mailOptions = {
-      from: '"TedBus" <shivaneem98@gmail.com>',
-      to: cancelledBooking.email ,
+      from: '"TedBus" <b55d5c001@smtp-brevo.com>',
+      to: cancelledBooking.email,
       subject: 'Booking Cancelled - TedBus',
       text: `Hello! Your bus ticket has been successfully cancelled. We hope to se you again!`,
     };
 
-    
-    transporter.sendMail(mailOptions, async(error, info) => {
+    transporter.sendMail(mailOptions, async (error, info) => {
       if (error) {
         console.log('Email error: ', error);
       } else {
@@ -109,89 +106,82 @@ exports.cancelBooking = async (req, res) => {
 };
 
 exports.updateBooking = async (req, res) => {
+  try {
+    const bookingId = req.params.id;
+
+    const updatedBooking = await Booking.findByIdAndUpdate(bookingId, req.body, { new: true });
+
+    if (!updatedBooking) {
+      return res.status(404).send({ success: false, message: 'Booking not found' });
+    }
+
     try {
-        const bookingId = req.params.id;
-        
-        
-        const updatedBooking = await Booking.findByIdAndUpdate(bookingId, req.body, { new: true });
-        
-        if (!updatedBooking) {
-            return res.status(404).send({ success: false, message: 'Booking not found' });
-        }
+      await Notification.create({
+        userId: updatedBooking.customerId,
+        title: 'Bus Schedule Changed',
+        message: `Important: The schedule for your bus trip to ${updatedBooking.departureDetails?.city || 'destination'} has been updated.`,
+        type: 'SCHEDULE_CHANGE',
+      });
+    } catch (notifError) {
+      console.log('Notification creation skipped:', notifError.message);
+    }
 
-       
-        try {
-            await Notification.create({
-                userId: updatedBooking.customerId ,
-                title: 'Bus Schedule Changed',
-                message: `Important: The schedule for your bus trip to ${updatedBooking.departureDetails?.city || 'destination'} has been updated.`,
-                type: 'SCHEDULE_CHANGE',
-            });
-        } catch (notifError) {
-            console.log('Notification creation skipped:', notifError.message);
-        }
+    let currentStatus = 'PENDING';
+    const maxRetries = 3;
 
-      
-let currentStatus = 'PENDING';
-const maxRetries = 3;
-
-for (let attempt = 1; attempt <= maxRetries; attempt++) {
-    try {
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
         const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-            auth: {
-                user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-            }
+          service: 'Brevo',
+          host: 'smtp-relay.brevo.com',
+          port: 587,
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+          },
         });
-        
-const userLang = req.body.language || 'en'; 
 
-let subjectText = '';
-let messageText = '';
+        const userLang = req.body.language || 'en';
 
-if (userLang === 'hi') {
-    subjectText = 'शेड्यूल अपडेट - TedBus';
-    messageText = `नमस्ते! आपकी जर्नी का शेड्यूल बदल गया है। नई सिटी: ${updatedBooking.departureDetails?.city || 'destination'}`;
-} else {
-    subjectText = 'Schedule Update - TedBus';
-    messageText = `Hello! There is a change in the schedule of your upcoming bus journey to ${updatedBooking.departureDetails?.city || 'destination'}.`;
-}
+        let subjectText = '';
+        let messageText = '';
+
+        if (userLang === 'hi') {
+          subjectText = 'शेड्यूल अपडेट - TedBus';
+          messageText = `नमस्ते! आपकी जर्नी का शेड्यूल बदल गया है। नई सिटी: ${updatedBooking.departureDetails?.city || 'destination'}`;
+        } else {
+          subjectText = 'Schedule Update - TedBus';
+          messageText = `Hello! There is a change in the schedule of your upcoming bus journey to ${updatedBooking.departureDetails?.city || 'destination'}.`;
+        }
 
         const mailOptions = {
-            from: 'TedBus <shivaneem98@gmail.com>',
-            to: updatedBooking.email,
-            subject: subjectText,
-            text: messageText
+          from: 'TedBus <b55d5c001@smtp-brevo.com>',
+          to: updatedBooking.email,
+          subject: subjectText,
+          text: messageText,
         };
 
         await transporter.sendMail(mailOptions);
         console.log(`Email sent successfully on attempt ${attempt}`);
         currentStatus = 'SENT';
-        break; 
-
-    } catch (emailError) {
+        break;
+      } catch (emailError) {
         console.log(`Attempt ${attempt} failed:`, emailError.message);
         if (attempt === maxRetries) {
-            currentStatus = 'FAILED'; 
+          currentStatus = 'FAILED';
         }
+      }
     }
-}
 
+    await Booking.findByIdAndUpdate(bookingId, { notificationStatus: currentStatus });
 
-await Booking.findByIdAndUpdate(bookingId, { notificationStatus: currentStatus });
-
-        
-        return res.status(200).send({ 
-            success: true, 
-            message: 'Booking updated and notification sent successfully!', 
-            updatedBooking 
-        });
-
-    } catch (error) {
-        console.error('Server error in updateBooking:', error);
-        return res.status(500).send({ success: false, message: error.message });
-    }
+    return res.status(200).send({
+      success: true,
+      message: 'Booking updated and notification sent successfully!',
+      updatedBooking,
+    });
+  } catch (error) {
+    console.error('Server error in updateBooking:', error);
+    return res.status(500).send({ success: false, message: error.message });
+  }
 };

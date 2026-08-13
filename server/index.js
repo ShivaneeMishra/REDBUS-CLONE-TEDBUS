@@ -72,7 +72,8 @@ cron.schedule('0 8 * * *', async () => {
       });
 
       const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
+        service: 'Brevo',
+        host: 'smtp-relay.brevo.com',
         port: 587,
         secure: false,
         auth: {
@@ -82,10 +83,11 @@ cron.schedule('0 8 * * *', async () => {
       });
 
       const mailOptions = {
-        from: '"TedBus" <shivaneem98@gmail.com>',
+        from: '"TedBus" <b55d5c001@smtp-brevo.com',
         to: booking.email,
         subject: 'Upcoming Journey Reminder - TedBus',
-        text: `Hello! This is a friendly reminder that your bus trip from ${booking.departureDetails?.city} to ${booking.arrivalDetails?.city} is today. Have a safe journey!`,
+        text: `Hello! This is a friendly reminder that your bus trip from ${booking.departureDetails?.city}
+         to ${booking.arrivalDetails?.city} is today. Have a safe journey!`,
       };
 
       await transporter.sendMail(mailOptions);

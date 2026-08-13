@@ -87,6 +87,8 @@
 }
 
 
+
+
 @media screen and (max-width: 768px) {
     .mainBar {
         justify-content: space-between !important;
@@ -98,4 +100,11 @@
         font-size: 11px !important;
         padding: 5px !important;
     }
+    .review-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+        width: 100%; 
+        margin-bottom: 5px;
+    }
+
 }
