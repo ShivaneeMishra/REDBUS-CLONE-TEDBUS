@@ -19,11 +19,16 @@ exports.addbooking = async (req, res) => {
       service: 'Brevo',
       host: 'smtp-relay.brevo.com',
       port: 587,
+      secure: false,
 
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      tls: {
+        rejectUnauthorized:false
+      }
+
     });
 
     const mailOptions = {
@@ -78,10 +83,14 @@ exports.cancelBooking = async (req, res) => {
       service: 'Brevo',
       host: 'smtp-relay.brevo.com',
       port: 587,
+      secure:false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      tls: {
+        rejectUnauthorized:false
+      }
     });
 
     const mailOptions = {
@@ -135,10 +144,14 @@ exports.updateBooking = async (req, res) => {
           service: 'Brevo',
           host: 'smtp-relay.brevo.com',
           port: 587,
+          secure:false,
           auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
           },
+          tls: {
+        rejectUnauthorized:false
+      }
         });
 
         const userLang = req.body.language || 'en';

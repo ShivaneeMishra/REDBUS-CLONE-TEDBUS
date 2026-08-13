@@ -80,6 +80,9 @@ cron.schedule('0 8 * * *', async () => {
           user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASS,
         },
+         tls: {
+        rejectUnauthorized:false
+      }
       });
 
       const mailOptions = {
