@@ -1,3 +1,4 @@
+const axios = require('axios');
 require('dotenv').config();
 const express = require('express');
 const bodyparser = require('body-parser');
@@ -52,7 +53,7 @@ app.listen(PORT, () => {
 const cron = require('node-cron');
 const Booking = require('./models/booking');
 const { Notification } = require('./models/notificationModel');
-const nodemailer = require('nodemailer');
+
 
 cron.schedule('0 8 * * *', async () => {
   console.log('Checking for upcoming journey reminders...');
@@ -71,26 +72,34 @@ cron.schedule('0 8 * * *', async () => {
         type: 'REMINDER',
       });
 
-      const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
-        },
-      });
+      try {
+        const response = await axios.post(
+          'https://api.brevo.com/v3/smtp/email',
+          {
+            sender: { 
+              name: "TedBus", 
+              email: process.env.EMAIL_USER 
+            },
+            to: [
+              { email: booking.email }
+            ],
+            subject: 'Upcoming Journey Reminder - TedBus',
+            htmlContent: `<p>Hello! This is a friendly reminder that your bus trip from ${booking.departureDetails?.city} to 
+            ${booking.arrivalDetails?.city} is today. Have a safe journey!</p>`
+          },
+          {
+            headers: {
+              'api-key': process.env.BREVO_API_KEY,
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          }
+        );
 
-      const mailOptions = {
-        from: '"TedBus" <shivaneem98@gmail.com>',
-        to: booking.email,
-        subject: 'Upcoming Journey Reminder - TedBus',
-        text: `Hello! This is a friendly reminder that your bus trip from ${booking.departureDetails?.city}
-         to ${booking.arrivalDetails?.city} is today. Have a safe journey!`,
-      };
-
-      await transporter.sendMail(mailOptions);
-      console.log(`Reminder email sent to ${booking.email}`);
+        console.log(`Reminder email sent successfully to ${booking.email}`);
+      } catch (error) {
+        console.error('Email API error:', error.response?.data || error.message);
+      }
     }
   } catch (error) {
     console.error('Reminder cron error:', error);

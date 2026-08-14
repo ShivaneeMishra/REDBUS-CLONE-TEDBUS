@@ -1,6 +1,6 @@
 const Booking = require('../models/booking');
 const { Notification } = require('../models/notificationModel');
-const nodemailer = require('nodemailer');
+const axios = require('axios');
 
 exports.addbooking = async (req, res) => {
   try {
@@ -15,33 +15,29 @@ exports.addbooking = async (req, res) => {
       type: 'BOOKING',
     });
     console.log('notification is save');
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
-
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    const mailOptions = {
-      from: '"TedBus" <shivaneem98@gmail.com>',
-      to: req.body.email,
-      subject: 'Booking Confirmed - TedBus',
-      text: `Hello! Your bus ticket has been successfully booked. Thank you for choosing TedBus!`,
-    };
-
-    try {
-      await transporter.sendMail(mailOptions);
-      console.log('Email sent successfully');
-      currentStatus = 'SENT';
-    } catch (emailError) {
-      console.log('Email error: ', emailError.message);
-      currentStatus = 'FAILED';
+   
+   try {
+  await axios.post(
+    'https://api.brevo.com/v3/smtp/email',
+    {
+      sender: { name: "TedBus", email: process.env.EMAIL_USER },
+      to: [{ email: req.body.email }],
+      subject: 'Booking Confirmed - TedBus', 
+      htmlContent: `<p>Hello! Your bus ticket has been successfully booked. Thank you for choosing TedBus!</p>` 
+    },
+    {
+      headers: {
+        'api-key': process.env.BREVO_API_KEY,
+        'Content-Type': 'application/json'
+      }
     }
+  );
+  console.log('Booking email sent successfully via Brevo API');
+  currentStatus = 'SENT';
+} catch (error) {
+  console.error('Email API error:', error.response?.data || error.message);
+  currentStatus = 'FAILED';
+}
 
     await Booking.findByIdAndUpdate(booking._id, { notificationStatus: currentStatus });
 
@@ -75,35 +71,30 @@ exports.cancelBooking = async (req, res) => {
       message: 'Your bus ticket has been successfully cancelled.',
       type: 'CANCELLATION',
     });
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
+    try {
+      await axios.post(
+        'https://api.brevo.com/v3/smtp/email',
+        {
+          sender: { name: "TedBus", email: process.env.EMAIL_USER },
+          to: [{ email: cancelledBooking.email }],
+          subject: 'Booking Cancelled - TedBus', 
+          htmlContent: `<p>Hello! Your bus ticket has been successfully cancelled. We hope to see you again!</p>` 
+        },
+        {
+          headers: {
+            'api-key': process.env.BREVO_API_KEY,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      console.log('Cancellation email sent successfully via Brevo API');
+    } catch (error) {
+      console.error('Email API error:', error.response?.data || error.message);
+    }
 
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    const mailOptions = {
-      from: '"TedBus" <shivaneem98@gmail.com>',
-      to: cancelledBooking.email,
-      subject: 'Booking Cancelled - TedBus',
-      text: `Hello! Your bus ticket has been successfully cancelled. We hope to se you again!`,
-    };
-
-    transporter.sendMail(mailOptions, async (error, info) => {
-      if (error) {
-        console.log('Email error: ', error);
-      } else {
-        console.log('Email sent successfully: ' + info.response);
-      }
-    });
-
-    res.status(200).send({ success: true, message: 'Booking cancelled successfully!' });
+    res.send({ success: true, message: 'Booking cancelled successfully' });
   } catch (error) {
+    console.log('Cancellation error');
     res.status(500).send({ success: false, message: error.message });
   }
 };
@@ -129,53 +120,42 @@ exports.updateBooking = async (req, res) => {
       console.log('Notification creation skipped:', notifError.message);
     }
 
-    let currentStatus = 'PENDING';
-    const maxRetries = 3;
+   
+let currentStatus = 'PENDING';
 
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      try {
-        const transporter = nodemailer.createTransport({
-          service: 'gmail',
-          host: 'smtp.gmail.com',
-          port: 587,
-          secure: false,
-          auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
-          },
-        });
-
-        const userLang = req.body.language || 'en';
-
-        let subjectText = '';
-        let messageText = '';
-
-        if (userLang === 'hi') {
-          subjectText = 'शेड्यूल अपडेट - TedBus';
-          messageText = `नमस्ते! आपकी जर्नी का शेड्यूल बदल गया है। नई सिटी: ${updatedBooking.departureDetails?.city || 'destination'}`;
-        } else {
-          subjectText = 'Schedule Update - TedBus';
-          messageText = `Hello! There is a change in the schedule of your upcoming bus journey to ${updatedBooking.departureDetails?.city || 'destination'}.`;
-        }
-
-        const mailOptions = {
-          from: 'TedBus <shivaneem98@gmail.com>',
-          to: updatedBooking.email,
-          subject: subjectText,
-          text: messageText,
-        };
-
-        await transporter.sendMail(mailOptions);
-        console.log(`Email sent successfully on attempt ${attempt}`);
-        currentStatus = 'SENT';
-        break;
-      } catch (emailError) {
-        console.log(`Attempt ${attempt} failed:`, emailError.message);
-        if (attempt === maxRetries) {
-          currentStatus = 'FAILED';
-        }
+try {
+  await axios.post(
+    'https://api.brevo.com/v3/smtp/email',
+    {
+      sender: { 
+        name: "TedBus", 
+        email: process.env.EMAIL_USER 
+      },
+      to: [
+        { email: updatedBooking.email }
+      ],
+      subject: 'शेड्यूल अपडेट - TedBus'
+,          
+      htmlContent: `<p>नमस्ते! आपकी जर्नी का शेड्यूल बदल गया है। नई सिटी: ${updatedBooking.departureDetails?.city || 'destination'}</p>` 
+    },
+    {
+      headers: {
+        'api-key': process.env.BREVO_API_KEY,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     }
+  );
+
+  console.log('Update email sent successfully via Brevo API');
+  currentStatus = 'SENT';
+} catch (error) {
+  console.error('Email API error:', error.response?.data || error.message);
+  currentStatus = 'FAILED';
+}
+
+        
+    
 
     await Booking.findByIdAndUpdate(bookingId, { notificationStatus: currentStatus });
 
